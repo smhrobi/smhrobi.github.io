@@ -1,0 +1,1029 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Syed Mehedi Hasan — theoretical particle physicist, composer, and writer. Precision QFT, original music, and writing on philosophy.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M15 5C11 13 11 19 15 27' fill='none' stroke='%232c5a8c' stroke-width='2.6'/%3E%3Ccircle cx='20.5' cy='16' r='2.4' fill='%23996f2f'/%3E%3C/svg%3E">
+<title>Syed Mehedi Hasan</title>
+<style>
+  /* ============================================================
+     SYED MEHEDI HASAN — Physics · Music · Philosophy
+     Design system: "The Analytic Plane"
+     cool paper / blue-black ink / Prussian blue / brass
+     scholarly serif + monospace labels
+     ============================================================ */
+  :root {
+    --paper:#f1f3f4; --panel:#f8f9f9; --ink:#15202b; --ink-soft:#55606e;
+    --ink-faint:#8a929d; --rule:#d6dbde; --rule-soft:#e4e8ea;
+    --accent:#21456d; --accent-lift:#2c5a8c; --brass:#96702f;
+    --shadow:0 1px 2px rgba(20,30,45,.05), 0 10px 34px rgba(20,30,45,.06);
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"URW Palladio L","Book Antiqua",Georgia,"Times New Roman",serif;
+    --mono:ui-monospace,"SF Mono","SFMono-Regular",Menlo,Consolas,"Liberation Mono","Roboto Mono",monospace;
+    --s0:1.0625rem; --s1:1.24rem; --s2:1.5rem; --s3:1.92rem; --s4:2.55rem;
+    --hero:clamp(2rem,5.6vw,3.9rem);
+    --measure:63ch; --edge:clamp(1.25rem,5vw,4rem); --maxw:70rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper:#0d1117; --panel:#141a22; --ink:#e8ebef; --ink-soft:#9aa3af;
+      --ink-faint:#6b7480; --rule:#242c37; --rule-soft:#1b222b;
+      --accent:#83a6dc; --accent-lift:#a2bde8; --brass:#cda85c;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 14px 40px rgba(0,0,0,.34);
+    }
+  }
+  :root[data-theme="light"] {
+    --paper:#f1f3f4; --panel:#f8f9f9; --ink:#15202b; --ink-soft:#55606e;
+    --ink-faint:#8a929d; --rule:#d6dbde; --rule-soft:#e4e8ea;
+    --accent:#21456d; --accent-lift:#2c5a8c; --brass:#96702f;
+    --shadow:0 1px 2px rgba(20,30,45,.05), 0 10px 34px rgba(20,30,45,.06);
+  }
+  :root[data-theme="dark"] {
+    --paper:#0d1117; --panel:#141a22; --ink:#e8ebef; --ink-soft:#9aa3af;
+    --ink-faint:#6b7480; --rule:#242c37; --rule-soft:#1b222b;
+    --accent:#83a6dc; --accent-lift:#a2bde8; --brass:#cda85c;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 14px 40px rgba(0,0,0,.34);
+  }
+
+  * { box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior:smooth; } }
+  body {
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--serif); font-size:var(--s0); line-height:1.66;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    transition:background .4s ease, color .4s ease;
+  }
+  body::before {
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image:linear-gradient(var(--rule-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--rule-soft) 1px, transparent 1px);
+    background-size:46px 46px;
+    -webkit-mask-image:radial-gradient(120% 90% at 80% 4%, #000 0%, transparent 60%);
+            mask-image:radial-gradient(120% 90% at 80% 4%, #000 0%, transparent 60%);
+    opacity:.6;
+  }
+  .wrap { position:relative; z-index:1; max-width:var(--maxw); margin:0 auto; padding:0 var(--edge); }
+
+  h1,h2,h3 { font-weight:600; line-height:1.13; text-wrap:balance; margin:0; }
+  p { margin:0 0 1.05em; max-width:var(--measure); }
+  a { color:var(--accent); text-decoration:none; }
+  .eyebrow { font-family:var(--mono); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-faint); display:inline-flex; align-items:center; gap:.7em; }
+  .eyebrow::before { content:""; width:1.7rem; height:1px; background:var(--brass); display:inline-block; }
+  .prose a, .lnk { color:var(--accent); border-bottom:1px solid color-mix(in srgb, var(--accent) 35%, transparent); transition:color .2s, border-color .2s; }
+  .prose a:hover, .lnk:hover { color:var(--brass); border-color:var(--brass); }
+  a:focus-visible, button:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
+
+  /* top bar */
+  .topbar { position:sticky; top:0; z-index:20; backdrop-filter:saturate(1.1) blur(8px); background:color-mix(in srgb, var(--paper) 82%, transparent); border-bottom:1px solid var(--rule); }
+  .topbar__in { display:flex; align-items:center; justify-content:space-between; gap:1rem; height:54px; }
+  .brandmark { font-family:var(--mono); font-size:.82rem; color:var(--ink); white-space:nowrap; }
+  .brandmark b { color:var(--accent); font-weight:600; }
+  .nav { display:flex; gap:1.35rem; align-items:center; }
+  .nav-hide { display:none; }
+  .nav a { font-family:var(--mono); font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); padding:.2rem 0; border-bottom:1.5px solid transparent; transition:color .18s, border-color .18s; }
+  .nav a:hover, .nav a.active { color:var(--ink); border-color:var(--brass); }
+  .ttoggle { font-family:var(--mono); font-size:.95rem; line-height:1; background:transparent; color:var(--ink-soft); border:1px solid var(--rule); border-radius:999px; width:34px; height:34px; cursor:pointer; display:inline-grid; place-items:center; transition:color .2s, border-color .2s, transform .2s; }
+  .ttoggle:hover { color:var(--ink); border-color:var(--accent); transform:rotate(-12deg); }
+  @media (min-width:760px){ .nav-hide{ display:flex; } }
+
+  /* hero */
+  .hero { padding:clamp(3rem,8vw,6.5rem) 0 clamp(2.5rem,5vw,4rem); }
+  .hero__grid { display:grid; gap:clamp(2rem,5vw,4rem); grid-template-columns:1fr; align-items:center; }
+  @media (min-width:900px){ .hero__grid{ grid-template-columns:1.15fr .85fr; } }
+  .hero h1 { font-size:var(--hero); letter-spacing:-.015em; margin:.5rem 0 0; white-space:nowrap; }
+  .hero .lede { font-size:clamp(1.15rem,2.3vw,1.42rem); line-height:1.5; max-width:36ch; margin:1.4rem 0 0; }
+  .hero .lede em { font-style:italic; color:var(--accent); }
+  .coords { list-style:none; margin:1.9rem 0 0; padding:0; display:grid; gap:.55rem; }
+  .coords li { font-family:var(--mono); font-size:.82rem; color:var(--ink-soft); display:flex; gap:.8rem; }
+  .coords li span:first-child { color:var(--ink-faint); min-width:5.4rem; }
+  .heroline { display:flex; flex-wrap:wrap; gap:.35rem 1.15rem; margin-top:1.5rem; }
+  .heroline a { font-family:var(--mono); font-size:.78rem; color:var(--accent); border-bottom:1px solid color-mix(in srgb, var(--accent) 30%, transparent); }
+  .heroline a:hover { color:var(--brass); border-color:var(--brass); }
+  .social { display:flex; gap:1.05rem; align-items:center; margin-top:1.1rem; }
+  .social a { display:inline-flex; color:var(--ink-soft); transition:color .18s ease, transform .18s ease; }
+  .social a:hover { color:var(--accent); transform:translateY(-1px); }
+  .social svg { width:21px; height:21px; display:block; }
+  .hero__aside { display:grid; gap:1.1rem; justify-items:center; }
+  .plane { position:relative; width:100%; max-width:340px; aspect-ratio:21/18; background:var(--panel); border:1px solid var(--rule); border-radius:3px; box-shadow:var(--shadow); overflow:hidden; }
+  .plane svg { width:100%; height:100%; display:block; }
+  .plane .axis { stroke:var(--ink-faint); stroke-width:1; opacity:.5; }
+  .plane .poles circle { fill:none; stroke:var(--ink-soft); stroke-width:1.4; }
+  .plane .poles-left circle { stroke:var(--brass); }
+  .plane .mbpath { stroke:var(--accent); stroke-width:2; fill:none; stroke-linecap:round; }
+  .plane .arrow { fill:var(--accent); }
+  .plane .lbl { fill:var(--ink-faint); font-family:var(--mono); font-size:11px; }
+  .plane .cap { position:absolute; left:10px; bottom:8px; font-family:var(--mono); font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); }
+  @media (prefers-reduced-motion: no-preference){
+    .mbpath { stroke-dasharray:300; stroke-dashoffset:300; }
+    body.is-ready .mbpath { animation:draw 1.9s .5s cubic-bezier(.6,.05,.2,1) forwards; }
+    .plane .poles circle { opacity:0; }
+    body.is-ready .plane .poles circle { animation:pop .5s calc(1.3s + var(--d,0s)) forwards; }
+    @keyframes draw { to { stroke-dashoffset:0; } }
+    @keyframes pop { to { opacity:1; } }
+  }
+  .portrait { width:100%; max-width:340px; aspect-ratio:5/6; border:1px solid var(--rule); border-radius:3px; background:radial-gradient(120% 90% at 50% 0%, color-mix(in srgb, var(--accent) 9%, var(--panel)), var(--panel)); display:grid; place-items:center; text-align:center; box-shadow:var(--shadow); overflow:hidden; }
+  .portrait img { width:100%; height:100%; object-fit:cover; }
+  .portrait .mgram { font-family:var(--serif); font-size:2.4rem; letter-spacing:.06em; color:var(--accent); margin-bottom:.3rem; }
+  .portrait .mono { color:var(--ink-faint); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; }
+
+  /* sections */
+  section { padding:clamp(3rem,7vw,5.5rem) 0; border-top:1px solid var(--rule); }
+  .sec-head { margin-bottom:2.2rem; }
+  .sec-head h2 { font-size:var(--s4); letter-spacing:-.01em; margin-top:.7rem; }
+  .sec-head .sub { color:var(--ink-soft); max-width:56ch; margin-top:.8rem; }
+  .subhead { font-family:var(--mono); font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin:2.6rem 0 1.1rem; padding-bottom:.5rem; border-bottom:1px solid var(--rule); }
+  .prose { max-width:var(--measure); }
+  .lead { font-size:var(--s1); }
+
+  /* Feynman diagram cards */
+  .diagrams { display:grid; gap:1px; margin-top:1.4rem; background:var(--rule); border:1px solid var(--rule); border-radius:4px; overflow:hidden; }
+  @media (min-width:640px){ .diagrams{ grid-template-columns:repeat(2,1fr); } }
+  @media (min-width:900px){ .diagrams.three{ grid-template-columns:repeat(3,1fr); } }
+  .dcard { background:var(--panel); padding:1.4rem 1.4rem 1.5rem; }
+  .fdiag { width:100%; height:auto; display:block; margin-bottom:.9rem; }
+  .fdiag .fl,.fdiag .pl { fill:none; stroke:var(--ink); stroke-width:1.7; stroke-linejoin:round; stroke-linecap:round; }
+  .fdiag .pl { stroke-width:2.4; }
+  .fdiag .ph { fill:none; stroke:var(--accent); stroke-width:1.7; stroke-linecap:round; }
+  .fdiag .gl { fill:none; stroke:var(--brass); stroke-width:1.7; }
+  .fdiag .loop { fill:color-mix(in srgb, var(--accent) 8%, var(--panel)); stroke:var(--accent); stroke-width:1.5; }
+  .fdiag .blob { fill:color-mix(in srgb, var(--brass) 15%, var(--panel)); stroke:var(--ink-soft); stroke-width:1.2; }
+  .fdiag .vtx { fill:var(--ink); }
+  .fdiag .dl { fill:var(--ink-soft); font-family:var(--mono); font-size:12.5px; font-style:italic; }
+  #fh path { fill:var(--ink); }
+  .dcard .k { font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); }
+  .dcard h3 { font-size:var(--s1); margin:.4rem 0 .45rem; }
+  .dcard p { font-size:.94rem; color:var(--ink-soft); margin:0; max-width:none; }
+
+  /* results: real figures + placeholders */
+  .results { display:grid; gap:1.5rem; margin-top:1.3rem; }
+  .figure { max-width:700px; margin:0; border:1px solid var(--rule); border-radius:4px; background:#ffffff; padding:1rem; box-shadow:var(--shadow); }
+  .figure img { width:100%; height:auto; display:block; border-radius:2px; }
+  .figure figcaption { font-family:var(--mono); font-size:.73rem; line-height:1.55; color:var(--ink-soft); margin-top:.8rem; }
+  .figure figcaption b { color:var(--ink); font-weight:600; }
+  .plot { max-width:340px; border:1px dashed var(--rule); border-radius:4px; background:var(--panel); padding:1.1rem; min-height:150px; display:flex; flex-direction:column; }
+  .plot .frame { flex:1; border-radius:3px; background:repeating-linear-gradient(135deg, transparent 0 13px, color-mix(in srgb, var(--accent) 5%, transparent) 13px 26px); border:1px solid var(--rule-soft); display:grid; place-items:center; margin-bottom:.8rem; min-height:90px; }
+  .plot .frame span { font-family:var(--mono); font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); text-align:center; padding:.5rem; }
+  .plot b { font-size:.98rem; font-weight:600; }
+  .plot em { font-family:var(--mono); font-style:normal; font-size:.72rem; color:var(--ink-soft); display:block; margin-top:.2rem; }
+
+  /* publications */
+  .pubs { display:grid; gap:0; margin-top:1rem; }
+  .pub { display:grid; grid-template-columns:4.4rem 1fr; gap:1.1rem; padding:1.25rem 0; border-top:1px solid var(--rule-soft); }
+  .pub:first-child { border-top:0; }
+  .pub .yr { font-family:var(--mono); font-size:.9rem; color:var(--brass); font-feature-settings:"tnum" 1; padding-top:.12rem; }
+  .pub h3 { font-size:var(--s1); font-weight:600; line-height:1.28; }
+  .pub .meta { font-family:var(--mono); font-size:.76rem; color:var(--ink-soft); margin-top:.5rem; display:flex; flex-wrap:wrap; gap:.3rem .9rem; align-items:baseline; }
+  .pub .venue { color:var(--ink); }
+  .pub .with { color:var(--ink-faint); }
+  .morelink { margin-top:1.5rem; }
+
+  /* music — composition cards */
+  .tracks { display:grid; gap:12px; margin-top:1.3rem; grid-template-columns:1fr; }
+  @media (min-width:720px){ .tracks{ grid-template-columns:repeat(2,1fr); } }
+  .track { background:var(--panel); border:1px solid var(--rule); border-radius:4px; padding:1.3rem 1.4rem; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:.7rem; }
+  .track .top { display:flex; align-items:center; gap:.9rem; }
+  .track .disc { width:38px; height:38px; border-radius:999px; border:1px solid var(--accent); color:var(--accent); display:grid; place-items:center; flex:none; }
+  .track .disc svg { width:15px; height:15px; }
+  .track .cover { width:46px; height:46px; border-radius:4px; object-fit:cover; flex:none; border:1px solid var(--rule); }
+  .track h3 { font-size:var(--s1); line-height:1.2; }
+  .track .tno { font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); }
+  .track p { font-size:.92rem; color:var(--ink-soft); margin:0; max-width:none; }
+  .track audio { width:100%; margin-top:.2rem; }
+  .track .slot { font-family:var(--mono); font-size:.72rem; color:var(--ink-faint); border-top:1px dashed var(--rule); padding-top:.7rem; }
+  .track .slot b { color:var(--accent); font-weight:600; }
+
+  /* philosophy — epigraph + essays */
+  .epigraph { max-width:32ch; margin:0 0 2rem; padding-left:1.4rem; border-left:2px solid var(--brass); }
+  .epigraph p { font-family:var(--serif); font-style:italic; font-size:clamp(1.5rem,3.5vw,2.25rem); line-height:1.28; color:var(--ink); text-wrap:balance; margin:0; max-width:none; }
+  .epigraph cite { display:block; font-family:var(--mono); font-style:normal; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); margin-top:1.1rem; }
+  .essays { display:grid; gap:0; margin-top:.6rem; }
+  .essay { display:grid; grid-template-columns:1fr; gap:.3rem; padding:1.3rem 0; border-top:1px solid var(--rule-soft); }
+  .essay:first-child { border-top:0; }
+  .essay .date { font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); }
+  .essay h3 { font-size:var(--s2); }
+  .essay p { color:var(--ink-soft); margin:.3rem 0 0; }
+  .essay .slot { font-family:var(--mono); font-size:.72rem; color:var(--ink-faint); margin-top:.4rem; }
+  .essay .slot b { color:var(--accent); font-weight:600; }
+
+  /* footer */
+  .foot { border-top:1px solid var(--rule); }
+  .foot__grid { display:grid; gap:2rem; grid-template-columns:1fr; padding:clamp(3rem,6vw,4.5rem) 0 3rem; }
+  @media (min-width:760px){ .foot__grid{ grid-template-columns:1.3fr 1fr; } }
+  .foot h2 { font-size:var(--s3); }
+  .links { list-style:none; margin:1.2rem 0 0; padding:0; display:grid; gap:.7rem; }
+  .links a { font-family:var(--mono); font-size:.84rem; color:var(--accent); display:inline-flex; gap:.8rem; border-bottom:1px solid color-mix(in srgb, var(--accent) 26%, transparent); width:fit-content; }
+  .links a:hover { color:var(--brass); border-color:var(--brass); }
+  .links .lab { color:var(--ink-faint); min-width:4.5rem; }
+  .colophon { font-family:var(--mono); font-size:.7rem; line-height:1.7; color:var(--ink-faint); max-width:36ch; }
+  .note { margin-top:2.4rem; padding:.9rem 1.1rem; border:1px dashed var(--rule); border-left:2px solid var(--brass); border-radius:3px; font-family:var(--mono); font-size:.74rem; line-height:1.6; color:var(--ink-soft); background:var(--panel); max-width:var(--measure); }
+
+  @media (prefers-reduced-motion: no-preference){
+    .reveal { opacity:0; transform:translateY(14px); }
+    body.is-ready .reveal { animation:rise .7s var(--rd,0s) cubic-bezier(.2,.7,.2,1) forwards; }
+    @keyframes rise { to { opacity:1; transform:none; } }
+  }
+
+  /* --- philosophy: bilingual essays --- */
+  :root { --bengali:"Noto Serif Bengali","Noto Sans Bengali","Kohinoor Bangla","Nirmala UI","Shonar Bangla","Bangla MN","Vrinda","SolaimanLipi","Kalpurush",sans-serif; }
+  .pintro { max-width:var(--measure); color:var(--ink); }
+  .writings { display:grid; gap:0; margin-top:2rem; border-top:1px solid var(--rule); }
+  .wr { border-bottom:1px solid var(--rule); }
+  .wr > summary { list-style:none; cursor:pointer; display:flex; flex-wrap:wrap; align-items:baseline; gap:.35rem 1rem; padding:1.15rem 0; }
+  .wr > summary::-webkit-details-marker { display:none; }
+  .wr > summary .s-en { font-family:var(--serif); font-size:var(--s2); font-weight:600; color:var(--ink); }
+  .wr > summary .s-bn { font-family:var(--bengali); font-size:1.02rem; color:var(--ink-soft); }
+  .wr > summary .s-date { margin-left:auto; font-family:var(--mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); align-self:center; }
+  .wr > summary::after { content:"+"; font-family:var(--mono); color:var(--ink-faint); font-size:1.15rem; line-height:1; align-self:center; padding-left:.3rem; }
+  .wr[open] > summary::after { content:"\2013"; color:var(--accent); }
+  .wr[open] > summary .s-en, .wr:hover > summary .s-en { color:var(--accent); }
+  .ebody { padding:.1rem 0 2rem; }
+  .langbar { display:inline-flex; gap:2px; border:1px solid var(--rule); border-radius:999px; padding:2px; margin-bottom:1.4rem; background:var(--panel); }
+  .lang-btn { font-family:var(--mono); font-size:.72rem; letter-spacing:.04em; padding:.34rem .95rem; border:0; background:transparent; color:var(--ink-soft); cursor:pointer; border-radius:999px; transition:background .15s,color .15s; }
+  .lang-btn.is-on { background:var(--accent); color:var(--paper); }
+  .pane { max-width:var(--measure); }
+  .pane[hidden] { display:none; }
+  .pane-en p { font-family:var(--serif); margin:0 0 1.05em; }
+  .pane .bul { padding-left:1.2em; text-indent:-1.2em; }
+  .pane-bn { font-family:var(--bengali); }
+  .pane-bn p { line-height:2; font-size:1.05rem; margin:0 0 1.15em; }
+</style>
+</head>
+<body>
+
+<!-- shared SVG defs: fermion-line arrowhead -->
+<svg aria-hidden="true" width="0" height="0" style="position:absolute" focusable="false">
+  <defs>
+    <marker id="fh" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 1 L9 5 L0 9 z"/>
+    </marker>
+  </defs>
+</svg>
+
+<header class="topbar">
+  <div class="wrap topbar__in">
+    <a class="brandmark" href="#top">Syed&nbsp;Mehedi&nbsp;<b>Hasan</b></a>
+    <nav class="nav">
+      <div class="nav nav-hide">
+        <a href="#physics">Physics</a>
+        <a href="#music">Music</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="ttoggle" id="themeBtn" type="button" aria-label="Switch colour theme" title="Switch theme">◐</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" style="border-top:0">
+    <div class="hero__grid">
+      <div>
+        <span class="eyebrow reveal">Physics · Music · Philosophy</span>
+        <h1 class="reveal" style="--rd:.06s">Syed&nbsp;Mehedi Hasan</h1>
+        <p class="lede reveal" style="--rd:.14s">
+          I'm a theoretical particle physicist — I work out the <em>precision frontier</em>
+          of quantum field theory. Away from the calculations, I <em>compose music</em> and
+          <em>write</em> about the questions that sit underneath the physics.
+        </p>
+        <ul class="coords reveal" style="--rd:.22s">
+          <li><span>Position</span><span>Postdoctoral Research Associate</span></li>
+          <li><span>Institute</span><span>Institut für Theoretische Physik, Universität Regensburg</span></li>
+          <li><span>Fields</span><span>Precision QCD · Mellin–Barnes · Feynman integrals</span></li>
+        </ul>
+        <div class="heroline reveal" style="--rd:.3s">
+          <a href="mailto:Syed-Mehedi.Hasan@ur.de">email</a>
+          <a href="https://inspirehep.net/authors/1804730">InspireHEP</a>
+          <a href="https://orcid.org/0000-0003-3257-8176">ORCID</a>
+        </div>
+        <div class="social reveal" style="--rd:.36s">
+          <a href="https://www.facebook.com/syedmehedi.hasan.14/" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
+          <a href="https://www.youtube.com/@syedmehedihasan2057" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 3.9 12 3.9 12 3.9s-7.5 0-9.4.5A3 3 0 0 0 .5 6.5C0 8.4 0 12 0 12s0 3.6.5 5.5a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.5.5-5.5s0-3.6-.5-5.5zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
+          <a href="https://www.linkedin.com/in/syed-mehedi-hasan-robi/" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg></a>
+        </div>
+      </div>
+      <div class="hero__aside reveal" style="--rd:.2s">
+        <figure class="plane" style="margin:0">
+          <svg viewBox="0 0 340 292" fill="none" role="img" aria-label="A Mellin–Barnes contour in the complex plane, threading between poles on the real axis.">
+            <line class="axis" x1="22" y1="176" x2="322" y2="176"/>
+            <line class="axis" x1="120" y1="24" x2="120" y2="272"/>
+            <g class="poles poles-left">
+              <circle cx="64" cy="176" r="4.5" style="--d:0s"/>
+              <circle cx="94" cy="176" r="4.5" style="--d:.08s"/>
+            </g>
+            <g class="poles">
+              <circle cx="192" cy="176" r="4.5" style="--d:.16s"/>
+              <circle cx="230" cy="176" r="4.5" style="--d:.24s"/>
+              <circle cx="268" cy="176" r="4.5" style="--d:.32s"/>
+              <circle cx="306" cy="176" r="4.5" style="--d:.4s"/>
+            </g>
+            <path class="mbpath" d="M150 26 C 136 96, 136 200, 150 268"/>
+            <path class="arrow" d="M150 26 l -6 13 l 12 0 z"/>
+            <text class="lbl" x="298" y="166">Re&nbsp;s</text>
+            <text class="lbl" x="126" y="38">Im&nbsp;s</text>
+          </svg>
+          <figcaption class="cap">Mellin–Barnes contour</figcaption>
+        </figure>
+        <div class="portrait">
+          <img src="profile_pic.jpg" alt="Syed Mehedi Hasan">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 1 · PHYSICS ============ -->
+  <section id="physics">
+    <div class="sec-head">
+      <span class="eyebrow">One · Physics</span>
+      <h2>Precision calculations for colliders.</h2>
+      <p class="sub">My work runs along three fronts — the analytic <b style="color:var(--ink);font-weight:600">theory</b> of multi-loop and phase-space integrals, the <b style="color:var(--ink);font-weight:600">mathematics</b> that makes them tractable, and the collider <b style="color:var(--ink);font-weight:600">phenomenology</b> they feed.</p>
+    </div>
+
+    <div class="subhead">Theory</div>
+    <div class="diagrams three">
+      <div class="dcard">
+        <svg class="fdiag" viewBox="0 0 250 150" role="img" aria-label="A three-particle phase-space cut of a self-energy diagram.">
+          <line class="fl" x1="16" y1="75" x2="74" y2="75"/>
+          <line class="fl" x1="176" y1="75" x2="234" y2="75"/>
+          <path class="fl" d="M74 75 C 112 38, 138 38, 176 75"/>
+          <line class="fl" x1="74" y1="75" x2="176" y2="75"/>
+          <path class="fl" d="M74 75 C 112 112, 138 112, 176 75"/>
+          <line x1="125" y1="26" x2="125" y2="124" style="stroke:var(--brass);stroke-width:1.6;stroke-dasharray:5 4"/>
+          <circle class="vtx" cx="74" cy="75" r="3"/><circle class="vtx" cx="176" cy="75" r="3"/>
+          <text class="dl" x="6" y="71">γ*</text>
+          <text class="dl" x="236" y="71" text-anchor="end">γ*</text>
+          <text class="dl" x="110" y="20">cut</text>
+        </svg>
+        <div class="k">RAD · Mellin–Barnes</div>
+        <h3>Phase-space integrals</h3>
+        <p>The Radial Angular Decomposition — real-emission phase-space integrals evaluated through multifold Mellin–Barnes representations and expressed in Goncharov polylogarithms.</p>
+      </div>
+      <div class="dcard">
+        <svg class="fdiag" viewBox="0 0 250 150" role="img" aria-label="Two-loop vertex form factor with a vacuum-polarization insertion on the exchanged photon.">
+          <polyline class="fl" points="22,126 76,90 128,55" marker-mid="url(#fh)"/>
+          <polyline class="fl" points="128,55 180,90 232,126" marker-mid="url(#fh)"/>
+          <path class="ph" d="M128 55 q -5 -3 0 -6 t 0 -6 t 0 -6 t 0 -6 t 0 -6"/>
+          <path class="ph" d="M73 92 q 3 -5 6 0 t 6 0 t 6 0 t 6 0 t 6 0 t 6 0"/>
+          <ellipse class="loop" cx="128" cy="92" rx="18" ry="11"/>
+          <path class="ph" d="M146 92 q 3 -5 6 0 t 6 0 t 6 0 t 6 0 t 6 0 t 6 0"/>
+          <circle class="vtx" cx="128" cy="55" r="3"/>
+          <circle class="vtx" cx="73" cy="92" r="2.6"/><circle class="vtx" cx="182" cy="92" r="2.6"/>
+          <text class="dl" x="132" y="30">γ*/Z</text>
+          <text class="dl" x="6" y="132">f</text><text class="dl" x="236" y="132">f</text>
+        </svg>
+        <div class="k">Massive form factors</div>
+        <h3>Two-loop vacuum polarization</h3>
+        <p>Second-order corrections to the massive form factors from two-loop vertex diagrams with a vacuum-polarization insertion — closing a problem open for about two decades.</p>
+      </div>
+      <div class="dcard">
+        <svg class="fdiag" viewBox="0 0 250 150" role="img" aria-label="Semi-inclusive deep-inelastic scattering: a lepton scatters off a proton and a hadron is detected.">
+          <polyline class="fl" points="16,24 67,24 118,24" marker-mid="url(#fh)"/>
+          <polyline class="fl" points="118,24 172,24 234,24" marker-mid="url(#fh)"/>
+          <path class="ph" d="M118 24 q -5 3 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6"/>
+          <ellipse class="blob" cx="118" cy="104" rx="46" ry="14"/>
+          <polyline class="pl" points="16,104 44,104 72,104" marker-mid="url(#fh)"/>
+          <line class="fl" x1="150" y1="113" x2="214" y2="141"/>
+          <line class="fl" x1="118" y1="118" x2="150" y2="141" style="opacity:.45"/>
+          <circle class="vtx" cx="118" cy="24" r="3"/>
+          <text class="dl" x="4" y="20">ℓ</text><text class="dl" x="236" y="20" text-anchor="end">ℓ′</text>
+          <text class="dl" x="124" y="70">γ*</text>
+          <text class="dl" x="4" y="110">p</text>
+          <text class="dl" x="216" y="140">h</text>
+        </svg>
+        <div class="k">EIC</div>
+        <h3>SIDIS</h3>
+        <p>NNLO phase-space integrals for semi-inclusive deep-inelastic scattering — precision theory for the coming Electron–Ion Collider.</p>
+      </div>
+    </div>
+
+    <div class="subhead">Mathematics</div>
+    <div class="diagrams">
+      <div class="dcard">
+        <svg class="fdiag" viewBox="0 0 250 150" role="img" aria-label="An angular integral over the loop-momentum direction with four denominators.">
+          <circle cx="122" cy="78" r="47" fill="none" style="stroke:var(--ink-soft);stroke-width:1.2;stroke-dasharray:3 3;opacity:.7"/>
+          <g style="stroke:var(--accent);stroke-width:1.7">
+            <line x1="122" y1="78" x2="168" y2="58"/>
+            <line x1="122" y1="78" x2="150" y2="120"/>
+            <line x1="122" y1="78" x2="80" y2="112"/>
+            <line x1="122" y1="78" x2="86" y2="46"/>
+          </g>
+          <circle class="vtx" cx="122" cy="78" r="2.8"/>
+          <text class="dl" x="172" y="56">v₁</text>
+          <text class="dl" x="150" y="134">v₂</text>
+          <text class="dl" x="56" y="120">v₃</text>
+          <text class="dl" x="62" y="44">v₄</text>
+          <text class="dl" x="150" y="20">∫ dΩ</text>
+        </svg>
+        <div class="k">Mellin–Barnes</div>
+        <h3>Four-denominator angular integrals</h3>
+        <p>Angular phase-space integrals with four denominators through Mellin–Barnes — six- and seven-fold MB integrals solved analytically, to my knowledge a first in the literature.</p>
+      </div>
+      <div class="dcard">
+        <svg class="fdiag" viewBox="0 0 250 150" role="img" aria-label="Drell–Yan: quark–antiquark annihilation to a lepton pair with a gluon correction.">
+          <polyline class="fl" points="18,30 61,52 105,75" marker-mid="url(#fh)"/>
+          <polyline class="fl" points="105,75 61,98 18,120" marker-mid="url(#fh)"/>
+          <path class="ph" d="M105 75 q 3 -5 6 0 t 6 0 t 6 0 t 6 0 t 6 0 t 6 0 t 6 0 t 6 0"/>
+          <polyline class="fl" points="232,30 196,52 153,75" marker-mid="url(#fh)"/>
+          <polyline class="fl" points="153,75 196,98 232,120" marker-mid="url(#fh)"/>
+          <path class="gl" d="M55 49 a 4 4 0 1 1 0 7.5 a 4 4 0 1 1 0 7.5 a 4 4 0 1 1 0 7.5 a 4 4 0 1 1 0 7.5 a 4 4 0 1 1 0 7.5 a 4 4 0 1 1 0 7.5 a 4 4 0 1 1 0 7.5"/>
+          <circle class="vtx" cx="105" cy="75" r="3"/><circle class="vtx" cx="153" cy="75" r="3"/>
+          <text class="dl" x="4" y="28">q</text><text class="dl" x="2" y="128">q̄</text>
+          <text class="dl" x="236" y="30">ℓ⁺</text><text class="dl" x="236" y="124">ℓ⁻</text>
+          <text class="dl" x="112" y="66">γ*/Z</text><text class="dl" x="34" y="74">g</text>
+        </svg>
+        <div class="k">Drell–Yan · LHC</div>
+        <h3>Master integrals for Drell–Yan</h3>
+        <p>All master integrals for the mixed QCD–EW corrections to Drell–Yan, with exact final-state lepton-mass dependence — the last missing piece for the neutral-current channel.</p>
+      </div>
+    </div>
+
+    <div class="subhead">Phenomenology</div>
+    <div class="diagrams">
+      <div class="dcard">
+        <svg class="fdiag" viewBox="0 0 250 150" role="img" aria-label="Two-photon exchange between an electron and a proton in elastic scattering.">
+          <polyline class="fl" points="18,32 71,32 125,32" marker-mid="url(#fh)"/>
+          <polyline class="fl" points="125,32 178,32 232,32" marker-mid="url(#fh)"/>
+          <ellipse class="blob" cx="125" cy="116" rx="58" ry="15"/>
+          <polyline class="pl" points="18,116 43,116 68,116" marker-mid="url(#fh)"/>
+          <polyline class="pl" points="182,116 207,116 232,116" marker-mid="url(#fh)"/>
+          <path class="ph" d="M92 32 q -5 3 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6"/>
+          <path class="ph" d="M158 32 q -5 3 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6 t 0 6"/>
+          <circle class="vtx" cx="92" cy="32" r="3"/><circle class="vtx" cx="158" cy="32" r="3"/>
+          <text class="dl" x="6" y="28">e</text><text class="dl" x="236" y="28">e</text>
+          <text class="dl" x="6" y="124">p</text><text class="dl" x="236" y="124">p</text>
+          <text class="dl" x="72" y="76">γ</text><text class="dl" x="166" y="76">γ</text>
+        </svg>
+        <div class="k">Elastic ep · MUSE</div>
+        <h3>Elastic ep scattering</h3>
+        <p>NLO QED radiative corrections to elastic electron– and muon–proton scattering, with focus on the two-photon-exchange contribution.</p>
+      </div>
+      <div class="dcard">
+        <svg class="fdiag" viewBox="0 0 250 150" role="img" aria-label="Muon–electron scattering via photon exchange with a vacuum-polarization bubble.">
+          <polyline class="fl" points="18,32 71,32 125,32" marker-mid="url(#fh)"/>
+          <polyline class="fl" points="125,32 178,32 232,32" marker-mid="url(#fh)"/>
+          <polyline class="fl" points="18,116 71,116 125,116" marker-mid="url(#fh)"/>
+          <polyline class="fl" points="125,116 178,116 232,116" marker-mid="url(#fh)"/>
+          <path class="ph" d="M125 32 q -5 3 0 6 t 0 6 t 0 6 t 0 6 t 0 6"/>
+          <circle class="loop" cx="125" cy="74" r="12"/>
+          <path class="ph" d="M125 86 q -5 3 0 6 t 0 6 t 0 6 t 0 6 t 0 6"/>
+          <circle class="vtx" cx="125" cy="32" r="3"/><circle class="vtx" cx="125" cy="116" r="3"/>
+          <text class="dl" x="6" y="28">μ</text><text class="dl" x="236" y="28">μ</text>
+          <text class="dl" x="8" y="124">e</text><text class="dl" x="236" y="124">e</text>
+          <text class="dl" x="133" y="52">γ</text>
+        </svg>
+        <div class="k">MUonE · CERN</div>
+        <h3>Muon–electron scattering</h3>
+        <p>NNLO photonic and leptonic corrections, and the two-loop master integrals, for the MUonE experiment at CERN.</p>
+      </div>
+    </div>
+
+    <div class="subhead">Selected results</div>
+    <div class="results">
+      <figure class="figure">
+        <img src="physics/plots/muone.png" alt="MUonE pair-production acceptance study, theta_mu vs theta_e">
+        <figcaption><b>MUonE.</b> Pair-production background μ⁻e⁻→μ⁻e⁻e⁺e⁻ against the elastic curve (θ<sub>μ</sub> vs θ<sub>e</sub>) under successive acceptance cuts.&nbsp; <span style="color:var(--ink-faint)">JHEP 11 (2021) 098</span></figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="physics/plots/ep.png" alt="Elastic ep two-photon-exchange ratio R2gamma vs epsilon">
+        <figcaption><b>Elastic ep.</b> Two-photon-exchange ratio R<sub>2γ</sub> vs ε — CLAS (left) and OLYMPUS (right), our dipole/monopole form-factor results against data.&nbsp; <span style="color:var(--ink-faint)">arXiv:2605.31123</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="subhead">Selected papers</div>
+    <div class="pubs">
+      <article class="pub"><div class="yr">2026</div><div>
+        <h3>Radiative corrections to elastic lepton–proton scattering, with focus on two-photon-exchange diagrams</h3>
+        <div class="meta"><span class="venue">arXiv:2605.31123</span><span class="with">with D. Crowe, D. Wackeroth</span><a class="lnk" href="https://arxiv.org/abs/2605.31123">arXiv ↗</a></div>
+      </div></article>
+      <article class="pub"><div class="yr">2025</div><div>
+        <h3>Angular phase-space integrals with four denominators through Mellin–Barnes</h3>
+        <div class="meta"><span class="venue">JHEP 11 (2025) 152</span><span class="with">with T. Ahmed, A. Rapakoulias</span><a class="lnk" href="https://arxiv.org/abs/2508.15952">arXiv ↗</a></div>
+      </div></article>
+      <article class="pub"><div class="yr">2025</div><div>
+        <h3>Phase-space integrals through the Mellin–Barnes representation</h3>
+        <div class="meta"><span class="venue">Phys. Rev. D 112 (2025) L051903</span><span class="with">with T. Ahmed, A. Rapakoulias</span><a class="lnk" href="https://arxiv.org/abs/2410.18886">arXiv ↗</a></div>
+      </div></article>
+      <article class="pub"><div class="yr">2025</div><div>
+        <h3>NNLO phase-space integrals for semi-inclusive deep-inelastic scattering</h3>
+        <div class="meta"><span class="venue">Phys. Rev. D 112 (2025) 014020</span><span class="with">with T. Ahmed, S. Goyal, R. N. Lee, S.-O. Moch et al.</span><a class="lnk" href="https://arxiv.org/abs/2412.16509">arXiv ↗</a></div>
+      </div></article>
+      <article class="pub"><div class="yr">2024</div><div>
+        <h3>Two-loop vertices with vacuum polarization insertion</h3>
+        <div class="meta"><span class="venue">JHEP 01 (2024) 010</span><span class="with">with T. Ahmed, G. Crisanti, F. Gasparotto, P. Mastrolia</span><a class="lnk" href="https://arxiv.org/abs/2308.05028">arXiv ↗</a></div>
+      </div></article>
+      <article class="pub"><div class="yr">2020</div><div>
+        <h3>Master integrals for the mixed QCD–QED corrections to Drell–Yan production of a massive lepton pair</h3>
+        <div class="meta"><span class="venue">JHEP 11 (2020) 107</span><span class="with">with U. Schubert</span><a class="lnk" href="https://arxiv.org/abs/2004.14908">arXiv ↗</a></div>
+      </div></article>
+    </div>
+    <p class="morelink"><a class="lnk" href="https://inspirehep.net/authors/1804730">Full publication list on InspireHEP ↗</a></p>
+  </section>
+
+  <!-- ============ 2 · MUSIC COMPOSITION ============ -->
+  <section id="music">
+    <div class="sec-head">
+      <span class="eyebrow">Two · Music Composition</span>
+      <h2>Original compositions.</h2>
+      <p class="sub">Physics and music are the same habit in two keys — a few honest rules, and something that resonates. These are pieces of my own.</p>
+    </div>
+    <div class="tracks">
+      <div class="track">
+        <div class="top">
+          <img class="cover" src="music/compositions/my_beloved_pavia/thumbnail.jpg" alt="">
+          <h3>My Beloved Pavia</h3>
+        </div>
+        <p>I lived three of my most important years in Pavia, Italy. COVID-19 had just started and we were at the epicentre; it changed our perspective on life forever. It was a time for contemplation, and Pavia took a permanent place in my heart. I composed this guitar instrumental in 2019 — heard here in its orchestrated version.</p>
+        <audio controls preload="none" src="music/compositions/my_beloved_pavia/audio.mp3"></audio>
+      </div>
+      <div class="track">
+        <div class="top">
+          <img class="cover" src="music/compositions/Ponte_Coperto/thumbnail.jpg" alt="">
+          <h3>Ponte Coperto</h3>
+        </div>
+        <p>In Pavia I walked regularly across the famous covered bridge, the Ponte Coperto. I wrote this guitar composition in 2020 to capture how those walks felt — heard here in its orchestrated version.</p>
+        <audio controls preload="none" src="music/compositions/Ponte_Coperto/audio.mp3"></audio>
+      </div>
+      <div class="track">
+        <div class="top">
+          <img class="cover" src="music/compositions/serenity/thumbnail.jpg" alt="">
+          <h3>Serenity</h3>
+        </div>
+        <p>An instrumental I composed in 2015 — heard here in its orchestrated version.</p>
+        <audio controls preload="none" src="music/compositions/serenity/audio.mp3"></audio>
+      </div>
+      <div class="track">
+        <div class="top">
+          <img class="cover" src="music/compositions/waltz_for_fatema/thumbnail.jpg" alt="">
+          <h3>Waltz for Fatema</h3>
+        </div>
+        <p>An instrumental I composed in 2015 — heard here in its orchestrated version.</p>
+        <audio controls preload="none" src="music/compositions/waltz_for_fatema/audio.mp3"></audio>
+      </div>
+      <div class="track">
+        <div class="top">
+          <img class="cover" src="music/compositions/shongini/thumbnail.jpg" alt="">
+          <h3>Shongini</h3>
+        </div>
+        <p>[ your note — tell me and I'll set it here ]</p>
+        <audio controls preload="none" src="music/compositions/shongini/audio.mp3"></audio>
+      </div>
+      <div class="track">
+        <div class="top">
+          <span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+          <h3>Lost Moments</h3>
+        </div>
+        <p>[ your note — tell me and I'll set it here ]</p>
+        <audio controls preload="none" src="music/compositions/Lost_Moments/audio.mp3"></audio>
+      </div>
+      <div class="track">
+        <div class="top">
+          <img class="cover" src="music/compositions/a_child_in_your_conflict/thumbnail.jpg" alt="">
+          <h3>A Child in Your Conflict</h3>
+        </div>
+        <p>A guitar instrumental I composed some years ago — heard here in its orchestrated version.</p>
+        <audio controls preload="none" src="music/compositions/a_child_in_your_conflict/audio.mp3"></audio>
+      </div>
+    </div>
+    <div class="note">
+      Seven original compositions, wired from your <b>music/compositions/</b> folders (WAV → MP3, 192 kbps).
+      Send me a line or two for each and I'll replace the placeholder notes.
+    </div>
+  </section>
+
+  <!-- ============ 3 · PHILOSOPHY ============ -->
+  <section id="philosophy">
+    <div class="sec-head">
+      <span class="eyebrow">Three · Philosophy</span>
+      <h2>Philosophical Essays</h2>
+    </div>
+    <p class="pintro lead">My writings outside physics are usually written in Bengali. Here are some of them — rough translations are included in case someone is interested.</p>
+    <div class="writings">
+    <details class="wr" open>
+      <summary><span class="s-en">What Is Ideology?</span> <span class="s-bn" lang="bn">ইডিওলজি কি</span> <span class="s-date">Jan 2026</span></summary>
+      <div class="ebody">
+        <div class="langbar"><button type="button" class="lang-btn is-on" data-l="bn">বাংলা</button><button type="button" class="lang-btn" data-l="en">English translation</button></div>
+        <div class="pane pane-en" hidden>
+        <p>Writing about ideology is a little difficult, because the word has been used in so many ways that it cannot be pinned to a single sense. Still I will try, since civilization is contained in the making of a word's deep meaning.</p>
+        <p>Socially, we use "ideology" to mean clinging to some idea that proceeds along the path of "ought and ought-not," and keeping a faith that life, society, the state and so on should be run accordingly. It is a value-structure formed within people, which makes the rules for selecting "what is good, what is bad," and pushes those rules into the body of society.</p>
+        <p>But the word has a specific history of use in philosophy; without recounting it my proposal won't be clear. In Western philosophy the word "ideology" was first used by the French philosopher Destutt de Tracy, as the <em>scientific study of ideas</em>. By "scientific" he meant that the basis of ideas is formed by giving priority to the perceptions of our five senses. That is, to build a value-system we must base it on what we, as humans, rationally sense — not on what someone wrote in a book or said aloud. He argued that the source of all ideas can be traced back to sensory input, which helps separate a valid idea from a baseless one. He framed these proposals as a counter to France's mob culture, where accepting one's own experience instead of external authority was a kind of positive liberation.</p>
+        <p>But then comes Marx's turn. Marx shows that experience itself is not neutral. He presents ideology as <em>false consciousness</em>. This false consciousness places before us a distorted truth, which prevents us — and especially the working class — from observing the exploitation upon them. Marx believed society stands on two pillars: an economic base (how things are produced) and a superstructure (institutions and culture). Ideology, he says, is a chief key of this superstructure, applying values so that the ruling class keeps control over the economic base, and those values are "imposed" on the working class. Here ideology is no longer mere thought; it is a structure that aids power.</p>
+        <p>Then, through Louis Althusser, the idea thickens. Ideology, he says, is not just an abstract idea but material and structured, present within society's very fabric. Family, the legal system, educational institutions, media — various "soft" institutions push ideology into people. He names them the "Ideological State Apparatus." An example: if the police shout "Hey you!" and you immediately turn around, then you have not merely heard a call — in that moment you have also acknowledged the authority of the police. Just so, ideology borrows your "social position" and the "meanings of your identity" from society itself and feeds them to you. It seems that you are making your identity, but the raw material and the meanings are supplied to you by society.</p>
+        <p>Then Slavoj Žižek generalizes it further. Ideology survives, he says, not only through fear but through pleasure or satisfaction. People believe something because it gives them meaning, warmth, pride, the joy of a "who we are" identity. On this pleasure ideology sustains itself; and it is no empty theory but practice, institution, economic system.</p>
+        <p>Now someone might say: "Then ideology is everywhere. We live inside narrative, inside practice. Where is the place to step out of ideology?" Here my reading of ideology becomes a little different. Žižek partly takes ideology to a place where it merges with "narrative." I do not want to equate ideology with narrative. Because turning narrative into ideology has a danger: the ability to recognize ideology separately is destroyed. And if we cannot recognize ideology separately, the very first stage of resistance never begins. If we take ideology as merely "the natural condition of human existence," resistance becomes meaningless. How do you stand against something that is everywhere?</p>
+        <p>So I want to hold ideology in a way that lets it be identified — especially when it becomes a tool of suppression or exploitation. An example makes it clear. Suppose a German university suddenly issues a directive: professors will no longer have secretaries; they must do everything themselves — from reimbursements to all clerical work, on online platforms they must also learn to use. Most teachers will assume the institute must have decided this for overall improvement, and will accept it. But that this destroys the concentration of research, and that without secretaries they are no longer safe from clerical trouble — this goes unnoticed. To adapt by assuming the institute's good intentions is also the work of ideology.</p>
+        <p>In Žižek's view this flies away as normalcy; in Marx's or Althusser's view, with no clear class conflict here, the embedded suppression escapes the eye. So I think ideology must be understood more deeply, so that the "suppression or exploitation" it results in can be recognized and resisted.</p>
+        <p>Earlier, in my essay "What Kind of Thing Is 'Utility'," I said: "Whatever imprint an analysis or fermentation leaves behind — that is its utility. This fermentation may be of thought, of revolution, of eventfulness." There I showed that in many matters, life is absent from the utility. In philosophy, for instance, life is found in the synthesis, not in the utility. The utility of philosophy is ideology. So bringing philosophy down to its utility drains the life out of it. In other words, ideology is, from its very birth, a flawed idea.</p>
+        <p>If you drop philosophy and make ideology your starting point, you will end up moving toward an oppressive value-system. On this reckoning, the natural destination of ideology is "imposition." When philosophy is truly philosophy, it is a kind of fermentation, a kind of practice, in which one advances toward truth through uncertainty. Ideology is the "manifesto mode" that rises after that fermentation, wanting to fix once and for all what is good or bad. To build a society only from the manifesto born out of philosophy, one must make a fixed value-system and "feed" it to everyone. And in that very moment of "feeding," the sense is no longer pure; it becomes a tool of oppression.</p>
+        <p>So I think the participation of active philosophers is essential in building a society — not by the mob, not by the manifesto-ideologue, but through the participation of the wise, a comparatively healthy society or state can be built. How this might be done I have proposed in another essay, "Theory, Phenomenology and Execution."</p>
+        <p>Ideology is the utility of philosophy. But the heart of philosophy lies in the synthesis, not in the utility. A society may flourish through active philosophy, not through a manifesto / ideology.</p>
+        <p>— Syed Mehedi Hasan (January 11, 2026)</p>
+        </div>
+        <div class="pane pane-bn" lang="bn">
+        <p>ইডিওলজি নিয়ে লেখাটা একটু মুশকিল, কারণ এই শব্দটা এতোভাবে ব্যবহৃত হয়েছে যে এর কোনো একটা ভাব নিয়ে শব্দটাকে আটকে ফেলা যায় না। তারপরও আমি চেষ্টা করব, যেহেতু শব্দের গভীর ভাব সৃষ্টির মধ্যে সভ্যতা নিহিত থাকে।</p>
+        <p>১))</p>
+        <p>“ইডিওলজি” শব্দটাকে সামাজিকভাবে আমরা ব্যবহার করি "উচিত-অনুচিতের" পথ ধরে এগিয়ে চলা কোনো আইডিয়াকে আঁকড়ে ধরা, এবং সেই অনুযায়ী জীবন, সমাজ, রাষ্ট্র ইত্যাদি পরিচালনার উপরে একটা একিন রাখা। এটা মানুষের ভেতরে তৈরি হওয়া একটা ভ্যালু স্ট্রাকচার, যেটা "কী ভালো, কী মন্দ" - এই বাছাইয়ের নিয়ম বানায় এবং সেই নিয়মকে সমাজের শরীরে ঢুকিয়ে দেয়।</p>
+        <p>তবে দর্শনশাস্ত্রে এই শব্দটার স্পেসিফিক কিছু ব্যবহারের ইতিহাস আছে। সেগুলা না বললে আমার প্রস্তাবনা পরিষ্কার হবে না। পশ্চিমা দর্শনে “ইডিওলজি” শব্দটা প্রথম ব্যবহার করেন Destutt de Tracy নামের একজন ফ্রেঞ্চ দার্শনিক। তিনি এই শব্দটার ব্যবহার করেছিলেন আইডিয়ার বৈজ্ঞানিক পাঠ হিসাবে। এখানে বৈজ্ঞানিক বলতে তিনি বোঝাচ্ছেন যে আইডিয়ার ভিত্তি তৈরি হয় আমাদের পাঁচ ইন্দ্রিয়ের অনুভূতিকে প্রাধান্য দিয়ে। মানে, ভ্যালু সিস্টেম বানাতে হলে মানুষ হিসাবে আমরা যা র‍্যাশনালি অনুভব করি, সেগুলার উপর ভিত্তি করে তৈরি করতে হবে। কেউ বইয়ে লিখে দিলো বা কেউ বলে দিলো, সেটা ভিত্তি হতে পারে না। তিনি বলতে চেয়েছেন যে, সমস্ত আইডিয়ার উৎস আসলে সেন্সরি ইনপুট থেকে ট্রেস করা যায়, যা একটা বৈধ আইডিয়াকে ভিত্তিহীন আইডিয়া থেকে আলাদা করতে সাহায্য করে। তিনি এই প্রস্তাবনাগুলো তৈরি করেছিলেন ফ্রান্সের মব কালচারের কাউন্টার হিসাবে, যেখানে বাইরের অথোরিটির বদলে নিজের অভিজ্ঞতাকে মেনে নেওয়াটাই ছিল একধরনের ইতিবাচক মুক্তির প্রস্তাব।</p>
+        <p>২))</p>
+        <p>কিন্তু তারপরই আসে "মার্ক্সের" বাঁক। মার্ক্স দেখান যে অভিজ্ঞতা নিজেই নিরপেক্ষ না। তিনি ইডিওলজিকে দেখাচ্ছেন একটা কৃত্রিম চেতনা (False consciousness) হিসাবে। এই কৃত্রিম চেতনা আমাদের সামনে বিকৃত সত্য হাজির করে, যা আমাদেরকে এবং বিশেষ করে শ্রমিকশ্রেণির মানুষদেরকে তাদের ওপর চলা শোষণ পর্যবেক্ষণ করতে বাধা দেয়। মার্ক্স বিশ্বাস করতেন যে এই সমাজটি দাঁড়িয়ে আছে দুইটা স্তম্ভের উপর। একটা হলো  অর্থনৈতিক ভিত্তি (Economic base-- how things are produced), আর আরেকটা হলো সুপারস্ট্রাকচার (Superstructure-- institution and culture)। তিনি বলতে চাচ্ছেন, ইডিওলজি এই সুপারস্ট্রাকচারের একটা প্রধান চাবিকাঠি, যা এমনভাবে ভ্যালুগুলো প্রয়োগ করে যাতে শাসকশ্রেণি অর্থনৈতিক ভিত্তির উপর নিয়ন্ত্রণ বজায় রাখতে পারে এবং সেই মূল্যবোধগুলো শ্রমিকশ্রেণির ওপর "চাপিয়ে দেওয়া" হয়। অর্থাৎ, এখানে ইডিওলজি আর শুধু ভাবনা না, এটা ক্ষমতার সহায়ক  কাঠামো।</p>
+        <p>৩))</p>
+        <p>তারপর "লুই আলথুসেরের" হাত ধরে ধারণাটা আরও ঘনীভূত হয়। তিনি বলেন, ইডিওলজি শুধু একটি অ্যাবস্ট্রাক্ট আইডিয়া না, বরং এটা ম্যাটেরিয়াল এবং স্ট্রাকচার্ড, যা সমাজের কাঠামোর মধ্যেই উপস্থিত। পরিবার, আইন ব্যবস্থা, শিক্ষা প্রতিষ্ঠান, মিডিয়া ইত্যাদি নানা ‘সফট’ প্রতিষ্ঠান মানুষের ভেতরে ইডিওলজি ঢুকিয়ে দেয়। তিনি এর নাম দেন 'আইডিওলজিক্যাল স্টেট অ্যাপারেটাস'। একটা উদাহরণ দেই। ধরেন, পুলিশ যদি বলে "Hey you!!” আর আপনি যদি সঙ্গে সঙ্গে ঘুরে তাকান, তাহলে আপনি কেবল ডাক শোনেননি, বরং সেই মুহূর্তে পুলিশের কর্তৃত্বকেও স্বীকার করে নিয়েছেন। ঠিক এইভাবেই ইডিওলজি আপনার "সামাজিক অবস্থান" এবং আপনার "আইডেন্টিটির মিনিংগুলা" সমাজ থেকেই ধার করে আপনাকে খাইয়ে দেয়। আপনার পরিচয়টা আপনি বানাচ্ছেন বলে মনে হয়, কিন্তু সেই পরিচয়ের কাচামাল, মিনিং ইত্যাদি সমাজই আপনাকে সরবরাহ করছে।</p>
+        <p>৪))</p>
+        <p>এরপর "স্লাভয় জিজেক" ধারণাটাকে আরও জেনারেলাইজ করেন। তিনি বলেন, ইডিওলজি টিকে থাকে শুধু ভয় দেখিয়ে নয়, বরং প্লেজার বা সন্তুষ্টি দিয়েও। মানুষ কিছু বিশ্বাস করে কারণ সেটা তাকে অর্থ দেয়, উষ্ণতা দেয়, গর্ব দেয়, "আমরা কারা" এই পরিচয়ের আনন্দ দেয়। এই প্লেজারের ওপর ভর করেই ইডিওলজি নিজেকে স্থায়ী রাখে, এবং এটা কোনো খালি থিওরি নয়, বরং প্র্যাকটিস, প্রতিষ্ঠান, অর্থনৈতিক ব্যবস্থা—এসবের উপর দাঁড়িয়ে থাকে।</p>
+        <p>এখন কেউ বলতে পারে, "তাহলে ইডিওলজি তো সর্বব্যাপী। আমরা তো ন্যাারেটিভের মধ্যেই বেঁচে আছি, প্র্যাকটিসের মধ্যেই বেঁচে আছি। ইডিওলজি থেকে বেরিয়ে যাওয়ার জায়গাটা কোথায়?" এই জায়গায় এসে আমার ইডিওলজি নিয়ে বোঝাপড়াটা একটু ভিন্ন হয়ে যায়। জিজেক আংশিকভাবে ইডিওলজিকে এমন এক জায়গায় নিয়ে যান, যেখানে সেটা "আখ্যানের" সাথে মিলে মিশে এক হয়ে যায়। আমি ইডিওলজি আর ‘আখ্যান’কে এক করতে চাই না। কারণ আখ্যানকে ইডিওলজি বানায় ফেললে বিপদ হলো ইডিওলজিকে আলাদা করে চেনার ক্ষমতা নষ্ট হয়ে যায়। আর ইডিওলজিকে আলাদা করে চিনতে না পারলে প্রতিরোধের প্রাইমারি স্টেজটাই শুরু হয় না। ইডিওলজিকে যদি আমরা শুধু "মানুষের অস্তিত্বের স্বাভাবিক অবস্থা" হিসেবে ধরি, তাহলে প্রতিরোধ অর্থহীন হয়ে যায়। কারণ যে জিনিস সর্বত্র, তার বিরুদ্ধে দাঁড়াবেন কীভাবে?</p>
+        <p>তাই আমি ইডিওলজিকে এমনভাবে ধরতে চাই যাতে তা শনাক্ত করা যায়, বিশেষ করে যখন তা দমন বা শোষণের একটা হাতিয়ার হয়ে ওঠে। একটা উদাহরণ দিলে পরিষ্কার হবে। ধরেন, জার্মানির কোনো বিশ্ববিদ্যালয়ে হঠাৎ একটা নির্দেশনা আসলো যে প্রফেসরদের আর সেক্রেটারি থাকবে না, সব কাজ নিজেকেই করতে হবে—রিইমবার্সমেন্ট থেকে শুরু করে সব দাপ্তরিক কাজ অনলাইন প্ল্যাটফর্মে করতে হবে, যা ব্যবহারও নিজে শিখতে হবে। বেশিরভাগ শিক্ষক হয়তো ধরে নিবে যে ইনস্টিটিউট নিশ্চয়ই সামগ্রিক উন্নতির জন্যই এই সিদ্ধান্ত নিয়েছে এবং তাঁরা তা মেনে নিবে। কিন্তু এতে করে যে গবেষণার একাগ্রতা নষ্ট হচ্ছে এবং সেক্রেটারি না থাকায় দাপ্তরিক ঝামেলা থেকে যে তারা আর নিরাপদ না, সেটা নজরে পড়ছে না। এইভাবে ইনস্টিটিউটের সদিচ্ছা ধরে নিয়ে মানিয়ে নেওয়াটাও ইডিওলজির কাজ।</p>
+        <p>জিজেকের দৃষ্টিতে এটা স্বাভাবিকতা হিসাবে উড়ে যাবে, আর মার্ক্স বা আলথুসারের দৃষ্টিতে এখানে কোনো স্পষ্ট ক্লাস কনফ্লিক্ট না থাকায় এর অন্তর্নিহিত দমন চোখে পড়বে না। তাই আমি মনে করি, ইডিওলজিকে আরও গভীরভাবে বুঝতে হবে, যাতে এর পরিণামে যে "দমন বা শোষণ" আসে, তা চিনতে পারা যায় এবং প্রতিরোধ করা যায়।</p>
+        <p>৫))</p>
+        <p>এর পূর্বে, আমার "ইউটিলিটি বিষয়টা কেমন" শীর্ষক লেখায় আমি বলেছিলাম "যে যেকোনো বিশ্লেষণ বা জারণ যে ইমপ্রিন্ট রেখে যায়, সেটাই ইউটিলিটি। এই জারণ হতে পারে চিন্তার, হতে পারে বিপ্লবের, হতে পারে ঘটনাময়তার।" সেখানে আমি দেখিয়েছিলাম যে অনেক বিষয় আছে যেখানে ইউটিলিটির মধ্যে প্রাণ গরহাজির থাকে। যেমন দর্শনশাস্ত্রে প্রাণ পাওয়া যায় সিন্থেসিসে, ইউটিলিটিতে না। দর্শনশাস্ত্রের ইউটিলিটি হলো ইডিওলজি। তাই ফিলোসফিকে ইউটিলিটিতে নামিয়ে আনতে গেলে প্রাণ আর থাকে না। অর্থাৎ ইডিওলজি তার জন্মগত দিক থেকেই একটা ত্রুটিপূর্ণ ধারণা।</p>
+        <p>আপনি যদি ফিলোসফিকে বাদ দিয়ে ইডিওলজিকে স্টার্টিং পয়েন্ট বানান, তাহলে শেষ পর্যন্ত একটা দমনমূলক মূল্যবোধের দিকেই এগিয়ে যাবেন। এই বিবেচনায়, ইডিওলজির স্বাভাবিক গন্তব্যই হলো "চাপিয়ে দেওয়া"। যখন দর্শন সত্যিকারের দর্শন, তখন তা একধরনের জারণ, একধরনের সাধনা, যেখানে অনিশ্চয়তার মধ্যে দিয়ে সত্যের দিকে আগানো যায়। আর ইডিওলজি হলো সেই জারণ শেষে উঠে আসা একটা "ম্যানিফেস্টো মোড", যা কোনটা ভালো / খারাপ তা  একবারে ঠিক করে দিতে চায়। ফিলসফি থেকে বের হয়ে এসে যে ম্যানিফেস্টো জন্মায়, শুধু তা দিয়ে সমাজ গঠন করতে গেলে ফিক্সড ভ্যালু-সিস্টেম বানানো লাগে এবং এটা "খাওয়াতে" হয় সবাইকে। আর এই "খাওয়ানোর" মুহূর্তেই ভাবটা আর শুদ্ধ থাকে না, তা হয়ে ওঠে অপ্রেশনের টুল।</p>
+        <p>তাই আমি মনে করি, সমাজ গঠনে active দার্শনিকদের অংশগ্রহণ জরুরি। মব দিয়ে না, ম্যানিফেস্টোবাদি ইডিওলগ দিয়ে না, বরং জ্ঞানী ব্যক্তিদের অংশগ্রহণে তুলনামূলকভাবে একটা সুস্থ সমাজ বা রাষ্ট্র গড়ে তোলা সম্ভব। কীভাবে এটা করা যেতে পারে, সে নিয়ে আমি “তত্ত্ব, ফেনোমেনোলজি এবং এক্সিকিউশন” নামে আরেকটা লেখায় প্রস্তাব দিয়েছি।</p>
+        <p>Ideology is the utility of philosophy. But the heart of philosophy lies in the synthesis, not in the utility. A society may flourish through active philosophy, not through a manifesto / ideology.</p>
+        <p>-- সৈয়দ মেহেদী হাসান</p>
+        <p>(জানুয়ারি ১১, ২০২৬ ইং)</p>
+        </div>
+      </div>
+    </details>
+    <details class="wr">
+      <summary><span class="s-en">What Kind of Thing Is ‘Utility’?</span> <span class="s-bn" lang="bn">"ইউটিলিটি" বিষয়টা কেমন</span> <span class="s-date">Feb 2025</span></summary>
+      <div class="ebody">
+        <div class="langbar"><button type="button" class="lang-btn is-on" data-l="bn">বাংলা</button><button type="button" class="lang-btn" data-l="en">English translation</button></div>
+        <div class="pane pane-en" hidden>
+        <p>The Bengali for "utility" comes out as <em>karjokori</em> (effective). This rendering is only one shade of the word. Several other shades are bound up with "utility," and without speaking of them the word's essence cannot be grasped.</p>
+        <p>In philosophy, again, "utilitarian" is used for an ethical action that can provide the greatest happiness to the greatest number of people. What we shall call good and what bad is determined on the basis of this outcome. In this theory, a few can be sacrificed for the greater happiness of a greater number of people. There is no question of saving a single flower. My discussion, however, is not about this.</p>
+        <p>When a person thinks about some matter, there are many elements in it which, once the thinking is over, they no longer hold in the mind. For instance, while thinking about the impact of colonialism, various events and traumas at the different turns of history, whose stakes were where, what protests arose — all this comes up. But once the thinking is over, apart from the final outcome or the overall impact of colonialism, we no longer hold the rest. This is neither a fault nor a merit; it is a trait of human beings.</p>
+        <p>The filtered portion we retain after brainstorming may be called "the utility of thought."</p>
+        <p>If we turn to mathematics — take, for example, the Pythagorean theorem — we see that we do not retain the process of its proof, but we do retain the statement of the theorem. The theorem's proof is not unique, but its consequence is unique and far-reaching. So in this case it is the utility that is the theorem's life, not the proof-process. Generally, when we advance toward some definite solution and nothing else exists beyond the solution, in such cases everything is found within the utility.</p>
+        <p>But there are many matters in which life is absent from the utility. For instance, those who have worked on Marx's theory know that what is in <em>Das Kapital</em> is not in the <em>Communist Manifesto</em> at all; rather, someone who reads only the Manifesto in this day and age will be misled. The "Manifesto" is the utility of Marxism, but Marx's philosophical life is absent from it. There are many such things for which seeking the utility is not the proper method.</p>
+        <p>So what I am saying is that utility can be anything — good or bad. And utility is not something like a hangover, either. Whatever imprint an analysis or a fermentation leaves behind — that is its utility. This fermentation may be of thought, may be of revolution, may be of eventfulness.</p>
+        <p>Now the question is: what is the utility of philosophy itself, of "the discipline of philosophy"? Its utility is "ideology." Whether that is good or bad, I shall discuss later.</p>
+        <p>This is what I wanted to say about utility.</p>
+        <p>— February 20, 2025</p>
+        </div>
+        <div class="pane pane-bn" lang="bn">
+        <p>"ইউটিলিটি" শব্দটার বাংলা করলে দাঁড়ায় কার্যকরী। এই অনুবাদটা শব্দটার একটা ভাব মাত্র। "ইউটিলিটি"র সাথে আরো বেশ কিছু ভাব যুক্ত আছে, সেটা নিয়ে না বললে শব্দটার মাজেজা বোঝা যাবেনা।</p>
+        <p>দর্শনশাস্ত্রে আবার "ইউটিলিটেরিয়ান" বলতে বোঝানো হয় এমন কিছু এথিকাল একশনকে যা সর্বোচ্চ সংখ্যক মানুষের জন্য সর্বোচ্চ সুখ প্রদান করতে পারে। আমরা কোনটাকে ভালো আর কোনটাকে খারাপ বলব তা নির্ধারিত হবে এই আউটকামের উপর ভিত্তি করেই। এই তত্ত্বে ফিউ ক্যান বি স্যাক্রিফাইসড ফর গ্রেটার হ্যাপিনেস অফ গ্রেটার নামবার অফ পিপল। একটি ফুলকে বাচানোর বিষয়-টিষয় নাই। আমার আলাপ অবশ্য এটা নিয়ে না।</p>
+        <p>মানুষ যখন কোনো বিষয়ে চিন্তাভাবনা করে, তার মধ্যে অনেক উপাদান থাকে যা চিন্তা শেষ হবার পর আর মনের মধ্যে সে ধারণ করে না। যেমন কলোনিয়ালিজমের প্রভাব নিয়ে চিন্তা করার সময় ইতিহাসের বিভিন্ন বাঁকে কি কি ঘটনা, ট্রমা ইত্যাদি ঘটেছে, কাদের কাদের স্টেইক ছিলো, কি কি প্রতিবাদ গড়ে উঠেছিলো এসব চলে আসে। কিন্তু চিন্তা শেষে কলোনিয়ালিজমের ফাইনাল আউটকাম বা সার্বিক প্রভাব ছাড়া বাকি বিষয়গুলা আমরা আর ধারণ করি না। এটা দোষ গুণের কিছু না, মানুষের বৈশিষ্ট্য এমন।</p>
+        <p>ব্রেইনস্টর্মিং শেষে ফিল্টার্ড যে অংশটা আমরা ধারণ করছি এটাকে বলা যেতে পারে "চিন্তার ইউটিলিটি"।</p>
+        <p>গণিতের দিকে যদি তাকাই, যেমন পীথাগোরাসের উপপাদ্য, আমরা দেখবো এই উপপাদ্যের প্রমাণ প্রক্রিয়া আমরা ধারণ করি না। কিন্তু উপপাদ্যের বক্তব্যটা ঠিকি ধারণ করছি। উপপাদ্যটির প্রমাণ প্রক্রিয়া ইউনিক না, কিন্তু কনসিকোয়েন্স ইউনিক এবং সুদূরবিস্তৃত। সুতরাং এই ক্ষেত্রে ইউটিলিটিই উপপাদ্যের প্রাণ, প্রমাণ-প্রক্রিয়া নয়। সাধারণত যখন কোনো নির্দিষ্ট সমাধানের দিকে আমরা এগিয়ে যাই এবং সমাধানের বাইরে আর কিছু বিরাজ করে না, সেসব ক্ষেত্রে  ইউটিলিটির মধ্যেই সবকিছু পাওয়া যায়।</p>
+        <p>তবে এমন অনেক বিষয় আছে যেখানে ইউটিলিটির মধ্যে প্রাণ গরহাজির থাকে। যেমন মার্ক্সের তত্ত্ব নিয়ে যারা কাজ করেছেন তারা জানেন ডাস ক্যাপিটালে যা আছে কমিউনিস্ট ম্যানিফেস্টোতে তা তো নাইই, বরং এই সময়ে এসে যারা খালি ম্যানিফেস্টো পড়বে তারা বিভ্রান্ত হবে। "ম্যানিফেস্টো" মার্ক্সিজমের ইউটিলিটি হলেও এর মধ্যে মার্ক্সের দার্শনিক প্রাণ অনুপস্থিত। এরকম অনেককিছু আছে যার ইউটিলিটি খোঁজা উপযুক্ত তরীকা না।</p>
+        <p>তো আমি বলতে চাচ্ছি ইউটিলিটি ভালো বা খারাপ যেকোনোকিছু হতে পারে। ইউটিলিটি আবার হ্যাংওভার টাইপ কোনো কিছু না। যেকোনো বিশ্লেষণ বা জারণ যে ইম্প্রিন্ট রেখে যায় সেটাই ইউটিলিটি। এই জারণ হতে পারে চিন্তার, হতে পারে বিপ্লবের, হতে পারে ঘটনাময়তার।</p>
+        <p>এখন প্রশ্ন হচ্ছে ফিলোসফি ইটসেল্ফের বা "দর্শনশাস্ত্রের" ইউটিলিটি কি? এর ইউটিলিটি হচ্ছে "ইডিওলজি"। এখন এইটা ভালো নাকি খারাপ সেই আলাপ পরে করবো।</p>
+        <p>ইউটিলিটি নিয়ে এটাই বলতে চাচ্ছিলাম।</p>
+        <p>-- ফেব্রুয়ারী ২০, ২০২৫ ইং</p>
+        </div>
+      </div>
+    </details>
+    <details class="wr">
+      <summary><span class="s-en">Causation or Correlation?</span> <span class="s-bn" lang="bn">কজেশন নাকি কো-রিলেশন</span> <span class="s-date">Feb 2025</span></summary>
+      <div class="ebody">
+        <div class="langbar"><button type="button" class="lang-btn is-on" data-l="bn">বাংলা</button><button type="button" class="lang-btn" data-l="en">English translation</button></div>
+        <div class="pane pane-en" hidden>
+        <p>We cannot separate the subjective understanding of our memory from what goes on in the world. That is, there is no room to think of memory as something cut off from the material world, or of the material world as something cut off from memory.</p>
+        <p>The tool with which we build the narrative of the material world we may call "cause." On the assumption that whatever happens always happens "for some reason," we keep creating a concept called "prediction." I say "keep creating" because this concept need not be taught to anyone; from birth a human does it spontaneously, in order to perceive their surroundings — it is inherent in us. As if we simply assume that every interrelation (correlation) in the world is caught in the net of "cause." As if the interrelations were approximations whose root is micro-causality, with "memory" as the narrator — as if memory's only task were to grope out, from the jungle of correlations, the causalities that have gone missing.</p>
+        <p>But we could put it another way. We could begin the narrative from "memory," since we cannot separate matter from memory. Begun this way, memory is not a flowing thing; it is a still image. Yesterday's event and an event a year ago do not sit far apart in my memory — they sit side by side. Thus "time lapse" and "time collapse" come to one footing. Once time has passed, "what came after what" is no longer important — in fact the very existence of "after" dissolves. Causations thus become "not necessarily meaningful," while correlations become concrete. After significant time lapse, only pattern remains. There is actually nothing but "correlations," whereas "causation" becomes vague, even irrelevant.</p>
+        <p>So what emerges is this: if we give priority to my subjective experience, correlations appear as the primary tool for explaining the world, and "causations" become man-made ghosts that guard our worldly sanity. If we begin to see the future too with this eye, it also becomes a still image — though this seeing is difficult, since we are not as far-sighted as we are hind-sighted.</p>
+        <p>— February 17, 2025</p>
+        </div>
+        <div class="pane pane-bn" lang="bn">
+        <p>জগতে যা ঘটতে থাকে তা থেকে আমাদের স্মৃতির সাবজেক্টিভ বুঝকে আলাদা করা সম্ভব না। মানে স্মৃতিকে বস্তুজগত থেকে বিচ্ছিন্ন কিছু কিংবা বস্তুজগতকে স্মৃতি থেকে বিচ্ছিন্ন কিছু ভাবার অবকাশ নাহি।</p>
+        <p>বস্তজগতের ন্যারেটিভ আমরা যেই টুল দিয়ে তৈরী করি তাকে বলতে পারি "কজ" বা "কারণ"। অর্থাৎ যা ঘটে তা সবসময় "কোনো কারণে" ঘটে, এমন বিবেচনার উপর ভর করে আমরা "প্রেডিকশন" নামক একটা ধারণা (কনসেপ্ট) সৃষ্টি করতে থাকি। 'করতে থাকি' বললাম কারণ এই কনসেপ্টটা কাউকে শিখায় দেয়া লাগে না। মানুষ জন্মের পর থেকেই কাজটা স্বতঃস্ফূর্তভাবে করতে থাকে নিজের চারপাশকে পারসিভ করার জন্য, মানে ব্যাপারটা আমাদের ইনহেরেন্ট আরকি। যেন আমারা ধরেই নেই জগতের সমস্ত আন্ত:সম্পর্ক (কো-রিলেশন) "কারণের" বেড়াজালে বন্দী। যেন আন্ত:সম্পর্কগুলা এপ্রক্সিমেশন, যার মূলে আছে মাইক্রো-কজালিটি এবং "স্মৃতি" যার সূত্রধর। যেনোবা "স্মৃতি"র একমাত্র কাজ হইতেছে কো-রিলেশনের জঙ্গলে হারায় যাওয়া কজালিটিগুলারে হাতড়ায় বাইর করা।</p>
+        <p>কিন্তু ব্যাপারগুলাকে আমরা অন্যভাবেও তো বলতে পারি। ন্যারেটিভটা "স্মৃতি" থেকে সাজানো শুরু করতে পারি, যেহেতু বস্তুকে আমরা স্মৃতি থেকে আলাদা করতে পারি না। এইভাবে শুরু করলে স্মৃতি তো চলমান কিছু না, একটা স্থিরচিত্র। মানে গতকালকের ঘটে যাওয়া ঘটনা আর এক বছর আগের ঘটনা আমার স্মৃতিতে দূরে দূরে তো নাই, পাশাপাশিই তো বইসা আছে। এইভাবে "টাইম ল্যাপ্স" আর "টাইম কোল্যাপ্স" এক ফুটিং এ চলে আসে। মানে সময় পার হয়ে গেলে কাহার পরে কি ইহা গুরুত্বপূর্ণ থাকে না, এমনকি "কাহার পরে কি" ব্যাপারটার অস্তিত্বই তো থাকে না। কজেশনগুলা এইভাবে হয়ে ওঠে 'নট নেসেসারি মিন' আর কোরিলেশনগুলা কংক্রিট। After significant time lapse, only pattern remains. There is actually nothing but "correlations", whereas "causation" becomes vague, even irrelevant...</p>
+        <p>তাহলে যেটা বুঝা যাচ্ছে, আমার সাবজেক্টিভ এক্সপেরিয়েন্সকে প্রায়োরিটি দিলে কোরিলেশনগুলাই জগৎ ব্যাখ্যার প্রাইমারি টুল হিসাবে হাজির হয়, আর "কজেশনগুলা" মানব-নির্মিত একেকটা ভূত, যা আমাদের দুনিয়াবি স্যানিটি রক্ষা করে। এই চক্ষুতে যদি ভবিষ্যৎকেও দেখা শুরু করি, সেইটাও একটা স্থিরচিত্রই হয়ে ওঠে, তবে এই দেখাটা কঠিন, যেহেতু আমরা যতোটা অতীতদর্শী ততোটা দূরদর্শী না।</p>
+        <p>-- ফেব্রুয়ারী ১৭, ২০২৫ ইং</p>
+        </div>
+      </div>
+    </details>
+    <details class="wr">
+      <summary><span class="s-en">Narrativism</span> <span class="s-bn" lang="bn">আখ্যানবাদ</span> <span class="s-date">Sep 2022</span></summary>
+      <div class="ebody">
+        <div class="langbar"><button type="button" class="lang-btn is-on" data-l="bn">বাংলা</button><button type="button" class="lang-btn" data-l="en">English translation</button></div>
+        <div class="pane pane-en" hidden>
+        <p>Narrativism — or "explanationism"; in English one might say "narrativism." I place before you an idea that I think is important to grasp in our times.</p>
+        <p>To me, narrativism is placing boundless faith in a narrative. What do I mean? Take Yuval Noah Harari's <em>Sapiens</em> as an example. On the surface <em>Sapiens</em> seems very convincing, but think a little and you see that its narrative is built by picking and choosing from countless possible scenarios — presented as though this were the only explanation.</p>
+        <p>Let me describe the method. Suppose event "A" happened, and then event "Z" happened. To connect A and Z, if one shows A→B→C→…→Z — that is, tells the story of reaching Z through several intermediate steps — many people will accept it without much thought. That each of these steps is cherry-picked is something people rarely consider. They assume the author has brought us all the way to Z as an inevitable consequence. The effect is that B, C, D and the rest are taken as given too. This is the problem with narrativism.</p>
+        <p>Not every narrativist intellectual is a fraud. Often one develops such faith in one's own grand narrative that one can no longer see its problem. Take Salimullah Khan, one of present-day Bangladesh's most erudite scholars. In cultivating a critical posture in a new generation, in introducing thinkers from home and abroad, he is superb. After much reading he has built a grand narrative of subcontinental history, which he uses as spectacles to diagnose various social issues. Some call him a "footnote intellectual" for his heavy referencing; I object. He does cite heavily, but he has his own narrative. Another charge is that he begins every explanation from something hundreds or thousands of years old. I think he <em>has</em> to, in order to foreground the grand narrative whose lens he will use. This is not uncommon — almost all Indian intellectuals, in particular, are afflicted by narrativism.</p>
+        <p>The problem is that a narrative is inherently one-dimensional; its world is linear. Not necessarily a straight line — it can be complex — but linear. History, however, is not linear; it is like a network, with one or many causes and non-causes interwoven. The world on which the web of human history is stretched is not one-dimensional. If we imagine the finitude of world and life as a metaphorical sphere, then the web of human history covers this sphere. History does not travel along a single latitude. Even when it circles back to a point, its onward path need not be as before. But "narrative," being one-dimensional and linear, traces a circular, cyclic path over the sphere — it keeps spinning within one narrative. History has no such inertia.</p>
+        <p>Beyond the writing of history, "narrative" can be extended to the context of life or society. If we try to bind the reality of life or society into the frame of a story, we may call that story a narrative. A story's feature is that it has some well-defined characters. Even without stating values explicitly, the story's movement tells us what is good and what is bad — a moral code is ingrained in it. But there is no reason reality should carry these limitations.</p>
+        <p>Yet without narrative our brain cannot process reality. So narrative matters, for bringing reality into a tolerable form. But we must remember that the narrative itself is not <em>haqiqat</em> (truth). "Narrative" tells us a toy reality projected through history and tradition. So it is also our duty to free ourselves from narrative as far as possible. This is far harder to do than to say. We spend our daily lives inside social narratives. Our honour, our envy, our pride — all are formed on our relative position within society's narrative.</p>
+        <p>For example, suppose someone won the Nobel Prize three times. In their social narrative this is a huge event. But in the social narrative of an inhabitant of the Amazon rainforest, this prize is meaningless. So there is no meaning in pride outside the narrative. Dignity, too, is narrative-dependent.</p>
+        <p>Social narrative also dictates our sense of right and wrong. Consider the objection people raise to Humayun Ahmed marrying a much younger woman: it comes from the social narrative, and has no religious or legal basis. Or: the middle class feels awkward eating at the same table as their household help, yet feels no awkwardness eating together while seated on the floor — behaviour with no religious or cultural basis. The social narrative gives shape to even our spontaneity.</p>
+        <p>People want to live inside a narrative. In the narrative they find a normalcy that gives them psychological security. Culture and narrative are not the same thing. Narrative is a moving thing, a current people want to join, like a flock of ducks. Culture, on the other hand, is a still image, looking at which one finds one's home. Floating in this river beside the house, one's life passes. One does not enter the house — one wanders outside a little and returns to the river. Such is the relation of culture and narrative.</p>
+        <p>I called narrativism "explanationism." The reason: whenever we question or explain, there is always a pretext; some things are assumed. The more the questioning or explaining, the wider the pretext. And a pretext is a narrative. So explanation is always narrative-dependent. This is why one cannot find <em>haqiqat</em> within explanation.</p>
+        <p>The law claims that it wants to establish justice in society on the basis of <em>haqiqat</em>. But it stands on questioning and explanation. "Law is a false hope to cleanse the narrative to reflect the truth (huqq)." So placing faith in the law is also narrativism. Obeying the law for the sake of a social contract is fine, but the law can by no means establish universal <em>huqq</em>. Therefore it is a mistaken thought that the servants of the law (police and army, judges and barristers) or the servants of explanation (academic teachers, intellectuals) are doing something nobler than others.</p>
+        <p>Complete liberation from narrative may be impossible, but it is vital to keep watch on how narrative operates in human society. This will lessen, a little, the inertia imposed upon <em>huqq</em> and <em>haqiqat</em>.</p>
+        <p>— September 9, 2022</p>
+        </div>
+        <div class="pane pane-bn" lang="bn">
+        <p>১))</p>
+        <p>আখ্যানবাদ, কিংবা ব্যাখ্যাবাদ, ইংরেজিতে বলা যেতে পারে "narrativism"। এমন একটা ধারণা আপনাদের সামনে পেশ করলাম যা এখনকার জামানায় বুঝতে পারাটা জরুরি বলে আমি মনে করি।</p>
+        <p>আমার কাছে আখ্যানবাদ হচ্ছে আখ্যানের উপর অগাধ বিশ্বাস স্থাপন করা। সেটা কেমন? উদাহরণ হিসাবে দেয়া যেতে পারে নোয়া হারারির 'সেপিয়েন্স'। আপাতদৃষ্টিতে সেপিয়েন্সকে খুব কনভিন্সিং মনে হবে, কিন্তু একটু চিন্তা করলেই বোঝা যাবে অসংখ্য সম্ভাব্য সিনারিও থেকে pick and choose করার ভেতর দিয়ে সেপিয়েন্সের ন্যারেটিভ সাজানো। এমনভাবে দেখানো হচ্ছে যেনো এটাই একমাত্র ব্যাখ্যা।</p>
+        <p>লেখার উপায়টা একটু বলি। মনে করা যাক ঘটনা "A" হয়েছে। এরপর ঘটলো ঘটনা "Z"।  A এবং Z এর মধ্যে সম্পর্ক স্থাপনের জন্য যদি দেখানো হয় A-&gt;B-&gt;C-&gt;... -&gt;Z, অর্থাৎ কয়েক ধাপের একটা ঘটনাপ্রবাহের ভিতর দিয়ে Z এ পৌছানোর গল্প বলা যায়, তা অনেকেই খুব একটা চিন্তা না করে মেনে নিবেন। এই অনেকগুলি ধাপের ভেতরে প্রতিটা যে cherry picked করা, এটা নিয়ে মানুষ খুব একটা ভাবে না। মানুষ মনে করে এতোগুলো ধাপ পেরিয়ে Z পর্যন্ত লেখক এনেছে অবশ্যম্ভাবী conequence হিসাবে। এতে যা ঘটে তা হলো B,C,D,... ইত্যাদিকেও মানুষ ঠিক ধরে নেয়। এটাই আখ্যানবাদের সমস্যা।</p>
+        <p>২))</p>
+        <p>আখ্যানবাদী বুদ্ধিজীবী মাত্রই দুই নম্বর এমন কিন্তু না। অনেকসময় নিজের সাজানো গ্র‍্যান্ড ন্যারেটিভের উপর নিজেরি অগাধ আস্থা তৈরী হয়, তাই এর সমস্যাটা তারা আর চিহ্নিত করতে পারেন না।</p>
+        <p>এসময়ের বাংলাদেশের অন্যতম বিদগ্ধ পন্ডিত, বুদ্ধিজীবী ও শিক্ষাবিদ সলিমুল্লাহ খান। নতুন প্রজন্মের অনেকের মাঝে ক্রিটিকাল ভঙ্গি তৈরী করা, দেশ বিদেশের দার্শনিকদের পরিচিত করানো ইত্যাদি ব্যাপারে সলিমুল্লাহ অনবদ্য। অনেক পঠন পাঠনের পর তিনি উপমহাদেশীয় ইতিহাসের একটা গ্র‍্যান্ড ন্যারেটিভ দাড়া করিয়েছেন, যাকে তিনি চশমা হিসাবে ব্যবহার করেন বিবিধ সামাজিক ইস্যু চিহ্নিত করতে। অনেকে সলিমুল্লাহকে 'টীকা বুদ্ধিজীবী' বলেন, খুব রেফারেন্স ব্যবহার করেন বলে। এমন কথাতে আমার আপত্তি আছে। সলিমুল্লাহ অনেক রেফারেন্স দেন ঠিকি, কিন্তু তার নিজস্ব ন্যারেটিভ আছে। তার বিরুদ্ধে আরেক অভিযোগ শোনা যায় যে তিনি শত-হাজার বছরের পুরানো কথা দিয়ে যেকোনো ব্যাখ্যা শুরু করেন। আমি মনে করি এটা তাকে নেসেসারিলি করতে হয় গ্র‍্যান্ড ন্যারেটিভটাকে সামনে আনার জন্যই, যার লেন্স দিয়ে তিনি ইস্যুকে দেখবেন। এটা আনকমন না। বিশেষ করে ভারতের প্রায় সব বুদ্ধিজীবীই আখ্যানবাদে আক্রান্ত।</p>
+        <p>সমস্যাটা হচ্ছে আখ্যান মাত্রই একমাত্রিক। মানে আখ্যানের জগৎ রৈখিক। সরলরৈখিক বলছি না, জটিলও হতে পারে, তবে রৈখিক। কিন্তু ইতিহাস রৈখিক না, নেটওয়ার্কের মতো, এক বা একাধিক কারণ আর না-কারণের সমন্বয় থাকে এতে। যে জগৎ-সংসারের উপর মানব-ইতিহাসের জাল বিস্তৃত হয়, তা একমাত্রিক না। জগৎ ও জীবনের সসীমতাকে যদি একটা রূপক গোলক হিসাবে কল্পনা করি, তাহলে এই গোলককে মানব ইতিহাসের জাল আচ্ছাদন করে রেখেছে। ইতিহাস কেবল একটা অক্ষাংশে বিচরণ করে না। ঘুরেফিরে সে এক বিন্দুতে আবার ফিরে এলেও তার পরবর্তী চলার পথ আগের মতো নাও থাকতে পারে। কিন্তু 'আখ্যান' একমাত্রিক আর রৈখিক বলে গোলকের উপর তার পথ হয় বৃত্তাকার, সাইক্লিক। এক ন্যারেটিভেই সে ঘুরপাক খেতে থাকে। ইতিহাস এমন জাড্য না।</p>
+        <p>৩))</p>
+        <p>ইতিহাস রচনার context ছাড়াও জীবন বা সমাজের context এ 'আখ্যান' শব্দটাকে বিস্তারিত করা যায়। জীবন/সমাজের বাস্তবতাকে একটা গল্পের ছকে বাধতে চাইলে সেই গল্পটাকে আমরা আখ্যান বা ন্যারেটিভ বলতে পারি। গল্পের বৈশিষ্ট্য হচ্ছে তার কিছু সুসংজ্ঞায়িত চরিত্র থাকবে। আলাদাভাবে মূল্যবোধ উল্লেখ না করলেও গল্পের চলন বলে দেয় কি ভালো, কি খারাপ। অর্থাৎ গল্পে একটা মোরাল কোড ইনগ্রেইন্ড থাকে। কিন্তু বাস্তবতাকে এসব সীমাবদ্ধতা বহন করতে হবে এমন মনে করার কোনো কারণ নাই।</p>
+        <p>তবে ন্যারেটিভ ছাড়া আমাদের মস্তিষ্ক বাস্তবতাকে প্রোসেস করতে পারে না। তাই বাস্তবতাকে টলারেবল আকারে সামনে আনার জন্য ন্যারেটিভ গুরুত্বপূর্ণ। কিন্তু মনে রাখতে হবে ন্যারেটিভ নিজে 'হাকিকাত' না। "Narrative" tells us a toy reality projected through history and tradition. তাই ন্যারেটিভ থেকে যথাসম্ভব নিজেকে মুক্ত করাটাও আমাদের দায়িত্ব। এই কাজটা মুখে বলা যতোটা সহজ, করা ততোটাই কঠিন। আমরা আমাদের দৈনন্দিন জীবন সামাজিক ন্যারেটিভের ভেতরে কাটাই। আমাদের মান-সম্মান, হিংসা-অহংকার এ সবই সমাজের ন্যারেটিভে নিজেদের আপেক্ষিক অবস্থানের উপর ভিত্তি করে তৈরী হয়।</p>
+        <p>যেমন মনে করা যাক কেউ তিনবার নোবেল পুরস্কার পেলো। তার সামাজিক আখ্যানে এটা বিশাল ঘটনা। কিন্তু আমাজনের রেইনফরেস্টের অধিবাসীর সামাজিক আখ্যানে এই পুরস্কার গুরুত্বহীন। তাই ন্যারেটিভের বাইরে গর্ব করার কোনো অর্থ থাকে না। মর্যাদাও তাই, আখ্যাননির্ভর।</p>
+        <p>সামাজিক ন্যারেটিভ মানুষের উচিত-অনুচিতকেও ডিকটেট করে৷ যেমন হুমায়ূন আহমেদ যে একজন কমবয়সী মেয়েকে বিয়ে করেছিলেন, এতে মানুষের যে আপত্তি, তা সামাজিক ন্যারেটিভের কারণে। এই আপত্তির কিন্তু কোনো ধর্মীয় বা আইনগত ভিত্তি নাই।  আবার যেমন বাড়িতে কাজের মানুষের সাথে এক টেবিলে খেতে মধ্যবিত্ত সমাজ অস্বস্তি বোধ করে। তারা কিন্তু মাটিতে বসে আবার একসাথে খেতে অস্বস্তি বোধ করেনা। এমন আচরণের কোনো ধর্মীয় বা সাংস্কৃতিক ভিত্তি নাই। সামাজিক ন্যারেটিভ আমাদের স্বতঃস্ফূর্ততাকে আকার প্রদান করে।</p>
+        <p>৪))</p>
+        <p>মানুষ একটা আখ্যানে থাকতে চায়। সে ন্যারেটিভে স্বাভাবিকতা খুঁজে পায়, যা তাকে একটা মানসিক নিরাপত্তা দেয়। সংস্কৃতি আর ন্যারেটিভ কিন্তু এক জিনিস না। ন্যারেটিভ একটা চলমান ব্যাপার, একটা স্রোত, যাতে মানুষ সামিল হতে চায় হাঁসের পালের মতো। অন্যদিকে 'সংস্কৃতি' একটা স্থিরচিত্র, যার দিকে তাকিয়ে সে তার বাড়ি খুঁজে পায়। বাড়ির পাশের এই নদীতে ভাসতে ভাসতে তার জীবন কেটে যায়। বাড়িতে সে ঢোকে না, বাইরে থেকে একটু ঘুরাঘুরি করে আবার নদীতেই ফেরত আসে। সংস্কৃতি আর ন্যারেটিভের সম্পর্ক এমনই।</p>
+        <p>৫))</p>
+        <p>আখ্যানবাদের আরেক নাম বলেছিলাম 'ব্যাখ্যাবাদ'। এর কারণ আমরা যখন প্রশ্ন করি বা ব্যাখ্যা করি তার সবসময় একটা pretext থাকে। কিছু জিনিস ধরে নেয়া হয়। যতো বেশি প্রশ্ন বা যতো বেশি ব্যাখ্যা, pretext এর পরিধি ততোই বড়ো হয়। আর প্রিটেক্সট একটা ন্যারেটিভ। তাই ব্যাখ্যা সবসময়ই আখ্যান নির্ভর। এই কারণে ব্যাখ্যার মধ্যে 'হাকিকাত' খুঁজে পাওয়া সম্ভব না।</p>
+        <p>আইনের দাবি সে সমাজে হাকিকাতের উপর ভিত্তি করে ন্যায়বিচার প্রতিষ্ঠা করতে চায়। কিন্তু সে দাঁড়িয়েই আছে প্রশ্ন আর ব্যাখ্যার উপর। "Law" is a false hope to cleanse the narrative to reflect the "truth (huqq)". তাই আইনের উপর আস্থা রাখাটাও আখ্যানবাদিতা। আইন মেনে চলতে হয় একটা সোশাল কন্ট্রাক্টের জন্য ঠিক আছে, কিন্তু আইন মোটেও সার্বজনীন হক প্রতিষ্ঠা করতে পারে না। তাই আইনের সেবাদাসী (পুলিশ-আর্মি, জজ-ব্যারিস্টার) কিংবা ব্যাখ্যার সেবাদাসীরা (একাডেমিক শিক্ষক, বুদ্ধিজীবী) অন্যদের থেকে মহৎ কিছু করছে মনে করাটা ভুল চিন্তা।</p>
+        <p>আখ্যান থেকে সম্পূর্ণ মুক্তিলাভ সম্ভব না হলেও আখ্যান কিভাবে মানবসমাজে অপারেট করে তার প্রতি নজর রাখা জরুরি। এতে 'হক' আর 'হাকিকাত' এর উপর আরোপিত জাড্যতা কিছুটা কমবে।</p>
+        <p>-- সেপ্টেম্বর ৯, ২০২২ ইং</p>
+        </div>
+      </div>
+    </details>
+    <details class="wr">
+      <summary><span class="s-en">The Story of the Marginal</span> <span class="s-bn" lang="bn">প্রান্তিকের গল্প আবার কি</span> <span class="s-date">Aug 2022</span></summary>
+      <div class="ebody">
+        <div class="langbar"><button type="button" class="lang-btn is-on" data-l="bn">বাংলা</button><button type="button" class="lang-btn" data-l="en">English translation</button></div>
+        <div class="pane pane-en" hidden>
+        <p>The institutions of society are held by whoever is privileged in the state order — in plain words, they sit at the summit of power. They decide our right and wrong, our fashion, culture, art, values. It is not that they are something other than us; they are us. The schools and colleges we attend, the debates we hold, the poetry and prose we make — these give us the ticket to enter this power-structure, so that we always serve it, whether for it or against it. Even to go against it, one must know organically what is for it. This knowing is recognition, and recognition keeps the structure running.</p>
+        <p>Beyond this power-structure, other social orders can exist, with their own dynamics of power, their own values, politics, literature. There the exercise of state power is nominal, so its importance too is nominal. The inhabitants of such a society are called "sub-altern." Examples might be the hill indigenous peoples of Bangladesh, the inhabitants of the Amazon rainforest, the people of Ladakh. Even the villages in Zahir Raihan's novel <em>Hajar Bochor Dhore</em> might fall in this category. Sub-altern does not necessarily mean a people exploited by the state power-structure. The hand of state power, or of the law, often does not reach the sub-altern; the norms of their society run in their own fashion. There is exploitation and injustice there too, since it is also a structure — but a local one. There has to be an unwritten understanding between the state and the sub-altern. They take from the state only as much as will not make it press down on them. This balance is very important. Some is taken for the sake of recognition, and security is another reason. The trouble arises when this balance breaks — and mostly it does break.</p>
+        <p>The Bengali translation of sub-altern is <em>nimnoborgo</em> (lower order). Though literally correct, I think this rendering is wrong. The reason is precisely a European mentality — they too think of the sub-altern as a lower order. Through this way of thinking the state gradually begins to grow dystopically homogeneous. For instance, Italy, though so large a country, speaks one language everywhere; cross the state border and it is another language. Such an intense, artificial division can happen only when a nation is made to pass through extreme cultural exploitation. In Italy there are differences of accent by region, but the language is the same everywhere, and the cultural differences are not stark. What linguistic differences there were, they tried to keep alive within their own families; but since there is no literary practice carrying those differences, in time even that little difference is nearly extinct. The state imposes language, culture, food habits. Look at America, and we see McDonald's everywhere, everyone spinning within the binary of the Democrat and Republican mindset. America's indigenous population, who could truly have been sub-altern, have to remain instead an oppressed minority. In any case, I want to say that the relationship between the state apparatus and the sub-altern is delicate; to keep it alive, a parallel outlook and a minimum of intervention are essential.</p>
+        <p>To catch where the confusion arises, it is important to speak of another class. This class is called the marginal. The marginal are essentially an exploited people, whose life-security stands at the lowest level of society. Examples might be the poor minority communities of Bangladesh, the children of orphanages, landless farmers. Note that the sub-altern becomes marginal before it is wiped out. Literary intellectuals want to show this marginal sub-altern as the traditional sub-altern. This wish is romantic, but mistaken. When they speak of reconstructing history in the sub-altern's narrative, what they really want to hear is the marginal's story told in the culturalist intellectual's telling. Take, as an example, Manik Bandyopadhyay's <em>Padma Nadir Majhi</em>. The telling has two faults.</p>
+        <p>The first fault — conflating the sub-altern and the marginal. This belittles the sub-altern. We see, for this reason, that Advaita Malla Barman, who himself came from that sub-altern upbringing, is irritated on reading <em>Padma Nadir Majhi</em>. He then goes on to write a novel of his own, <em>Titas Ekti Nadir Naam</em>. In it we find the narrative of the Malos who live by the banks of the Titas — a sub-altern people who, toward the end of the novel, turn marginal. What is worth noticing is that this novel does not show the sub-altern as marginal; rather it shows the marginal as the outcome of the sub-altern's extinction.</p>
+        <p>The second fault — trying to tell the marginal's story. This is dehumanification. We cannot write from a marginal's point of view, because we do not know where one marginal differs from another, where the individualism lies. They would be given to us as individuals if their characters were like the characters of a story — that is, if they obeyed the dead grammar of story. What is the dead grammar of story? It is a frame in which there will be certain kinds of characters — the comic, the tragic, the stubborn, the hero, the villain. The marginal does not obey this dead grammar. He is kind in one body, and in that same body cruel. He holds everyone, and holds no one. He must struggle anew each day. What he will eat tomorrow, and where, may not be settled. So he must have a power of reading situations far beyond the ordinary, which creates a high order of sensitivity. From here comes character-fluidity. A marginal is a character outside the story-frame of his time's social order. The story with which the system lulls us to sleep — the marginal is its wakeful critic. He dwells in the transition of breaking and making; the road of the saint and of the demon is his.</p>
+        <p>The interesting thing is that when the marginal becomes civilized, he is no longer marginal. With the traditional sub-altern it is not so. A sub-altern, even after leaving his own domain and entering the sphere of state power, can still tell of the joys and sorrows, the conflicts, the loves of the society he left behind. So in the sub-altern's account we can recognize the sub-altern. But the marginal, because he lives in no frame, when he overcomes his misery and enters a frame, forgets his former condition. It is like once you see a pattern in a drawing, you cannot unsee it — you always find that pattern. Advaita showed a fine insight here too. When the youth Ananta, having finished his studies, has stood on his own feet and moves about with the gentlefolk, he returns to the village and can no longer recognize Anantabala and Basanti.</p>
+        <p>It is not that the marginal has no story; rather it is full of a thousand kinds of subtle sensitivity, a very complex ego-dynamics, where the luxury of narrative becomes unimportant. And again, when the marginal overcomes his marginality, he becomes another person. So even if the luxury of narrative then forms, he can no longer recall it.</p>
+        <p>The story of marginals exists. It exists without a narrative, it exists without a storyteller.</p>
+        <p>— August 26, 2022</p>
+        </div>
+        <div class="pane pane-bn" lang="bn">
+        <p>১))</p>
+        <p>সমাজের প্রতিষ্ঠানগুলো যাদের দখলে, মানে সহজকথায় রাষ্ট্রব্যবস্থায় যারা সুবিধাভোগী, তারাই ক্ষমতার শীর্ষে। এরা ঠিক করে দেয় আমাদের ঠিক-ভুল, ফ্যাশন, কালচার, আর্ট, মূল্যবোধ ইত্যাদি। ব্যাপারটা এমন না যে এরা আমাদের থেকে ভিন্নকিছু, এরা আমরাই। আমরা যে স্কুল কলেজে পড়ি, ভালোমন্দ তর্ক-বিতর্ক, কাব্য-গদ্য করি, এগুলা আমাদেরকে এই ক্ষমতাকাঠামোতে প্রবেশের টিকেটটা দেয়, যেনো আমরা এই কাঠামোকেই সবসময় সার্ভ করি। পক্ষে থেকে হোক কিংবা বিপক্ষে। বিপক্ষে যেতে হলেও পক্ষে কি আছে তা অর্গানিকালি জানতে হয়। এই জানাটাই হচ্ছে রেকগনিশন, যা কাঠামোকে সচল রাখে।</p>
+        <p>এই ক্ষমতাকাঠামোর বাইরেও সমাজব্যবস্থা থাকতে পারে, সেখানেও নিজস্ব ক্ষমতার ডাইনামিকস, মূল্যবোধ, রাজনীতি, সাহিত্য ইত্যাদি থাকে। সেখানে রাষ্ট্রীয় ক্ষমতার চর্চা নামেমাত্র, তাই রাষ্ট্রীয় গুরুত্বও নামেমাত্র। এমন সমাজের অধিবাসীদেরকে বলা হয় 'সাব আল্টার্ন'। উদাহরণ হিসাবে দেয়া যেতে পারে বাংলাদেশের পাহাড়ি আদিবাসী, আমাজন রেইনফরেস্টের অধিবাসী, লাদাখের অধিবাসী ইত্যাদি। এমনকি জহির রায়হানের হাজার বছর ধরে উপন্যাসের গ্রামগুলাও এই ক্যাটাগরিতে পড়তে পারে। সাব আল্টার্ন মানেই রাষ্ট্রীয় ক্ষমতাকাঠামো দ্বারা শোষিত এমন বোঝায় না। রাষ্ট্রীয় ক্ষমতাকাঠামোর হাত বা আইনের হাত সাব আল্টার্ন পর্যন্ত অনেকসময় পৌছায় না; তাদের সমাজের আচার বিচার তাদের নিজস্ব ভঙ্গিমায় চলে। ঐ সমাজেও শোষণ আছে, অবিচার আছে, যেহেতু এটাও একটা স্ট্রাকচার, তবে লোকাল। রাষ্ট্রকাঠামোর সাথে সাব আল্টার্নের একটা অলিখিত বোঝাপড়া থাকতে হয়। রাষ্ট্র থেকে তারা ততটুকুই নিবে যতটুকু নিলে রাষ্ট্র চেপে বসবে না। এই ব্যালান্সটা খুব গুরুত্বপূর্ণ।  কিছু নিতে হয় স্বীকৃতিস্বরূপ, আবার নিরাপত্তাও একটা কারণ। অসুবিধাটা ঘটে যখন এই ব্যালান্স নষ্ট হয়, এবং বেশিরভাগ সময় তা ঘটে বটে।</p>
+        <p>আমাদেরকে বুঝতে হবে সাব আল্টার্ন মানেই রাষ্ট্রীয় ক্ষমতাকাঠামোর উচ্ছিষ্ট জনগোষ্ঠী না। রাষ্ট্রের সমান্তরালে এদের অবস্থান। এই সমান্তরলতা না থাকলে হয় সাব আল্টার্ন সেল্ফ রিজেকশনের ভেতর দিয়ে রাষ্ট্রক্ষমতার দাস হতে বাধ্য হবে অথবা রাষ্ট্র সাব আল্টার্নে ইনভেইড করে তাকে ডিসিমিনেট করবে।</p>
+        <p>২))</p>
+        <p>বাংলা ভাষায় সাব আল্টার্নের অনুবাদ 'নিম্নবর্গ'। আক্ষরিক অর্থ ঠিক হলেও আমি মনে করি এই তর্জমাটা ভুল। তবে এর কারণ ইউরোপীয় মানসিকতাই। তারাও সাব আল্টার্নকে নিম্নবর্গ ধরেই চিন্তা করে। এই চিন্তাধারার ফলে ক্রমন্বয়ে রাষ্ট্র ডিস্টোপিকালি হোমোজেনাস হতে শুরু করে। যেমন ইতালি এতো বড় দেশ হওয়া সত্ত্বেও সবজায়গায় এক ভাষায় কথা বলে। রাষ্ট্রীয় বর্ডার পার হলেই অন্য ভাষা। এই প্রচন্ড আর্টিফিশিয়াল ডিভিশন তখনি হতে পারে যখন চরম কালচারাল শোষণের ভেতর দিয়ে একটা জাতিকে যেতে হয়। ইতালিতে উচ্চারণগত পার্থক্য অঞ্চলভেদে আছে, কিন্তু ভাষা সবখানে একই। কালচারাল পার্থক্যগুলাও প্রকট না। ভাষাগত পার্থক্য যা ছিলো, তার চর্চা তারা ধরে রাখার চেষ্টা করেছে নিজ নিজ পরিবারের মধ্যে, কিন্তু যেহেতু এই পার্থক্যসমেত সাহিত্যচর্চা হয় না, তাই কালক্রমে ঐটুকু পার্থক্যও লুপ্তপ্রায়। রাষ্ট্র তাদের উপর ভাষা, কালচার, খাদ্যাভ্যাস চাপিয়ে দেয়। আবার আমেরিকার দিকে তাকালে আমরা দেখি সব জায়গাই ম্যাকডোনাল্ডস, সবাই ডেমোক্রেট আর রিপাব্লিকান মাইন্ডসেটের বাইনারির মধ্যে ঘুরপাক খাচ্ছে। আমেরিকার ইন্ডিজেনাস পপুলেশন, যারা সত্যিকারের সাব আল্টার্ন হতে পারতো, তাদেরকে অপ্রেসড মাইনরিটি হয়ে থাকতে হয়। যাইহোক, আমি বলতে চাই রাষ্ট্রযন্ত্রের সাথে সাব আল্টার্নের সম্পর্ক ডেলিকেট, যা টিকিয়ে রাখতে হলে সমান্তরাল দৃষ্টিভঙ্গি আর ইন্টারভেনশন মিনিমামে রাখা জরুরি।</p>
+        <p>৩))</p>
+        <p>বুঝের গোলোযোগটা কোথায় ঘটে এটা ধরতে হলে আরেকটা শ্রেণি নিয়ে কথা বলা জরুরি। এই শ্রেণীকে বলে প্রান্তিক, ইংরেজিতে ''Marginal"। প্রান্তিক জনগোষ্ঠী মূলত শোষিত জনগোষ্ঠী, যাদের জীবনের নিরাপত্তা সমাজে সর্বনিম্ন পর্যায়ে অবস্তিত। এদের উদাহরণ হিসাবে দেয়া যেতে পারে বাংলাদেশের দরিদ্র সংখ্যালঘু সম্প্রদায়, এতিমখানার ছেলেমেয়ে, ভূমিহীন কৃষক ইত্যাদি। খেয়াল করার আছে, সাব আল্টার্ন নিঃশেষ হওয়ার আগে প্রান্তিক হয়ে ওঠে। সাহিত্যিক-বুদ্ধিজীবীরা এই প্রান্তিক সাব আল্টার্নকে চিরাচরিত সাব আল্টার্ন হিসাবে দেখাতে চান। এই চাওয়াটা রোমান্টিক, কিন্তু বেঠিক। তারা যখন সাব আল্টার্নের ন্যারেটিভে ইতিহাস বিনির্মান করার কথা বলেন, তারা আসলে শুনতে চান কালচারিস্ট সাহিত্যিক-বুদ্ধিজীবীর বয়ানে প্রান্তিকের গল্প। উদাহরণ হিসাবে দেয়া যায় মানিক বন্দ্যোপাধ্যায়ের 'পদ্মা নদীর মাঝি'। গল্পের বয়ানে দুইটা দোষ আছে।</p>
+        <p>প্রথম দোষ-- সাব আল্টার্ন আর প্রান্তিককে এক করে ফেলা। এতে সাব আল্টার্নকে খাটো করা হয়। আমরা দেখতে পাই এই কারণে অদ্বৈত মল্লবর্মণ, যিনি ঐ সাব আল্টার্ন আপব্রিংগিং থেকেই এসেছেন, 'পদ্মা নদীর মাঝি' পড়ে বিরক্ত হচ্ছেন। এরপর উনি নিজেই একটা উপন্যাস লিখে ফেলেন 'তিতাস একটি নদীর নাম'। এই উপন্যাসে তিতাসের তীরবর্তী মালোদের জীবনের একটা আখ্যান পাওয়া যায়। উপন্যাসটা একটা সাব আল্টার্ন জনগোষ্ঠীর কথা বলছে যারা উপন্যাসের শেষভাগে প্রান্তিকে রূপ নেয়। লক্ষ্য করার বিষয় হচ্ছে এই উপন্যাসে সাব আল্টার্নকে প্রান্তিক করে দেখানো হয়নি, বরং সাব আল্টার্নের বিলুপ্তিতে প্রান্তিক পরিণতি দেখানো হয়েছে।</p>
+        <p>দ্বিতীয় দোষ-- প্রান্তিকের গল্প বলার চেষ্টা করা। এটা Dehumanification. একজন প্রান্তিকের দৃষ্টিভঙ্গি থেকে আমরা গল্প লিখতে পারি না, কারণ আমরা জানি না এক প্রান্তিক থেকে আরেক প্রান্তিকের পার্থক্য কোথায়, Individualism কোথায়। Individual হিসাবে ধরা দিত যদি তাদের চরিত্রগুলা কোনো গল্পের চরিত্রের মতো হতো, অর্থাৎ গল্পের জড় গ্রামার মেনে চলতো। গল্পের জড় গ্রামার কি? এটা একটা ছক যেখানে কিছু প্রকারের চরিত্র থাকবে। যেমন কমেডি, ট্র‍্যাজিক, জেদী, নায়ক, ভিলেন ইত্যাদি। প্রান্তিক এই জড় গ্রামার মেনে চলে না। সে এক শরীরে দয়ালু, সেই শরীরেই নিষ্ঠুর। সে সবাইকে ধারণ করে, আবার কাউকে না। তাকে প্রতিদিন নতুন সংগ্রাম করতে হয়। আজকের পর কালকে কি খাবে, কোথায় খাবে, এইগুলা ঠিক নাও থাকতে পারে। তাই পরিস্থিতি পড়ার ক্ষমতা থাকতে হয় সাধারণের থেকে অনেক বেশি, যা উচ্চ পর্যায়ের সংবেদনশীলতা তৈরী করে। এখান থেকেই ক্যারেকটার ফ্লুইডিটি তৈরী হয়। একজন প্রান্তিক তার সময়ের সমাজব্যবস্থার গল্পের ছকের বাইরের চরিত্র। যে গল্প দিয়ে সিস্টেম আমাদের ঘুম পাড়িয়ে রাখে, প্রান্তিক তার জাগ্রত ক্রিটিক। ভাঙা-গড়ার ট্রাঞ্জিশনে তার বসবাস, সাধু আর পিশাচের রাস্তা তার।</p>
+        <p>৪))</p>
+        <p>ইন্টারেস্টিং ব্যাপার হচ্ছে প্রান্তিক যখন সভ্য হয়ে ওঠে, সে আর প্রান্তিক থাকে না। চিরাচরিত সাব আল্টার্নের ক্ষেত্রে ব্যাপারটা এমন না। একজন সাব আল্টার্ন তার মুল্লুক ছেড়ে রাষ্ট্রক্ষমতার বলয়ে প্রবেশ করলেও তার ফেলে আসা সমাজের সুখ- দুঃখ, দ্বন্দ্ব, ভালোবাসার গল্প বলতে পারে। তাই সাব আল্টার্নের ভাষ্যে সাব আল্টার্নকে আমরা চিনতে পারি। কিন্তু প্রান্তিক কোনো ছকে থাকে না বলে সে যখন দুর্দশা কাটিয়ে একটা ছকে প্রবেশ করে, আগের অবস্থাটা সে বিস্মৃত হয়। Its like once you see a pattern in a drawing, you cannot unsee it, you always find that pattern. এই ব্যাপারেও অদ্বৈত দারুণ ইনসাইট দেখিয়েছেন। যুবক অনন্ত যখন পড়ালেখা শেষ করে দাঁড়িয়ে গেছে, বাবুদের সাথে চলাফেরা করছে, গ্রামে ফিরে সে অনন্তবালা আর বাসন্তীকে চিনতে পারে না।</p>
+        <p>প্রান্তিকের গল্প নাই তা না, বরং হাজার রকম সূক্ষ্ম অনুভূতির সংবেদনশীলতা দিয়ে পরিপূর্ণ খুব জটিল ইগো-ডাইনামিক্স আছে। বয়ানের বিলাসিতা যেখানে গুরুত্বহীন হয়ে ওঠে। আবার প্রান্তিক যখন তার প্রান্তিকতা কাটিয়ে ওঠে, সে অন্য মানুষে পরিণত হয়। তাই বয়ানের বিলাসিতা তৈরী হলেও সে আর কিছু মনে করতে পারে না।</p>
+        <p>The story of marginals exists. It exists without a narrative, it exists without a storyteller.</p>
+        <p>-- আগস্ট ২৬, ২০২২</p>
+        </div>
+      </div>
+    </details>
+    <details class="wr">
+      <summary><span class="s-en">The Canonical Structure</span> <span class="s-bn" lang="bn">প্রামাণিক কাঠামো</span> <span class="s-date">Feb 2021</span></summary>
+      <div class="ebody">
+        <div class="langbar"><button type="button" class="lang-btn is-on" data-l="bn">বাংলা</button><button type="button" class="lang-btn" data-l="en">English translation</button></div>
+        <div class="pane pane-en" hidden>
+        <p>Do we write the way we think? I don't think so. Just as there is a box of thought — thought held in a box — there is also a box of writing, writing held in a box. By this box I do not mean the limitation of language. It is formed in the process of socialization.</p>
+        <p>Let me try to open this up with a few examples.</p>
+        <p>Let me start with a small one. When I compose a melody of my own, the thought-space it comes from is not built by any conventional structure. That is, I do not then use any routine that follows from the theories we call the grammar of music. Nor is it that what I do has no structure — the structure is my own. This is quite hard to explain to another person. But if I am asked what I did, I will try to explain it with the conventional theory of music — even in such a way that it sounds as if I made the melody using that conventional grammar. Why would I do this? Because the logical motion of the conventional musical structure is universal. When we say that something has been "proven," we mean that it is validated by a universally accepted logical motion. So we try to bring any statement into a canonical (proof) structure. This is part of the socialization of expression.</p>
+        <p>The question is: must every melody be made this way? Does the canonical structure not actually produce melody? Of course it does — in most cases it does. For instance, playing random progressions within the conventional grammar of music and taking a combination of the spots that sound good, one can make a song; many commercial songs are made this way. And those who have practised a great deal develop various kinds of muscle memory; hand them a lyric and, sensing its mood, after one chord the next comes spontaneously to their hands. This works in improvisation too. But I think melody-practice based only on the canonical structure is bounded within a certain limit. Root-thought has little place there. Its existence has no reach beyond the space-time the given structure represents; as the age passes, that melody's relevance passes too. I am not saying this is bad. Such a melody can be sustained for years — but the year's harvest must be eaten within the year.</p>
+        <p>So I am saying there are two modes of sadhana (practice).</p>
+        <p>One mode does not come from any canonical structure; we may call it "original practice" (maulik sadhana). This practice begins with single-minded concentration on one idea. Then it slowly expands, leaning on intuition. It has a single, whole entity, its own grammar, and something of a reflection of the practitioner's soul. The mood that issues from this practice is then presented to people wrapped inside a canonical structure, so that it becomes intelligible. It may appear that the practitioner produced the mood by working through the complex rules of the canonical structure — but in truth it is not so. The mood was already born; to make it acceptable, the practitioner laboriously wrapped it in the canonical structure. This I call the socialization of mood.</p>
+        <p>The second mode may be called "unburdened practice" (nirbhar sadhana), because in it one need not carry the burden of an idea. Its very existence rests on the canonical structure. Its aim is to add some variation to what is already public and, through permutation and combination, to create and spread small new moods. Since the depth of its roots is shallow, its relevance depends heavily on space and time.</p>
+        <p>Now let me give an example from philosophy.</p>
+        <p>Michel Foucault is a very great philosopher. But did he think the way he wrote? Pure thought is like sowing a seed. It gets sunlight and grows on its own; its branches spread of themselves. Root-thought likewise does not need a thousand accessory facts. It has its own motion; the theories come to the head from an intuitive place, needing very little external influence. But when Foucault writes voluminous books, notice what he is doing. He takes shelter in anthropology and history to bring out his theory. He speaks in such a way that it seems he built his theory by reading these disciplines. In truth it is not so. The theory stood there long ago, born from the seed of his pure thought. Using anthropology and history he places the theory into a canonical structure. This is the socialization of theory. It is certainly needed, in order to connect with people.</p>
+        <p>Let me turn a little to Wittgenstein. We see that he wrote two books in his lifetime. His theory was not dwelt on as much as the man himself was. Had Bertrand Russell not endorsed Wittgenstein, it is doubtful how many would have known him. The reason must be understood. Wittgenstein wrote the way he thought. He did not undertake to place his thought into a canonical structure. As a result, without Russell the social acceptance of his writing might never have formed. Like Otto Weininger, he too might have been left aside.</p>
+        <p>So the extra labour one must take to place thought into a canonical structure is an unavoidable reality. Russell's "History of Western Philosophy" is one such unavoidable reality.</p>
+        <p>The question remains: is it then impossible to make philosophy by observing history and anthropology? The answer is as before: "Yes, it is possible!" Most academic philosophers are of this kind. But — as I said — such philosophies do not come from root-thought, so their dependence on space and time is great. To tell the truth, those we call present-day intellectuals, whom we see speaking on various political and social matters, are mainly philosophers of this kind. This philosophy certainly has importance.</p>
+        <p>An analogy will make it clear. Suppose a farmer sows rice seed, because at the year's end he will sell the rice to feed his child. There is no need to restate how important rice-farming is to the process of production. This rice-farming is much like the philosophy of society's ordinary intellectuals. Since society, history and anthropology hold countless elements, countless small philosophies can be made from them. But the kind of seed here is rice. Its applicability ends the very year it is sown.</p>
+        <p>But one thing must be remembered: a farmer is also a human being. At rest, sitting beneath the shade of a big tree, he wants to think about the world. He realizes that producing rice and gathering food is not the sole aim of his life. The big tree gives him that chance to think. The philosophy of pure thought is like this tree.</p>
+        <p>One thing must be made clear. Foucault is doing the philosophy of pure thought; he is tending the big tree. But he presents it to people placed inside a canonical structure. So to the farmer the tree appears in the form of a mango tree. There is an advertisement on the tree about how the mango can help the farmer's livelihood. For that lure, if nothing else, the farmer comes to the tree's shade — and that is Foucault's success.</p>
+        <p>Wittgenstein, on the other hand, is also doing pure philosophy, but his tree appears to the farmer's eyes as a banyan tree. That the banyan's fruit is not tasty is plain to the eye. So the farmer sees no possibility of livelihood in it. Only if the shade alone is desired will the farmer go near the tree.</p>
+        <p>Now the question is: what is the purpose of all these words? We have understood that there are two kinds of practice — but so what?</p>
+        <p>The reason for saying all this is to bring out a little of our behaviour as human beings. When I look toward academia, I see a great lack of understanding of these variations of practice. In academia now the breathing space for original practice is nearly at zero. Universities teach that practice must be done only on the basis of the canonical structure. This poverty of thought is mainly of the Western strain.</p>
+        <p>Even fifty years ago the condition was not this bad. Yes, what was there before, and is there still, is that the outer arrangement of logic must be set in the mould of the canonical structure — that is, research results must be presented in a canonical structure. Take physics itself. Einstein could not present his real thought-process in a seminar; he had to present the results of his research placed in a canonical structure. The same holds for Dirac, Schrödinger, Higgs — all of them. There is a certain necessity to this, if we desire collective or collaborative progress. But what was there before (and is not there now) is that the breathing space a researcher had could, if he wished, be used to do original practice and then find the leisure to present his research results in a canonical structure.</p>
+        <p>The trouble has come about through the outright denial of the process of original practice. Over time it has come to such a pass that a new researcher has no leisure at all to think originally, outside the canonical structure.</p>
+        <p>A new researcher writing papers year after year is much like rice-farming. He wants a granary full of rice, so that at the year's end, having paid the tax, he may get the chance to farm again next year. And each year the amount of the tax keeps rising. He has no time at all to nurture a big tree.</p>
+        <p>A few things we must understand:</p>
+        <p class="bul">• First, the collective progress of any discipline is not the only progress. Those who, after doing pure practice, feel no urge to bring their research into a canonical structure — new practitioners will be nourished by them. These non-canonical documents are like great fruit-bearing trees, in whose shade a person finds the inspiration to see the world from beyond worldliness.</p>
+        <p class="bul">• Second, even if we desire collective progress, a very important part of it comes from another kind of pure practitioner — those who practise outside the canonical structure but present the fruit of their practice placed within it. These works are like great fruit-bearing trees; through the world's variety of colour and flavour, they show us the infinite within the finite.</p>
+        <p class="bul">• Third, the practices obtained from within the canonical structure play a role in collective progress. This is like rice-farming. So it too is important, in the duty of keeping production going.</p>
+        <p>I think it is important to understand the categories set out above.</p>
+        <p>— February 28, 2021</p>
+        </div>
+        <div class="pane pane-bn" lang="bn">
+        <p>আমরা যেভাবে ভাবি, সেভাবে কি লিখি? আমার মনে হয় না। চিন্তার বাক্স কিংবা বাক্সবন্দী চিন্তা যেমন থাকে, তেমনি লেখার বাক্স কিংবা বাক্সবন্দী লেখাও থাকে। এই বাক্স দিয়ে আমি ভাষার সীমাবদ্ধতা বোঝাচ্ছি না। এটা তৈরী হয় সামাজিকীকরণ প্রক্রিয়ায়।</p>
+        <p>ব্যাপারটাকে একটু খোলাসা করার চেষ্টা করা যেতে পারে কিছু উদাহরণ দিয়ে।</p>
+        <p>১))</p>
+        <p>ছোট উদাহরণ দিয়ে শুরু করি। আমি যখন নিজের মতো সুর তৈরী করি, তা যে চিন্তাক্ষেত্র থেকে আসে, সেটা কোনো গতানুগতিক কাঠামো দিয়ে তৈরী হয় না। অর্থাৎ আমি তখন এমন কোনো রুটিন ব্যবহার করি না, যা সুরের গ্রামার বলে যেসমস্ত তত্ত্ব প্রচলিত আছে তার ফল। আবার যা করি তার যে কোনো স্ট্রাকচার নাই তাও না। স্ট্রাকচারটা আমার নিজের। এটা অন্যকে বোঝানো বেশ কষ্টসাধ্য। তবে যদি জিজ্ঞেস করা হয় আমি কি কি করেছি, তাহলে তা গতানুগতিক সুরের তত্ত্ব দিয়েই বোঝানোর চেষ্টা করব। এমনকি এমনভাবে বোঝানোর চেষ্টা করব, যেনো শুনে মনে হয় এই গতানুগতিক নিয়মের বুঝ দিয়ে আমি সুরটা বানিয়েছি। প্রশ্ন হচ্ছে এটা আমি কেন করব? কারণ গতানুগতিক সুরের কাঠামোর যৌক্তিক গতিবিধি ইউনিভার্শাল। আমরা যখন বলি কোনো কিছু প্রমাণিত হয়েছে, তখন আমরা বোঝাই সর্বজন স্বীকৃত একটা যৌক্তিক গতিবিধি দিয়ে তা সিদ্ধ। তাই যেকোনো কথাকে আমরা চেষ্টা করি একটা প্রামাণিক কাঠমোর মধ্যে নিয়ে আসতে। এই ব্যাপারটা ভাব প্রকাশের সামাজিকীকরণের অংশ।</p>
+        <p>প্রশ্ন হচ্ছে, সব সুর কি এভাবেই তৈরী হতে হয়? প্রামাণিক কাঠামো দিয়ে কি আদতে সুর তৈরী হয় না? অবশ্যই হয়! বেশিরভাগ ক্ষেত্রে তাই হয় বরং। যেমন, সুরের যে গতানুগতিক গ্রামার, তার ভিতরে অবস্থান করে র‍্যান্ডম কিছু প্রগ্রেশন বাজিয়ে বাজিয়ে যেসব জায়গাগুলোতে ভালো লাগছে তার একটা কম্বিনেশন নিয়ে গান বানিয়ে ফেলা যায়। অনেক কমার্শিয়াল গান এভাবেই তৈরী হয়েছে। আবার যারা প্রচুর গান তুলেছেন এবং চর্চা করেছেন, তাদের বিভিন্ন ধরণের মাস্‌ল মেমোরি তৈরি হয়। তাই তাদেরকে যদি একটা লিরিক ধরিয়ে দেয়া যায়, তারা লিরিকের ভাব বুঝে এক কর্ড বাজানোর পর কোন কর্ডে যাবে তা স্বতঃস্ফুর্তভাবে হাতে চলে আসে। ইম্প্রোভাইজ করার ক্ষেত্রেও এই ব্যাপারটা অনেকখানি কাজ করে। তবে আমি মনে করি, শুধু প্রামাণিক কাঠামোর উপর ভিত্তি করে যে সুর সাধনা, তা একপ্রকার সীমারেখায় আবদ্ধ। মূলচিন্তার এখানে তেমন জায়গা নেই। উপস্থিত কাঠামো যে স্থান-কালের প্রতিনিধিত্ব করে, তার বাইরে এর কোনো অস্তিত্ব নেই। যুগ চলে যাবার সাথে ঐ সুরের প্রাসঙ্গিকতাও চলে যায়। এটা খারাপ কিছু তা বলছি না। এমন সুর ভাঙ্গিয়ে বছরের পর বছর সাস্টেইন  করা যায়, তবে বছরের খানা বছরেই খেয়ে নিতে হয়।</p>
+        <p>অর্থাৎ আমি বলতে চাচ্ছি সাধনার দুটি মোড আছে--</p>
+        <p>একটা মোড কোনো প্রামাণিক কাঠামো থেকে আসে না, যাকে আমরা বলতে পারি "মৌলিক সাধনা"। এই সাধনা শুরু হয় একাগ্রচিত্তে একটা আইডিয়াকে কেন্দ্র করে। তারপর তা ধীরে ধীরে বিস্তৃত হয় ইন্টিউশনের উপর ভর দিয়ে। এর একটা একক ও সার্বিক সত্ত্বা থাকে, নিজস্ব গ্রামার থাকে এবং সাধকের রূহের একপ্রকার প্রতিফলন থাকে। এই সাধনা হতে উৎসারিত ভাবকে আবার মানুষের কাছে তুলে ধরা হয় একটা প্রামাণিক কাঠামোর মধ্যে ফেলে যেনো তা বোধগম্য হয়। আপাতদৃষ্টিতে মনে হতে পারে প্রামাণিক কাঠামোর জটিল নিয়ম কানুন ঘেটে সাধক ভাবটি উৎপন্ন করেছেন, কিন্তু আদতে ব্যাপারটা তা নয়। ভাবটি গ্রহণযোগ্য করার জন্য সাধক কষ্ট করে তা প্রামাণিক কাঠামোর মোড়কে মুড়ে প্রকাশ করেছেন। তাই একে আমি বলছি ভাবের সামাজিকীকরণ।</p>
+        <p>সাধনার দ্বিতীয় মোড কে বলা যেতে পারে "নির্ভার সাধনা"। কারণ এতে আইডিয়ার বোঝা বয়ে বেড়াতে হয় না। প্রামাণিক কাঠামোর উপর ভিত্তি করেই এই সাধনার অস্তিত্ব। যা সর্বসমক্ষে আছে, তাতে কিছু ভ্যারিয়েশন যোগ করে এবং পার্মুটেশন কম্বিনেশন করে ক্ষুদ্র ক্ষুদ্র নতুন ভাব সৃষ্টি ও তার বিস্তার এর উদ্দেশ্য। যেহেতু এর শেকড়ের গভীরতা অল্প, তাই এই সাধনার প্রাসঙ্গিকতা অনেকখানি স্থান-কালের উপর নির্ভরশীল।</p>
+        <p>২))</p>
+        <p>এখন উদাহরণ দেই দর্শনের ক্ষেত্রে।</p>
+        <p>মিশেল ফুকো অনেক বড় দার্শনিক। কিন্তু তিনি যা লিখেছেন, সেভাবে কি চিন্তা করতেন? শুদ্ধচিন্তা একটা বীজ বোনার মতো ব্যাপার। এটা সূর্যালোক পেয়ে নিজ থেকে বেড়ে ওঠে, ডালপালা আপনাতেই বিস্তৃত হয়। তেমনি মূলচিন্তার জন্য আনুসঙ্গিক হাজার তথ্যের প্রয়োজন হয় না। এর নিজস্ব একটা চলন থাকে, একটা ইন্টিউটিভ জায়গা থেকে থিওরিগুলো মাথায় আসে এবং খুব সামান্য বাহ্যিক ইনফ্লুয়েন্সের প্রয়োজন হয়। কিন্তু ফুকো যখন ভলিউমিনাস বই লিখছেন তখন কি করছেন তা খেয়াল করার আছে। তিনি Anthropology এবং ইতিহাসের আশ্রয় নিচ্ছেন তাঁর তত্ত্ব  ফুটিয়ে তোলার জন্য। এমনভাবে কথাগুলো তিনি বলছেন, যেনো মনে হবে এসব শাস্ত্র পড়ে পড়ে তাঁর থিওরি দাঁড় করিয়েছেন। আসলে ব্যাপারটা তা না। থিওরি অনেক আগেই দাঁড়িয়ে আছে তাঁর শুদ্ধচিন্তার বীজ থেকে জন্ম নিয়ে। নৃ-শাস্ত্র এবং ইতিহাস ব্যবহার করে তিনি তত্ত্বকে প্রামাণিক কাঠামোর মধ্যে ফেলছেন। এটা তত্ত্বের সামাজিকীকরণ প্রক্রিয়া। এর প্রয়োজন অবশ্যই আছে মানুষের সাথে সংযোগ স্থাপনের জন্য।</p>
+        <p>একটু হিড্‌গেন্সটাইনের দিকে তাকাই। আমরা দেখতে পাবো, তিনি জীবদ্দশায় দুটি বই লিখে গিয়েছেন। তাঁর তত্ত্ব নিয়ে খুব একটা ঘাটাঘটি হয়নি যতোটা না ব্যক্তি তাঁকে নিয়ে হয়েছে। বার্ট্রান্ড রাসেল যদি হিড্‌গেন্সটাইনকে এন্ডোর্স না করতেন, তাহলে তাঁকে কতোজন চিনতো, তা নিয়ে সন্দেহ আছে। এর কারণ বুঝতে হবে। হিড্‌গেন্সটাইন যেভাবে চিন্তা করেছেন সেভাবেই লিখেছেন। তিনি তাঁর চিন্তাকে প্রামাণিক কাঠমোতে ফেলে প্রকাশ করার উদ্যোগ নেন নি। ফলে তাঁর লেখার সামাজিক গ্রহণযোগ্যতা রাসেল না থাকলে হয়তো কখনো তৈরী হতো না। অটো উইনেঙ্গারের মতো করে হয়তো তাঁকেও সাইডে ফেলে রাখা হতো।</p>
+        <p>সুতরাং, চিন্তাকে প্রামাণিক কাঠামোতে ফেলে প্রকাশ করার যে অতিরিক্ত খাটুনি নিতে হয়, তা আনএভয়ডেবল রিয়েলিটি। রাসেলের "History of Western Philosophy" তেমনি একটা আনএভয়ডেবল রিয়েলিটি।</p>
+        <p>প্রশ্ন থেকে যাচ্ছে, তাহলে ইতিহাস এবং নৃ-শাস্ত্র পর্যবেক্ষণ করে কি দর্শন তৈরী করা সম্ভব না? এর উত্তর আগের মতোই। "হ্যা, সম্ভব!"! বেশিরভাগ একাডেমিয়ার দার্শনিকই এমন। তবে ওইযে, এধরণের দর্শনগুলো কোনো রূট চিন্তা থেকে আসে না, তাই স্থান-কালের উপর নির্ভরশীলতা অনেক। সত্যি কথা বলতে যাদেরকে আমরা হাল আমলের বুদ্ধিজীবী বলি, বিভিন্ন রাজনৈতিক ও সামাজিক বিষয়ে কথা বলতে দেখি, তারা মূলত এই প্রকারের দার্শনিক। এই দর্শনের গুরুত্ব অবশ্যই আছে।</p>
+        <p>একটা উপমা দিলে পরিস্কার হবে। --</p>
+        <p>মনে করি একজন কৃষক ধানের বীজ বুনছে কারণ বছর শেষে সে ধান বেচে তার সন্তানকে খাওয়াবে। উৎপাদন প্রক্রিয়ায় ধান চাষের গুরুত্ব কতোখানি তা নতুন করে বলার কিছু নাই। এই ধান চাষের ব্যাপারটা অনেকটা সমাজের সাধারণ বুদ্ধিজীবীদের দর্শনের মতো। যেহেতু সমাজে, ইতিহাসে এবং নৃ-শাস্ত্রে অসংখ্য উপাদান বিরাজ করে, তাই তা দিয়ে অসংখ্য ছোট ছোট দর্শন তৈরী করা সম্ভব। তবে বীজের ধরণ এক্ষেত্রে ধানই। এর প্রায়োগিকতা যে বছর বোনা হলো সে বছরেই শেষ হবে।</p>
+        <p>কিন্তু একটা জিনিস মনে রাখতে হবে, একজন কৃষক একজন মানুষও বটে। সে বিশ্রামকালে বড় গাছের ছায়াতলে বসে দুনিয়া নিয়ে ভাবতে চায়। সে অনুধাবন করে ধান উৎপাদন আর খানা-খাদ্য জোগাড় করা তার জীবনের একমাত্র লক্ষ্য নয়। বড় গাছটা তাকে সেই চিন্তার সুযোগ করে দিচ্ছে। শুদ্ধচিন্তার দর্শন হচ্ছে এই গাছটার মতো।</p>
+        <p>একটা ব্যাপার পরিস্কার করা জরুরী। ফুকো কিন্তু শুদ্ধচিন্তার দর্শন করছেন, বড় গাছই যত্ন করছেন। কিন্তু মানুষের কাছে তা প্রকাশ করছেন প্রামাণিক কাঠামোতে ফেলে। ফলে কৃষকের কাছে গাছটি আমগাছের রূপে হাজির হচ্ছে। আম কিভাবে কৃষকের অন্নসংস্থানে ভূমিকা রাখতে পারে এমন বিজ্ঞাপন আছে গাছটিতে। সেই লোভে হলেও কৃষক গাছটির ছায়াতলে আসছে, এতেই ফুকোর সাফল্য।</p>
+        <p>অন্যদিকে হিড্‌গেন্সটাইনও শুদ্ধ দর্শন করছেন কিন্তু তাঁর গাছটা কৃষকের চোখে ধরা দিচ্ছে বটগাছের রূপে। বটের ফল যে সুস্বাদু না, তা চোখের সামনে প্রতীয়মান। তাই কৃষক এতে অন্নসংস্থানের সম্ভাবনা দেখতে পাচ্ছে না। একমাত্র ছায়াতল কাম্য হলেই কৃষক গাছটির নিকট যাবে।</p>
+        <p>৩))</p>
+        <p>এখন প্রশ্ন হচ্ছে এসব বাক্যব্যায়ের উদ্দেশ্য কি। সাধনা দুই রকম বোঝা গেলো, কিন্তু তাতে কি?</p>
+        <p>এসব বলার কারণ হচ্ছে মানুষ হিসাবে আমাদের আচরণকে একটু ফুটিয়ে তোলা। একাডেমিয়ার দিকে যখন আমি তাকাই তখন সাধনার এই রকমফেরের অনুধাবনের দারুণ অভাব দেখতে পাই। এখন একাডেমিয়াতে মৌলিক সাধনা করার ব্রিদিং স্পেস প্রায় শূন্যের কোঠায়। বিশ্ববিদ্যালয়গুলোতে শেখানো হয় যে সাধনা করতে হয় শুধুমাত্র প্রামাণিক কাঠামোর উপর ভিত্তি করে। চিন্তার এই দৈন্য মূলত পশ্চমা ধারার।</p>
+        <p>পঞ্চাশ বছর আগেও এতোখানি খারাপ অবস্থা ছিলো না। হ্যা, আগে যেটা ছিলো এবং এখনো আছে, তা হলো বাহ্যিক যুক্তিবিন্যাস প্রামাণিক কাঠামোর আদলে সাজাতে হবে। অর্থাৎ গবেষণালব্ধ ফল প্রামাণিক কাঠামো দিয়ে উপস্থাপন করতে হবে। পদার্থবিজ্ঞানেই আসি। আইন্সটাইন তাঁর সত্যিকারের চিন্তাপ্রক্রিয়া সেমিনারে উপস্থাপন করতে পারবেন না, তাঁকে একটা প্রামাণিক কাঠামোতে ফেলে গবেষণার ফল প্রকাশ করতে হবে। এটার একরকম জুরুরত আছে যদি আমরা সামষ্টিক অগ্রগতি বা collaborative progress কামনা করি। একই কথা ডিরাক, শ্রোডিঙ্গার, হিগস, সবার জন্য প্রযোজ্য। তবে আগে যেটা ছিল (কিন্তু এখন নেই) তা হলো গবেষকের যেটুকু ব্রিদিং স্পেস থাকতো, তা দিয়ে চাইলে তিনি মৌলিক সাধনা করে প্রামাণিক কাঠামোতে তাঁর গবেষণার ফল প্রকাশের ফুরসত পেতেন।</p>
+        <p>কিন্তু অসুবিধাটা ঘটেছে মৌলিক সাধনাপ্রক্রিয়াকে একেবারে অস্বীকার করার মাধ্যমে। সময়ের সাথে এমন অবস্থা দাঁড়িয়েছে যে একজন নতুন গবেষকের পক্ষে প্রামাণিক কাঠামোর বাইরে গিয়ে মৌলিক চিন্তা করার কোনো ফুরসতই নাই।</p>
+        <p>একজন নব্য গবেষক যে বছর বছর পেপারগুলো লিখেন, তা অনেকটা ধান চাষের মতো। সে গোলাভরা ধান চাইছে, যেনো বছর শেষে খাজনা দিয়ে সে পরের বছর আবার চাষ করার সুযোগ পায়। আর প্রতিবছর খাজনার পরিমাণ বেড়েই চলেছে। তার সময়ই নেই একটা বড় গাছ লালন করার।</p>
+        <p>আমাদের কয়েকটা ব্যাপার বুঝতে হবে।</p>
+        <p class="bul">• প্রথমত, যেকোনো শাস্ত্রের সামষ্টিক অগ্রগতি বা collaborative progress একমাত্র অগ্রগতি না। যাঁরা শুদ্ধ সাধনার করার পর তাঁদের গবেষণাগুলোকে প্রামাণিক কাঠামোতে আনার কোনো তাগিদ বোধ করেন না, তাঁদের দ্বারা উপকৃত হবেন নব্য সাধকেরা। এই অপ্রামাণিক দলিলগুলো বটবৃক্ষের মতো, যার ছায়াতলে মানুষ দুনিয়াদারির ঊর্ধে জগতকে দেখার প্রেরণা পায়।</p>
+        <p class="bul">• দ্বিতীয়ত, সামষ্টিক অগ্রগতি কামনা করলেও তার একটা অত্যন্ত গুরুত্বপূর্ণ অংশ আসে আরেক প্রকার শুদ্ধসাধনাকারী থেকে, যাঁরা সাধনা করেন প্রামাণিক কাঠামোর বাইরে গিয়ে, কিন্তু সাধনার ফল প্রামাণিক কাঠামোর ভেতর ফেলে প্রকাশ করেন। এই কাজগুলো বড় বড় ফলবান বৃক্ষরাজির মতো। এটা আমাদেরকে দুনিয়ার রং রসের বিচিত্রতা দিয়ে সীমার মাঝে অসীমকে চেনায়।</p>
+        <p class="bul">• তৃতীয়ত, প্রামণিক কাঠামোর ভেতরে থেকে লব্ধ সাধনাগুলো সামষ্টিক অগ্রগতিতে একটি ভূমিকা রাখে। এটা ধান চাষের মতো। তাই এরও গুরুত্ব আছে উৎপাদনকে সচল রাখার দায়ে।</p>
+        <p>উপরে উল্লেখিত ক্যাটাগরিগুলো বোঝা জরুরি বলে মনে করি।</p>
+        <p>-- ফেব্রুয়ারী ২৮, ২০২১ ইং</p>
+        </div>
+      </div>
+    </details>
+    <details class="wr">
+      <summary><span class="s-en">The Unattainable</span> <span class="s-bn" lang="bn">অধরা</span> <span class="s-date">Feb 2020</span></summary>
+      <div class="ebody">
+        <div class="langbar"><button type="button" class="lang-btn is-on" data-l="bn">বাংলা</button><button type="button" class="lang-btn" data-l="en">English translation</button></div>
+        <div class="pane pane-en" hidden>
+        <p>As a child, reading Rabindranath Tagore's short stories, my mind was jolted more than once. What a strange realization! I used to underline the lines I loved, as if the underlining itself was my fulfilment. I didn't much care for the "point" of a story — I didn't even remember it. Nor was I gripped by wanting to know what would happen next. Yet I kept returning, because every so often Tagore, with the lens of his life-philosophy, would delicately conjure some subtle feeling from within the story itself. That was my nectar.</p>
+        <p>The writers whose themes I did love — I cannot remember their names. After Aesop, I know of no one who has done this so well. A couple of stories by very ordinary people had themes I loved — in Bukowski's words, they are the strongest of the "strange ones." But sadly, even when I liked the theme of a man-made story, it rarely left a mark.</p>
+        <p>When I read Humayun Ahmed, the main engine was curiosity — "what happens next" — together with his ingenious humour, which shook my mind again and again. There is an interesting difference between Tagore and Humayun. Humayun made us think his way. Tagore made us think many times over, but not his way — the reader's own way. This is not a question of better or worse; it is a difference of kind.</p>
+        <p>Back to the point. Why should a single line of Tagore or Humayun resonate so much? Surely you felt, "Yes! I never thought of it like this." I would say it is not that. Any writing resonates because those words were already inside me — only, until now, they had not been translated into any language. What great writers do best is give language to this untranslated feeling. Untranslated things sit scattered in the mind, in a fuzzy form. The moment I hear the writer's phrasing, a concretized form is made. There is a danger here: a person can, subconsciously, revise the fuzzy form in the light of lived experience — but the concretized form they usually leave untouched. Once it lodges in the mind, it keeps returning. So reading, too, has its hazard!</p>
+        <p>The upshot is this: a writer's realization becomes intelligible to the reader only when it already dwells in the reader. It is a strange dilemma. Unless the human makeup of reader and writer are close, one cannot communicate with the other. I do not mean that if the writer is a good person the reader must be too. Conscious values may differ; but the sense of beautiful and ugly, of black and white, of red and blue must be close. Education, culture, family, society bring us all roughly into a single queue (kaatar). So the human makeup of most of society — thief, robber, teacher, doctor, middle-class, upper-class, corrupt — is much the same. This is not a question of good or bad.</p>
+        <p>Now the real question. When someone comes from outside this queue, can we understand them by hearing or reading them? First, one thing must be clear. Whatever falls under rational reasoning is not in question here, because rational reasoning has a universal structure — what we call "logic." This part is fairly primitive, so humans are genetically able to grasp logic. (In my earlier essay "Nature and Truth" I explained why a child can learn language. Along with language, the package of understanding logic arrives free.)</p>
+        <p>To explain a little: when we weave logic in the mind, we always take shelter in a language. We weave logic with language; without language, logic has almost no reach. (This does not mean language brought only logic; it brought much else besides.) The point is, because a human knows language, they can also understand logic — without any external influence such as education, culture, social or family formation, or closeness to nature.</p>
+        <p>So two people from different queues can communicate through matters that fall under rational reasoning. "It's hot, please turn on the fan," or "Are you hungry, brother? Have some rice with me" — the structure of such ordinary communication is universal, not queue-bound. The queue enters when we exchange <em>bhaab</em> — feeling, sense — which lies outside rational reasoning.</p>
+        <p>For some people it goes so far that they are so immersed in the ocean of bhaab that entering rational structure disgusts them, feels filthy. We sometimes call them mad-with-feeling.</p>
+        <p>Again, "trauma" is an enormous external influence. It can carry a person into a queue where rational structure is like thorns, causing acute pain whenever they try to step into rational space. These we call mad outright, because rational communication with them is impossible; what little they manage is only for survival. (I am not saying only such people are called mad, but I won't take that up here.)</p>
+        <p>Back to my main question. Can ordinary-queue people grasp the bhaab of another queue? I think not. For instance, I cannot understand Lalon. And I am certain that those who claim to understand him do not either — unless they are themselves mystics (sadhaks). The matter is simple: the ingredients required for understanding are not present in everyone. They can be acquired only through living and through practice. The same holds for the Sufi mystics. One Sufi can exchange bhaab with another, but to say it to ordinary people would be a great error. We ordinary-queue people lack the equipment to understand that special bhaab. So, lacking the bhaab, we would force the words into rational space to understand them — and the result would be misinterpretation. This is why such knowledge is best kept secret. Call it the mystic's esoteric knowledge.</p>
+        <p>We see this in miniature too. A poet's poem is entirely bhaab. To understand a poem you must feel the poet. One who lacks the will and the empathy will not understand it. In the same way, the bhaab-connection that would form between Tagore and Einstein would take an ordinary reader great effort to follow. In the case of mystics, the ordinary person's failure to understand is mountainous.</p>
+        <p>So the question remains: can the mystics leave us nothing at all? No word of bhaab for the future reader? Yes, they can — but only through riddles. A riddle is a singular instrument of language, much like an encrypted message. The interesting thing is that a riddle cannot be solved without grasping its context. Here, unless the mystic's bhaab has formed in the reader's heart, the context cannot be caught, and the reader cannot even attempt to solve it. So the words are saved from misinterpretation. If the reader can, through practice, make the mind fit, then and only then can they solve it. Hence, saints have to be necessarily mystique. This is no idle mystification; it is a matter of necessity. The mystic can speak the words of the heart only in riddles.</p>
+        <p>So — the unattainable is not to be grasped!</p>
+        <p>(February 2, 2020)</p>
+        </div>
+        <div class="pane pane-bn" lang="bn">
+        <p>ছোটবেলায় রবীন্দ্রনাথ ঠাকুরের ছোটগল্প পড়ার সময় বেশ কয়েকবার মনে ধাক্কা লেগেছে। কী অদ্ভুত উপলব্ধি! পছন্দের লাইনগুলি দাগিয়ে রাখতাম, যেন সেই দাগ দেয়াতেই আমার সার্থকতা। গল্পের প্রতিপাদ্য বিষয় আমার অতো একটা ভালো লাগতো না, এমনকি মনেও থাকত না। কিংবা এরপর কি হবে এমন ভেবে আটকে থাকতাম তাও না। তারপরেও গল্পে ফিরে আসতাম, কারণ রবীন্দ্রনাথ একটু পরপর তাঁর জীবনদর্শনের বীক্ষণযন্ত্র দিয়ে গল্পের ভেতরেই সূক্ষ সূক্ষ কিছু অনুভূতি নিগূঢ়ভাবে ফুটিয়ে তুলতেন।  সেটাই ছিল আমার অমৃত!</p>
+        <p>যেসব লেখকের গল্পের প্রতিপাদ্য বিষয় আমার ভালো লেগেছে, তাদের নাম মনে নেই। ঈশপের পরে এই কাজ এতো ভালোভাবে কেউ করতে পেরেছে বলেও আমার জানা নেই। তবে দুই একটা খুব সাধারণ মানুষের লেখা গল্পের প্রতিপাদ্য বিষয় আমার ভালো লেগেছে। Bukowski এর ভাষায় বললে they are the strongest of the ‘strange ones’. কিন্তু দুঃখের বিষয় হচ্ছে কোনো মানবসৃষ্ট গল্পের প্রতিপাদ্য বিষয় ভালো লেগে থাকলেও তা বেশিরভাগ সময় মনে দাগ কাটেনি।</p>
+        <p>হুমায়ূন আহমেদের লেখা যখন পড়েছি, তখন তার প্রধান চালিকাশক্তি ছিল “এরপর কী হলো” তা জানার কৌতুহল।  এছাড়াও একটু পর পর তাঁর ইনজিনিয়াস হিউমার বা রসবোধ আমার মনোজগতকে বেশ নাড়া দিয়েছে। রবীন্দ্রনাথ আর হুমায়ূনের লেখার মধ্যে একটা মজার পার্থক্য আছে বলে আমার মনে হয়েছে। তা হলো হুমায়ূনের কথা আমাদেরকে তাঁর মতো করে ভাবিয়েছে। অন্যদিকে রবীন্দ্রনাথের কথা আমাদেরকে একাধিকবার ভাবিয়েছে, তবে তাঁর মতো করে না, পাঠকের মতো করেই। এটা ভালো খারাপের প্রশ্ন না। লেখার ধরণের ভিন্নতা।</p>
+        <p>মূল কথায় ফেরত আসি। রবীন্দ্রনাথ বা হুমায়ূনের কোনো একটা কথা এতো ভালো লাগবেই বা কেনো? নিশ্চই মনে হয়েছে “আসলেই তো! এমনভাবে চিন্তা করিনি কখনো”। আমি বলব ব্যাপারটা তা না। যেকোনো লেখা ভালো লাগে কারণ সেই কথাগুলো ইতিমধ্যে আমার ভিতর ছিলো। শুধুমাত্র এতোদিন তা কোনো ভাষায় অনুদিত হয়নি। বড় বড় সাহত্যিকরা যেটা সবথেকে ভালো পারেন তা হলো এই untranslated অনুভূতিকে ভাষার মাধ্যমে প্রকাশ করতে। Untranslated কথাগুলো মনের মধ্যে বিক্ষিপ্তভাবে থাকে, আরো ঠিক করে বললে অনেকটা fuzzy form এ। যে মুহুর্তে লেখকের জবানে কথাটা শুনি, তখনি সেটার concretized form তৈরী হয়। এর একটা অবশ্য বিপদ আছে, মানুষ fuzzy form টা কে জীবনের অভিজ্ঞতার আলোকে অবচেতনে পরিবর্তন বা পরিমার্জন করতে পারে। কিন্তু concretized form কে সাধারণত সে ঘাটায় না। একবার মনে গেঁথে গেলে সেটাই ফিরে ফিরে আসতে থাকে। অতএব বই পড়ার বিড়ম্বনাও আছে!</p>
+        <p>যাইহোক মদ্দাকথা হলো, লেখকের উপলব্ধি তখনি পাঠকের বোধগম্য হয় যখন পাঠকের মধ্যে তা আগে থেকেই বিরাজ করে। এটা একটা অদ্ভুত ডাইলেমা। পাঠক এবং লেখকের মানবিক গঠন কাছাকাছি না হলে একজনের সাথে আরেকজন communicate করতে পারে না। এমন বলা হচ্ছে না যে লেখক ভালো মানুষ হলে পাঠককেও ভালো মানুষ হতে হবে। সচেতন মূল্যবোধগুলো দুইজনের আলাদা হতেই পারে, কিন্তু সুন্দর-অসুন্দরের, সাদা-কালোর, লাল-নীলের বোধ কাছাকাছি হতে হবে। শিক্ষা/ সংস্কৃতি/ পরিবার কিংবা সমাজের গঠন আমাদের সবাইকে মোটামুটি এক কাতারে নিয়ে আসে। তাই সমাজের বেশিরভাগ চোর, ডাকাত, শিক্ষক, ডাক্তার, মধ্যবিত্ত, উচ্চবিত্ত, সাদা মানুষ, কিংবা দুর্নীতিবাজের মানবিক গঠন একই। ভালো খারাপের প্রশ্ন এইটা না।</p>
+        <p>এখন আসল প্রশ্ন করি। যারা এই কাতারের বাইরে থেকে আসে, তাদের কথা শুনলে বা লেখা পড়লে আমরা কী কিছু বুঝতে পারব? এই পর্যায়ে একটা ব্যাপার পরিস্কার করা দরকার। যেসব কথা rational reasoning এর আওতায় পড়ে, তা এখানে বিবেচ্য না। কারণ rational reasoning এর একটা universal structure আছে, যাকে আমরা 'যুক্তি' বলি। এই অংশটা মোটামুটি প্রিমিটিভ, তাই জীনগতভাবেই মানুষ যুক্তি বুঝতে সক্ষম। এর আগে আমার “প্রকৃতি ও সত্য” নামের লেখাটিতে ব্যাখ্যা করেছি কেন একটা শিশু ভাষা শিখতে পারে। ভাষার সাথে সাথে যুক্তির অনুধাবনের প্যাকেজটা ফ্রি তে চলে আসে।</p>
+        <p>একটু ব্যাখ্যা করলে সহজ হবে।</p>
+        <p>আমরা যখন মনে মনে যুক্তির বুনন ঘটাই তখন চিন্তাক্ষেত্রে সবসময় একটা ভাষাকে আশ্রয় করি। অর্থাৎ আমরা যুক্তি বুনি ভাষা দিয়ে। ভাষা ছাড়া যুক্তির দৌড় নেই বললেই চলে। (তার মানে এই না যে ভাষা শুধু যুক্তি নিয়ে এসেছে, যুক্তির সাথে সাথে সে আরো অনেক কিছু এনেছে)। মূলকথা হলো, যেহেতু মানুষ ভাষা জানে, তাই যুক্তিও বুঝতে সে সক্ষম কোনো প্রকার External Influence (শিক্ষা/ সংস্কৃতি/ সামাজিক বা পারিবারিক গঠন/ প্রকৃতির সান্নিধ্য লাভ ইত্যাদি) ছাড়াই।</p>
+        <p>অতএব rational reasoning এর আওতাধীন কথা দিয়ে দুইজন ভিন্ন কাতারের মানুষ কমিউনিকেট করতে পারে। যেমন “গরম লাগছে, ফ্যানটা ছেড়ে দেন” কিংবা “খিদা লেগেছে ভাই? দুইটা ভাত খান আমার সাথে” ইত্যাদি সাধারণ কমিউনিকেশন এর স্ট্রাকচারটা universal, কাতারভিত্তিক না। কাতারের ব্যাপারটা চলে আসে যখন ভাবের কথা আদান-প্রদান ঘটে, যা rational reasoning এর বাইরে অবস্থিত।</p>
+        <p>কোনো কোনো মানুষের ক্ষেত্রে এমন হয় যে তারা ভাবসমুদ্রে এতোই মজে যায়, rational structure এ আসতে অত্যন্ত বিরক্তিবোধ করে, নোংরা লাগে। এদেরকে অনেকসময় আমরা ভাবের পাগল বলি।</p>
+        <p>আবার “Trauma” একটা বিশাল External Influence. এটা মানুষকে এমন কাতারে নিয়ে যেতে পারে যেখানে rational structure কাঁটার মতো, ভীষণ যন্ত্রণা তৈরী করে যখনি সে rational space এ যাওয়ার চেষ্টা করে। এদেরকে সরাসরি আমরা পাগল বলি, কারণ তাদের সাথে rational communication করা যায় না। যেটুকু সে করে তা শুধু বাঁচার তাগিদে। (পাগল যে শুধু এদেরকেই বলে তা কিন্তু বলা হচ্ছে না, তবে এখানে সেটা নিয়ে আলোচনা করব না।)</p>
+        <p>যাইহোক আমার মূল প্রশ্নে ফেরত যাই। যারা সাধারণ কাতারের মানুষ, তারা কি অন্য কাতারের ভাবের কথা বুঝতে পারবে? আমি মনে করি পারবে না। যেমন আমি লালনের কথা বুঝতে পারি না। এবং আমি নিশ্চিত, যারা বোঝেন বলে দাবি করেন তারাও বোঝেন না, যদি না তারা সাধক হয়ে থাকেন। ব্যাপারটা কিছুই না, বোঝার জন্য যে উপকরণগুলো প্রয়োজন, তা সবার মধ্যে থাকে না। এই উপকরণগুলো যাপন আর সাধনের মাধ্যমেই কেবল অর্জন করা সম্ভব। একই কথা সুফী সাধকদের জন্য প্রযোজ্য। এক সুফী আরেক সুফীর সাথে ভাবের কথা আদান-প্রদান করতে পারে, কিন্তু সাধারণ মানুষকে সেটা বললে বিরাট ভুল হয়ে যাবে। আমরা যারা সাধারণ কাতারের মানুষ, আমাদের ঐ বিশেষ ভাব বোঝার উপকরণ অনুপস্থিত। ফলে ভাবের অভাবে আমরা কথাটাকে rational space এ জোর করে ঢুকিয়ে বোঝার চেষ্টা করব, যার পরিণাম হবে Misinterpretation. এইজন্যে এধরণের বিদ্যাকে গোপন রাখা বাঞ্ছনীয়। এটাকে সাধকের গুপ্তবিদ্যা বলা যায়।</p>
+        <p>ক্ষুদ্র পরিসরেও আমরা এই ব্যাপারটা দেখতে পাই। যেমন কবির কবিতা কিন্তু পুরাটাই ভাবের কথা। কবিতা বুঝতে হলে কবিকে অনুভব করতে হয়। যার ভিতর সেই ইচ্ছা এবং empathy নাই, সে কবিতা বুঝবে না। একইভাবে রবীন্দ্রনাথ এবং আইন্সটাইনের মধ্যে যে ভাবের সংযোগ ঘটবে তা সাধারণ পাঠকের বুঝতে বেগ পেতে হবে। সাধকদের ক্ষেত্রে এই সাধারণের না বোঝার মাত্রাটা পর্বতসম।</p>
+        <p>তাহলে প্রশ্ন থেকে যায় যে সাধকেরা কি আমাদের জন্য কিছুই রেখে যেতে পারবে না? কোনো ভাবের কথাই কি থাকবে না ভবিষ্যতের পাঠকের জন্য? হ্যা পারবে, তবে শুধু ধাঁধাঁর মাধ্যমে। Riddle বা ধাঁধাঁ ভাষার একটা অনন্য উপকরণ। অনেকটা encrypted message এর মতো। মজার ব্যাপার হচ্ছে, context না ধরতে পারলে ধাঁধাঁ সমাধান করা যায় না। এক্ষেত্রে সাধকের ভাব পাঠকের হৃদয়ে তৈরী না হলে context ধরা সম্ভব না এবং ধাঁধাঁ সমাধানের চেষ্টা পর্যন্ত সে করতে পারবে না। অতএব misinterpretation থেকে কথাটা রক্ষা পাবে। পাঠক যদি সাধনের মধ্য দিয়ে মনকে উপযুক্ত করতে পারে, তাহলেই সে সমাধান করতে পারবে। Hence, saints have to be necessarily mystique. এটা কোনো ছেলেভোলানো কর্মকান্ড না। প্রয়োজনেই এমন। সাধক তাঁর মনের কথা একমাত্র হেঁয়ালি করেই বলতে সক্ষম।</p>
+        <p>সুতরাং, অধরা ধরার নয়!</p>
+        <p>(ফেব্রুয়ারী ২, ২০২০ ইং)</p>
+        </div>
+      </div>
+    </details>
+    <details class="wr">
+      <summary><span class="s-en">The Nature of Truth</span> <span class="s-bn" lang="bn">সত্যের স্বরূপ</span> <span class="s-date">Jan 2020</span></summary>
+      <div class="ebody">
+        <div class="langbar"><button type="button" class="lang-btn is-on" data-l="bn">বাংলা</button><button type="button" class="lang-btn" data-l="en">English translation</button></div>
+        <div class="pane pane-en" hidden>
+        <p>As one is, so is one's world. There is a depth to this saying. Its relation to a philosophy of life is deep, and grasping it is necessary to understand what truth is like. When a person sees two events, they want to find a link between the one and the other. That link may be "rational," or it may be "irrational." Irrational does not necessarily mean superstition. Many events happen without logic. A boy, say, smiles at a girl; but in return the girl makes a face at him. It makes no sense. Does that mean there is no connection between the two events? Of course there is. This connection is not woven of logic, nor does it come from superstition.</p>
+        <p>Or take the burnt cow that is frightened when it sees a red, sindoor-coloured cloud. The logical weave of the event is that on some stormy night the sky had clouded over; clouds rubbed against clouds and then lightning struck; the cow's shed burned down. Now the cow is frightened whenever it sees a cloud. It is not that the cow built the link from a logical foundation. Nor can it be called superstition. The cow is perhaps joining the two events by something else entirely.</p>
+        <p>Turn to literature. When we read a novel, we enjoy it because we can make mutual connections among the events of the novel. A large part of these connections has no rational basis — yet it is not superstition either.</p>
+        <p>Anyway, the main point is that we want to find a link between two events — whether by logic, without logic, or by superstition. Since life is the sum of countless events, no overall meaning is found by describing each connection. When we say "to make sense of this world," we are really seeking a principle by which all these connections can be addressed together. This principle we naively call worldview.</p>
+        <p>An example will make it clear. Suppose someone is asked, "How does the world work?"</p>
+        <p>(1) One class of people will answer: the world runs on money. Human behaviour, social structure, the spread of religion — everything is economic at its base. At the root of civilization is money. Writing began for the sake of money. Mathematics arose from keeping accounts of money. The modern age began with industrialization, at whose root lie financial transactions. What is needed to build and run the laboratories of knowledge and science is money. And this ongoing world politics — what drives it? Western industry needs energy; and once it began buying that from the Arabs, billions of dollars flowed from West to Middle East, and the Arabs grew rich overnight. To control this one-way flow, continuous conflict became necessary. Through the killing or removal of progressive leaders and the funding of warmongers, this effort began. In consequence the Arab world had to buy billions of dollars of weapons from America. A thousand such wars, a thousand such treaties — at the root of all is money.</p>
+        <p>Money controls the smallest personal matters too. With money one can go to the gym and gain good health. With good nutrition one can grow tall and broad — as Korea's average height changed markedly with its economic growth. The indispensability of the spa, of yoga, of the vegan diet for preserving and enhancing beauty — money ensures all this. In old age, the only ones to rely on for care are one's children. So, to keep this bond alive until death, the tie of parent-child must be made permanent, which becomes possible through the institution called "marriage." Where society takes on this responsibility, marriage is no longer needed — as is already happening in various countries. A person's social dignity is money-centred. Even love is sweetened through money. With money one can buy a good camera and take lovely pictures; give magical surprises on a birthday or on Valentine's Day; when there is a quarrel, spend money to go to beautiful places and buy nice hotel packages to soothe the heart. And even the great and noble works become possible only when there is money. In Ayn Rand's words, "the best way to help the poor is not to be one of them!" So she spoke for the system that is founded upon a financially advanced, educated populace — which is exactly the moderate capitalist system. Where one has no chance to advance beyond another, there is no competition, and hence no incentive to work.</p>
+        <p>Now someone might say that dependence on money is a man-made condition, so etymologically all the above reasoning is baseless. But a practical person first places himself in the present condition, not in some abstract hypothetical space. In Heideggerian language, "we are thrown into the world, and that is the first reality." Since I was not present at the birth of money, it is meaningless to stand at that origin and look at society. Placing myself in the present, I see that money exists and that money is the driving force of the whole world. So the "misery of human being" must be addressed with money (as in social business); human distress must be removed with this very money. Many great saints, sages and philosophers have thought about, or prescribed remedies for, human misery. Well — what was their social position? Gautama Buddha was a prince. Had he not been a prince, it is doubtful he would have realized that the world is full of sorrow. The philosopher of philosophers, Ludwig Wittgenstein, was the son of the richest man in Vienna; so he could scorn wealth and riches. The same holds for Bertrand Russell, Confucius, Karl Marx. In the feudal age, when the gap between rich and poor was beyond touch, it was at the hands of landlords' children that the world's most humanist literature, poetry and stories grew. To do philosophy, literature, art, one needs boundless time, needs idleness, needs the luxury of thought — which comes only by the force of money. The world works through the dynamics of money.</p>
+        <p>(2) Another class of people will say the world runs by the force of power. The very beginning was "survival of the fittest." Today's human strides across the whole earth, and at the root of that is organization. And being able to organize others to accomplish one's own aim — that is power. Whether there is money or not makes no difference. Look at history and it becomes clear. There are countless examples of great rulers who, sent into exile, were able to recover their position. Money will come and go, but power is not for everyone. Today Singapore, the Arab states, have much money — but are they running the world? The world is run by America, Russia, China, Israel. These are the states strongest in military and technology, which serves as the source of power. Of all the world's great leaders, how many were thirsty for money? How did Gandhi live? How did Bhashani live? Yet they were able to turn the course of a whole nation. So many saints and sages have come into the world; none lived a life of luxury, yet generation after generation has been initiated, entranced by their words. When we remember Gautama Buddha, we do not trouble ourselves over whether he was king or beggar. We trouble ourselves over his powerful words.</p>
+        <p>What lies at the root of patriarchy? It is not that women are genetically inferior. Think a little and one sees it exactly boils down to the power of tradition. Marriage is a part of this tradition. So to think of marriage as men's empowerment, and of not-marrying as women's empowerment, is not entirely without reason.</p>
+        <p>With power, falsehood can be made truth and truth made falsehood. History is written by the winners! So in ancient literature one finds the ballads of Roman valour, their humanity, their civilization, while the Germans are shown as a barbarous people. The reason is that the Romans were victorious and the Germans defeated. Religion did not bring money — it brought power, by whose force great empires have fallen, changed, expanded. This is noticeable in small matters too. With power one can ride a government helicopter for free to attend a wedding, while without power one may sit stuck in traffic for hours despite owning a BMW. And since the study and processing of power is called politics, politics is everything! The world works through power.</p>
+        <p>(3) For one class of people, the world runs on its own. It is not that some people control it. At the root of all that happens is fate. That I have been born a human today is a fate. Some are born with a golden spoon in the mouth, some in a ruined hut. Neither the economic order nor the order of power was made by any grand plan; they happened by coincidence. When the full moon is a scorched piece of bread, nation and race, black and white, Shia and Sunni — none of it works. Just then the truth is revealed like sunlight: that in truth nothing is in a human's hands. So worldly doctrines are baseless. Steeped in the play of worldly colour one can parrot great doctrines, logic, civilization or barbarism — but with the slightest change, everything shatters into dust. Then theft, robbery, plunder, rape all become permissible. Therefore a human has no fitness at all to decide right and wrong. The greatest truth is: I exist. I want to live. Therefore I want justice. But I will not accept the judgment of any scoundrel. Everyone is a schemer, ugly-faced within. I want the fruit of deeds — Karma! I want punishment for birth, perpetual torment! I want an unseen judgment, divine justice! Otherwise nothing adds up! So I see two possible answers.</p>
+        <p>One — no one runs the world; in which case nothing has any value. There is no logic to any plan. Who should control how much of the world, and how, is a preposterous question. The big ideas were formed coincidentally from the coming-together of small selfish ideas. Country, society, the justice system were not made from any vast, sweeping plan; they were made from the coincidences of history. So thinking about country and society is also preposterous.</p>
+        <p>Two — fate is fixed, and the world runs at the fingertip of the fate-decider. In that case all logic, all cause and effect, are pretexts. The lofty imagination of making progress is therefore irrelevant. Whoever is meant to see, will see. My effort will succeed at the decider's command, and fail in the same way. Into the pot go all your plans and programmes.</p>
+        <p>In any case, the world is all about fate, whether spontaneous or controlled.</p>
+        <p>(4) One class will say the world does not run at all. That portion of eternity in which the existence of humans on earth is possible is like a single moment. What we are calling Balance is, in the eye of eternity, a transient state. The tiny span of existence in the history of the animal kingdom may seem a steady state, but in truth this is an illusion. And within this illusion are yet more illusions. A human assumes the earth persists within a delicate balance. It is not so at all. In Žižekian language, "mother earth is a cruel bitch!" The greatest proof of this is the abundance of oil inside the earth. Through how much catastrophe must the earth have passed for that much oil to lie in its mines! Today we speak big words about climate change, as if we could do something about it if we wished! In truth nothing will come of it. Animals come, animals go extinct. Even the utterly harmless, more-Buddhist-than-Buddha vegetarian dinosaurs were wiped out. Humans will be too. Some other animal will take their place. Perhaps they will be more intelligent than humans. And they too will be wiped out. Even this earth will be wiped out when the sun's fuel runs low. And there are the cosmic meteors besides.</p>
+        <p>Life has no purpose; not even on the basis of its brief persistence can an apparent purpose be framed. There is neither fate nor coincidence in the world. What happens is merely the result of a huge probability equation. We ourselves are part of this equation. The equation has brought us, the equation will erase us. What is true is Chaos. We came from Chaos, our life will pass through a Chaos, and then chaotically be wiped away.</p>
+        <p>All this crime, wrongdoing, war, love, peace is one phase of this uncontrolled disorder. By some random means we have been able to become spectators of this Chaos. So what one ought to do is to mock the seriousness of human beings. To make fun of the mask of order that society shows. In Camus's words, to present oneself so that one's very existence appears to society as a revolt. To fulfil one's desires as much as one can, and to make merry at the establishment's expense. And, if possible, to enjoy fame as a bonus.</p>
+        <p>So, the world does not work, it is just a chaos.</p>
+        <p>(5) One class will say: however the world may have run until now, ahead it will run by science. The need for money, the need for power, even the need for fate will run out as science advances further. Passing through error upon error, humans have reached the present state. What is civilization, after all, but the growth of knowledge and its application? The stream of knowledge was not always so from the start; how to ask questions we have learned slowly. Fumbling this way and that, we have moved little by little toward asking the right question, and have come to know how to seek the answer. That the right language of knowledge is science — this we have understood only a few hundred years ago, and it will very soon become universal. Before this, the discipline that discussed the deep questions was philosophy. Philosophy can go deep, true, but it does so on a foundation of unreal imagination. For thinking by the right process one needs Facts and Logic; and to confirm the conclusion reached, Experimental Verification. Whatever lies outside this process is unnecessary. Science will one day, through neural mapping, be able to explain the minutest feelings of humans, even their existence. It will prove for certain that a human is nothing but a complex machine. Virtual Reality will reach such a stage that humans will begin to live there and make the world as they wish. The body will not be needed. The brain preserved in a jar, they will dwell forever in happiness and peace in some world like the Matrix. If one wishes strongly enough, even a holy godman can be conjured up in that world. One can fall in love, again and again, with the same person or with different ones. The responsibility of controlling this whole machinery will be given to some Artificially Intelligent system. In time the entire content of the brain can be brought out of the biological brain and stored inside a server. Coming out of the skull, humans will then cross the limitation of the skull. They will cross the wall of existence of new desires and feelings. Later still, the electronic version of all humans can, by some process, be brought together to create a new harmony. The age of Super Intelligence will begin. To maintain such a system one need not remain on earth; the system could be inside some spaceship out in the void. And under proper care it could even be immortal. Since the idea of time is under control and the maintenance process is active, it makes no difference whether the spaceship moves fast or slow. From planet to planet the system will roam, gathering information, and the Super Intelligence will dissect it. Unless, of course, the phase of the universe changes — though perhaps the Super Intelligence will find a way to keep even itself aloof from that.</p>
+        <p>So, the world might have worked through some primitive means, but it will eventually work through science for sure!</p>
+        <p>(6) One class will perhaps say the world runs because there is love. Had there been no love, we would long ago have been wiped out! The human begins from love — whether biological or otherwise. This bond of love ensures mutual security. At the root of human belief is love. Standing on that belief, humans organize themselves and establish dominion over the animal kingdom. No one will deny literature's contribution to the growth of the inner world; and the life-force of literature is passion, which comes from love. The same is true for science. Science may explain the properties of a thing, but it cannot explain the thing's purpose. Science may perhaps take us into a fully virtual world, but it will not be able to explain the hopes and longings, the art, the love of the humans dwelling there. Many perhaps want to set up marriage as a necessary tool of the economic or the power order. But what marriage has contributed to our inner world — can that be explained by anything but love? The degree of a husband and wife's mutual feeling, or the emotion of the parent-child bond, the pull of the umbilical cord — only love can fittingly address these. Other matters become secondary then. It was not out of the mere thirst for revenge that the people of Bengal threw themselves into the great Liberation War; without love for one's own people it would not have been possible. Today, amid so much strife, so much bloodshed and dispute in the world, we can still laugh, still write poetry, and above all cultivate the flowering of human variety — though, seeing and enduring all this sorrow and suffering, there was no way left but to go mad. And yet the human manages, because after enduring all this, when they go home, there is a mother to love them, a wife, a child, a friend. It is by the force of love that they flower.</p>
+        <p>The world works through human activity and human being flourishes through love.</p>
+        <p class="bul">• <em> </em></p>
+        <p>In these examples we see that each class of thought has its own logical motion. Each one of them seems consistent. The question is: is the truth (in the sense of haqiqat) the sum of all these? I think not. Because if we take any one of them as true, the rest are dismissed. And if we make a blend by taking a part of one and a part of another, the consistency, the flow of logic, does not hold. Many people try to present just such a blend, but because of the inconsistency such words may find a place in a motivational speech, yet in truth they are nothing but garbage. So the first thing to realize is that consistency of logic is not enough to determine truth. Many of us step into this trap. Before saying some statement, call it X, if instead of saying it directly I can somehow show that "V" led to "W" and "W" led to "X," then most people accept it. As if drawing the conclusion in three or four steps makes the statement correct! It is not so at all. (This kind of step-heavy reasoning I call "flimsy logic.")</p>
+        <p>Then what is real haqiqat? The only conclusion I can arrive at is that truth is not something inorganic; truth is an Organic Entity. As we interact with truth, truth also interacts with us. It is rather like a game. We may name it "maya khela" — the play of illusion. This play of illusion is such that the way I want to see the world, the world shows up before me in that way. My past and future too become accordingly. A person's social position often determines from which view they will see the world. A marginal person will most likely see the world from the standpoint of fate; a businessman, most likely, from the standpoint of money; and a politician, perhaps, from the standpoint of power. The Aziz-Super-Market-type "keep-my-hands-clean" intellectuals will perhaps see the world as Chaos. And a new petty-scientism-ist will perhaps see the world only through science.</p>
+        <p>The "play of illusion," with time, hardens these viewpoints further. A person begins to explain all the gains and failures of their life in one and the same manner. In this way they become a slave of maya. This state we naively call "dogma." But the idea of the "bondage of maya" is something larger than that. As long as a person lives, they give great importance to their social position. So liberation from the bondage of maya is not possible within one's lifetime. Perhaps that is why Lalon said that one must die before dying. Only in this way is it possible, while remaining on earth, to understand the play of maya.</p>
+        <p>The world is maya. Maya is not false; maya is worldly truth.</p>
+        <p>— January 30, 2020</p>
+        </div>
+        <div class="pane pane-bn" lang="bn">
+        <p>যে যেমন, তার দুনিয়া তেমন। এই কথার একটা মাজেজা আছে। জীবন দর্শনের সাথে এর সম্পর্ক গভীর। সত্য কেমন তা বুঝতে এর উপলব্ধি হওয়া জরুরী। মানুষ দুইটা ঘটনা দেখলে একটার সাথে আরেকটার যোগসাজস খুঁজতে চায়। সেই যোগ 'rational' হতে পারে, আবার হতে পারে 'irrational'। Irrational মানেই যে কুসংস্কার তা বলা হচ্ছে না। অনেক ঘটনাই ঘটে যুক্তি ছাড়া। যেমন একটা ছেলে কোনো একটা মেয়েকে দেখে হাসল। কিন্তু প্রত্যুত্তরে মেয়েটা ভেঙচি কেটে দিল। কোনো মানে হয় না। তাই বলে এই দুইটা ঘটনার মধ্যে কী কোনো যোগ নাই? অবশ্যই আছে। এই যোগ যুক্তির বুননে তৈরী হয়নি, আবার কুসংস্কার থেকেও আসেনি।</p>
+        <p>আবার যেমন ঘরপোড়া গরু সিঁদুরে মেঘ দেখলে ভয় পায়। ঘটনাটার যৌক্তিক বুনন হচ্ছে যে আকাশে কোনো ঝড়ের রাতে মেঘ করেছিল। মেঘে মেঘে ঘর্ষণে তারপর বজ্রপাত হয়। গরুর ঘর পুড়ে যায়। গরু এখন মেঘ দেখলেই ভয় পাচ্ছে। যোগটা যে যৌক্তিক বুনিয়াদি থেকে গরু তৈরি করেছে তা না। আবার কুসংস্কার বলা যাবে তাও না। গরু হয়তো সম্পূর্ণ অন্যকিছু দিয়ে দুটা ঘটনার সংযোগ ঘটাচ্ছে।</p>
+        <p>সাহিত্য চর্চার দিকে তাকাই। আমরা যখন একটা উপন্যাস পড়ি তখন তা ভালো লাগে কারণ উপন্যাসের ঘটনাগুলোর মধ্যে আমরা পারস্পরিক সংযোগ ঘটতে পারি। এই সংযোগের একটা বড় অংশের rational ভিত্তি নাই, কিন্তু তা কুসংস্কারও না।</p>
+        <p>যাইহোক, মূল কথা হচ্ছে আমরা দুইটা ঘটনার মধ্যে যোগসাজশ খুঁজতে চাই। সেটা যুক্তি দিয়ে হোক, যুক্তি ছাড়া হোক কিংবা কুসংস্কার দিয়ে হোক। জীবন যেহেতু অসংখ্য ঘটনার সমষ্টি, তাই প্রতিটা সংযোগ বর্ণনা করার মধ্যে সার্বিক অর্থ খুঁজে পাওয়া যায় না। আমরা যখন বলি "to make sense of this world" তখন আমরা আসলে এমন একটা মূলনীতি খুঁজি যা দিয়ে এই সংযোগ গুলোকে একসাথে address করা যাবে। এই মূলনীতিকে আমরা  naively বলি বিশ্বদর্শন বা worldview.</p>
+        <p>উদাহরণ দিলে পরিস্কার হবে ব্যাপারটা। ধরি কাউকে প্রশ্ন করা হলো "How the world works?"</p>
+        <p>১))</p>
+        <p>একশ্রেণির মানুষের উত্তর হবে, পৃথিবী চলে অর্থ দিয়ে। মানুষের আচরণ, সামাজিক গঠন, ধর্মের প্রচার, সবকিছুর ভিত্তি অর্থনৈতিক। সভ্যতার মূলে অর্থ। লেখনীপদ্ধতি চালু হবার কারণ অর্থ। গণিতের উৎপত্তি এই অর্থের হিসাব রাখা থেকেই। আধুনিক যুগের শুরু industrialization এর মাধ্যমে, যার মূলে রয়েছে আর্থিক লেনদেন। জ্ঞান বিজ্ঞান সাধনায় ল্যাব নির্মান ও ব্যবহারের জন্য যা দরকার হয় তা অর্থ। এইযে চলমান বিশ্বরাজনীতি, তার চালিকা শক্তি কী? পশ্চিমা বিশ্বের industry চালাবার জন্য জ্বালানী শক্তির প্রয়োজন। আর তা আরবদের থেকে যখন কেনা শুরু করল, বিলিয়ন বিলিয়ন ডলার west থেকে middle east এ যাওয়ায় আরবরা রাতারাতি ধনী হয়ে গেলো। এই একমুখি flow নিয়ন্ত্রণের জন্য প্রয়োজন হয়ে পড়ল continuous conflict এর। প্রগতিশীল নেতাদের হত্যা/ অপসারণ এবং যুদ্ধবাজদের funding করার মাধ্যমে শুরু হলো এই প্রয়াস। এতে আরব বিশ্বকে কোটি কোটি ডলারের অস্ত্র কিনতে হলো মার্কিন মুল্লুক থেকে। এরকম হাজারো যুদ্ধ, হাজারো চুক্তি, সবকিছুর মূলে অর্থ।</p>
+        <p>ছোট ছোট personal ব্যাপারগুলোকেও অর্থ নিয়ন্ত্রণ করে। অর্থ থাকলে gym এ যেয়ে সুস্বাস্থ্যের অধিকারী হওয়া যায়। ভালো nutrition পেলে লম্বা চওড়া হওয়া যায়। যেমন কোরিয়ার অর্হনৈতিক প্রবৃদ্ধির সাথে তাদের গড় উচ্চতার বড় পরিবর্তন এসেছে। সৌন্দর্য  রক্ষা ও  বর্ধনের জন্য spa, yoga, vegan diet ইত্যাদির অনস্বীকার্যতা এই অর্থই নিশ্চিত করেছে।</p>
+        <p>বৃদ্ধ বয়সে দেখাশোনা করার জন্য একমাত্র ভরসা করা যায় সন্তানকে। তাই এই সম্পর্ক মৃত্যুর আগ পর্যন্ত টিকিয়ে রাখার জন্য পিতা-মাতা-সন্তান নামক বন্ধনের স্থায়ীকরণ করা জরুরী, যা সম্ভব হয় 'বিয়ে' নামক প্রতিষ্ঠানের মাধ্যমে। সমাজ এই  দায়িত্ব নিয়ে নিলে আর বিয়ের প্রয়োজন থাকে না, যা ঘটছেও বিভিন্ন দেশে। মানুষের সামাজিক মর্যাদা অর্থকেন্দ্রিক। এমনকি প্রেমের সম্পর্ক মধুর হয় অর্থের মাধ্যমেই। অর্থ থাকলে ভালো ক্যামেরা কেনা যায়, সুন্দর সুন্দর ছবি তোলা যায়। জন্মদিন কিংবা ভ্যালেন্টাইন ডে তে ম্যাজিকাল সারপ্রাইজ দেয়া যায়। মনোমালিন্য হলে অর্থ খরচ করে সুন্দর সুন্দর জায়গায় যাওয়া যায়, সুন্দর সুন্দর হোটেলের প্যাকেজ কিনে মন ভোলানো যায়। আবার গুরুত্বপূর্ণ মহৎ কাজগুলোও অর্থ থাকলেই করা সম্ভব হয়।  Ayn Rand এর ভাষায় বললে “best way to help the poor is not to be one of them!” তাই তিনি সেই সিস্টেমের পক্ষে কথা বলেছেন যা প্রতিষ্ঠিত হয় সমাজে আর্থিকভাবে উন্নত শিক্ষিত জনগোষ্ঠীকে কেন্দ্র করে। Exactly এই সিস্টেমটাই moderate capitalist system. একজন আরেকজনের থেকে উন্নতি না করার সুযোগ থাকলে competition থাকে না, তাই থাকেনা কাজ করার incentive.</p>
+        <p>এখন কেউ বলতে পারে অর্থের প্রতি নির্ভরশীলতা একটা মানবসৃষ্ট অবস্থা, তাই ব্যুৎপত্তিগত ভাবে দেখলে উপরে উল্লেখিত সমস্ত যুক্তি ভিত্তিহীন। কিন্তু একজন প্র্যাক্টিকাল মানুষ প্রথমে নিজেকে বর্তমান অবস্থায় স্থাপিত করে, কোনও abstract hypothetical space এ না। হাইডেগারিয়ান ভাষায় বললে “we are thrown into the world, and that is the first reality.” আমি যেহেতু অর্থের উৎপত্তিলগ্নে ছিলাম না, তাই সেই অবস্থানে দাঁড়িয়ে সমাজের দিকে তাকানো অর্থহীন। নিজেকে বর্তমানে স্থাপিত করলে আমরা দেখি অর্থ আছে এবং অর্থই সমস্ত পৃথিবীর চালিকাশক্তি। তাই “misery of human being” কে address করতে হবে অর্থ দিয়েই (যেমন social business), মানুষের দুর্দশা দূর করতে হবে এই অর্থ দিয়েই। মানুষের দুর্দশা নিয়ে ভেবেছেন বা দূর করার prescription দিয়েছেন অনেক বড় বড় সাধু সন্ত দার্শনিক। আচ্ছা, তাদের সামাজিক অবস্থান কি ছিল? গৌতম বুদ্ধ ছিলেন রাজপুত্র। উনি রাজপুত্র না হলে পৃথিবী যে দুঃখময় তার বুঝ আসত কিনা এতে সন্দেহ আছে। Philosopher of the philosophers, Ludwig Wittgenstein, ছিলেন ভিয়েনার সবথেকে ধনীর সন্তান। তাই উনি বিত্ত বৈভবকে নিকুচি করতে পেরেছিলেন। একই কথা বার্ট্রান্ড রাসেল, কনফুসিয়াস, কার্ল মার্ক্স, সবার ক্ষেত্রে প্রযোজ্য। সামন্ত আমলে যখন ধনী-দরিদ্রের পার্থক্য ধরা ছোঁয়ার বাইরে ছিল, তখন জমিদার সন্তানদের হাত ধরে গড়ে উঠেছে বিশ্বের সবথেকে মানবতাবাদী সাহিত্য, কবিতা, গল্প। দর্শন, সাহিত্য, কলা এসব করার জন্য অফুরন্ত সময় প্রয়োজন, আলস্য প্রয়োজন, চিন্তা করার বিলাসিতা প্রয়োজন, যা শুধুমাত্র অর্থের জোরেই আসে। The world works through the dynamics of money.</p>
+        <p>২))</p>
+        <p>আবার একশ্রেণীর মানুষ বলবে পৃথিবী চলে ক্ষমতার জোরে। শুরুটাই হয়েছে “survival of the fittest” থেকে। আজকের মানুষ সমস্ত পৃথিবীকে দাপিয়ে বেড়াচ্ছে, যার মূলে আছে সংঘবদ্ধতা। আর অন্যকে সংঘবদ্ধ করে নিজের উদ্দেশ্য হাসিল করতে পারাকেই বলে ক্ষমতা। অর্থ থাকুক আর না থাকুক কিছু আসে যায় না। ইতিহাসের দিকে তাকালেই বোঝা যাবে। পৃথিবীতে অনেক বড় বড় শাসককে exile এ পাঠিয়ে দেয়ার পর নিজের অবস্থান ফেরাতে পেরেছে এমন ভুরি ভুরি উদাহরণ আছে। অর্থ হাতে আসবে যাবে, কিন্তু ক্ষমতা সবার জন্য না। আজকে সিঙ্গাপুর, আরব এইসব দেশে অনেক অর্থ, কিন্তু তারা কি বিশ্ব চালাচ্ছে? বিশ্ব চালাচ্ছে আমেরিকা, রাশিয়া, চায়না, ইসরাইল, এসব দেশ। এসব দেশই সামরিক এবং প্রযুক্তিগতভাবে সবথেকে শক্তিশালী, যা ক্ষমতার উৎস হিসেবে কাজ করে। পৃথিবীর যত বড় বড় নেতা তাদের কয়জন টাকার পিপাসু ছিল? গান্ধী কিভাবে চলতেন? ভাষানী কিভাবে চলতেন? অথচ গোটা জাতির মোড় ঘুরিয়ে ফেলতে পেরেছিলেন তাঁরা। এতো এতো সাধু সন্ত পৃথিবীতে এসেছে, কেউ বিলাসী জীবনযাপন করেনি, কিন্তু তাঁদের বাণীতে আচ্ছন্ন হয়ে প্রজন্মের পর প্রজন্মও দীক্ষিত হয়েছে। গৌতম বুদ্ধের কথা আমরা যখন স্বরণ করি, উনি রাজা ছিলেন নাকি ভিক্ষুক ছিলেন তা নিয়ে কেয় মাথা ঘামাই না। মাথা ঘামাই তাঁর ক্ষমতাধর কথা নিয়ে।</p>
+        <p>পুরুষতন্ত্রের মূলে কী? এমন তো না যে নারীরা Genetically inferior. একটু ভাবলেই দেখা যাবে it exactly boils down to the power of tradition. বিয়ে এই tradition এর একটা অংশ। তাই বিয়েকে পুরুষের ক্ষমতায়ন আর বিয়ে না করাকে নারীর ক্ষমতায়ন হসেবে ভাবাটা একেবারে যুক্তিহীন না।</p>
+        <p>ক্ষমতা দিয়ে মিথ্যাকে সত্য আর সত্যকে মিথ্যা বাণীয়ে দেয়া যায়। History is written by the winners! তাই প্রাচীন সাহিত্যে রোমান সাম্রাজ্যের বীরত্ব গাঁথা, তাদের মানবতাবোধ, সভ্যতা ইত্যাদি দেখতে পাওয়া যায়, আর জার্মানদের দেখানো হয় একটা বর্বর জাতি হিসেবে। এর কারণ রোমানরা জয়ী হয়েছিল, আর জার্মানরা পরাজিত। ধর্ম অর্থ আনেনি, এনেছে ক্ষমতা, যার শক্তিতে বড় বড় সাম্রাজ্যের পতন হয়েছে, পরিবর্তন হয়েছে, পরিবর্ধন হয়েছে।  ক্ষুদ্র ব্যাপারেও এটা লক্ষ্যনীয়। ক্ষমতা থাকলে বিনা পয়সায় সরকারি হেলিকপ্টারে চেপে বিয়ে খেতে আসা যায়, আর ক্ষমতা না থাকলে বি এম ডাব্লিউ থাকার পরেও ঘণ্টার পর ঘণ্টা জ্যামে আটকে থাকা লাগে। যেহেতু ক্ষমতার পাঠ ও প্রক্রিয়াজাতকরণকে রাজনীতি বলে, তাই রাজনীতিই সব! The world works through power.</p>
+        <p>৩))</p>
+        <p>একশ্রেণীর মানুষের  কাছে পৃথিবী চলে নিজের মত। কিছু মানুষ নিয়ন্ত্রণ করে ব্যাপারটা তা না। যাকিছু হয় সবকিছুর মূলে নিয়তি। আজকে আমি মানুষ হয়ে জন্মগ্রহণ করেছি, এটা একটা নিয়তি। কারো কারো জন্ম হয় সোনার চামচ মুখে নিয়ে, আবার কারো হয় জারাজীর্ণ কুটিরে। অর্থব্যবস্থা, ক্ষমতাতন্ত্র, কোনও কিছুই বৃহৎ পরিকল্পনা থেকে মানুষ তৈরী করেনি। হয়েছে কাকতালীয়ভাবে। পূর্ণিমার চাঁদ যখন ঝলসানো রুটি, তখন দেশ-জাতি, কালো-সাদা, শিয়া-সুন্নী কোনও কিছুই কাজ করে না। ঠিক তখন সত্য উদ্ভাসিত হয় সূর্যালোকের মতো। আর তা হলো মানুষের হাতে সত্যিকারভাবে কিছুই নাই। তাই লৌকিক মতবাদ ভিত্তিহীন। দুনিয়াবি রংগলীলায় মাতোয়ারা থেকে বড় বড় মতবাদ, যুক্তি, সভ্যতা কিংবা অসভ্যতা কপচানো যায়, কিন্তু একটু অন্যরকম হলেই সবকিছু ভেঙ্গে চুরে ধূলিস্বাত হয়ে যায়। চুরি ডাকাতি লুট ধর্ষণ সবই তখন বৈধ। সুতরাং মানুষের ন্যায় অন্যায় ধার্য করার যোগ্যতাই নাই। সবথেকে বড় সত্য হলো আমি আছি। আমি বেঁচে থাকতে চাই। অতএব আমি বিচার চাই। কিন্তু কোনও হারামজাদার বিচার তো মেনে নিব না। সবাই ধান্দাবাজ, ভিতরের মুখটা কুশ্রী। আমি চাই কর্মফল, Karma! আমি চাই জন্মের শাস্তি, perpetual torment! আমি চাই গায়েবী বিচার, divine justice! নাহলে যে কিছুই মিলছে না! তাই দুইটা সম্ভাব্য উত্তর দেখি।</p>
+        <p>এক-- পৃথিবী কেউ চালায় না, সেক্ষেত্রে কোনও কিছুরই মূল্য নাই। কোনও পরিকল্পনার যুক্তি নাই। পৃথিবীতে কার নিয়ন্ত্রণ কতো এবং কেমন হওয়া উচিৎ এটা একটা উজবুকি প্রশ্ন। বড় বড় ধারণাগুলো ছোট ছোট স্বার্থবাদী ধারণার সমন্বয়ে কাকতালীয়ভাবে তৈরী হয়েছে। বৃহৎ ব্যাপক পরিকল্পনা থেকে দেশ, সমাজ, বিচারব্যবস্থা তৈরী হয়নি, হয়েছে ইতিহাসের কাকতালের সমন্বয়ে। অতএব দেশ-সমাজ নিয়ে ভাবনাও উজবুকি।</p>
+        <p>দুই-- নিয়তি নির্ধারিত, আর পৃথিবী চলে নিয়তি নির্ধারকের অঙ্গুলি হেলনে। সেক্ষেত্রে সমস্ত যুক্তি, কার্যকারণ হচ্ছে উছিলা। উন্নতি করার উচ্চকল্পনা তাই অপ্রাসঙ্গিক। যে দেখার সে দেখবে। আমার চেষ্টা সফল হবে নির্ধারকের নির্দেশেই, বিফলও হবে একইভাবে। ভাঁড়ে চলে যাবে তোমাদের প্ল্যান প্রোগ্রাম।</p>
+        <p>In any case, the world is all about fate, whether spontaneous or controlled.</p>
+        <p>৪))</p>
+        <p>একশ্রেণী বলবে পৃথিবী আসলে চলে না। মহাকালের যে অংশে পৃথিবীর মানুষের অস্তিত্ব সম্ভব, তা একটা মুহুর্তের মতো। যাকে আমরা Balance বলছি, তা আসলে মহাকালের চোখে একটা transient state. প্রাণীজগতের ইতিহাসের ক্ষুদ্র অস্তিত্বকালকে হয়ত মনে হতে পারে একটা steady state, কিন্তু আদতে এটা ভ্রম। এই ভ্রমের মধ্যেও আরও অনেক ভ্রম আছে। মানুষ ধরেই নেয় পৃথিবী একটা delicate balance এর মধ্যে টিকে আছে। ব্যাপারটা মোটেও তা না। জিজেকীয় ভাষায় বললে “mother earth is a cruel bitch!” এর সবথেকে বড় প্রমাণ হচ্ছে পৃথিবীর অভ্যন্তরে তেলের প্রাচুর্যতা। কী পরিমাণ catastrophe এর মধ্যে দিয়ে পৃথিবী না গেলে এই পরিমাণ তেল খনিতে থাকতে পারে! আজকে আমরা climate change নিয়ে বড় বড় কথা বলছি, যেন আমরা চাইলে এই ব্যাপারে কিছু করতে পারব! আদতে কিছুই আসবে যাবে না। প্রাণী আসে, প্রাণী extinct হয়। একেবারে নিরীহ বুদ্ধের থেকেও বৌদ্ধ নিরামিষভোজী ডাইনোসরগুলোও নিশ্চিহ্ন হয়ে গেছে। মানুষও হবে। অন্য কোনও প্রাণী সেই জায়গা দখল করবে। হয়ত তারা মানুষের থেকেও বুদ্ধিমান হবে। আবার তারাও নিশ্চিহ্ন হবে। এমনকি এই পৃথিবীও নিশ্চিহ্ন হবে সূর্যের জ্বালানী কমে গেলে। এছাড়া মহাজাগতিক উল্কাপিণ্ড তো আছেই।</p>
+        <p>জীবনের কোনও উদ্দেশ্য নাই; এমনকি ক্ষুদ্র স্থায়িত্বের উপর ভিত্তি করেও কোনও আপাত উদ্দেশ্য প্রণয়ন করা যায় না। জগতে নিয়তি বা কাকতালও নাই। যা ঘটে তা একটা বিশাল probability অঙ্কের ফলমাত্র। আমরা নিজেরাই এই অঙ্কের অংশ। অঙ্কই আমাদেরকে এনেছে, অঙ্কই আমাদের মুছে দিবে। যা সত্য তা হলো Chaos. আমরা এসেছি Chaos থেকে, আমাদের জীবন একটা Chaos এর ভিতর দিয়ে যাবে আর তারপর Chaotically নিশ্চিহ্ন হয়ে যাবে।</p>
+        <p>এই যে এত অপরাধ, অনাচার, যুদ্ধ, প্রেম, শান্তি সবই এই অনিয়ন্ত্রিত বিশৃঙ্খলার একটা দশা। কোনও একটা random উপায়ে আমরা এই Chaos এর দর্শক হতে পেরেছি। তাই যা করা উচত তা হলো মানুষের seriousness কে উপহাস করা। সমাজ যে শৃঙ্খলার মুখোশ দেখায়, তাকে নিয়ে মস্করা করা। Camus এর কথায় বললে নিজেকে এমনভাবে উপস্থাপন করা যেন আপন অস্তিত্বই একটা বিদ্রোহ আকারে সমাজের কাছে ধরা দেয়। যতটা পারা যায় নিজের কামনা বাসনা চরিতার্থ করা আর establishment নিয়ে মজামারি করা। যদি পারা যায় বোনাস হিসেবে খ্যাতি উপভোগ করা।</p>
+        <p>So, the world does not work, it is just a chaos.</p>
+        <p>৫))</p>
+        <p>একশ্রেণী বলবে পৃথিবী এতদিন পর্যন্ত যেভাবেই পরিচালিত হোক না কেনো, সামনে তা চলবে বিজ্ঞান দিয়ে। অর্থের প্রয়োজনীয়তা, ক্ষমতার প্রয়োজনীয়তা, এমনকি ভাগ্যের প্রয়োজনীয়তাও ফুরিয়ে যাবে যখন বিজ্ঞান আরও এগিয়ে যাবে। ভুলভ্রান্তি অরিক্রম করে মানুষ বর্তমান অবস্থায় পৌঁছেছে। সভ্যতা আসলে কী -- জ্ঞানের বিকাশ আর তার প্রয়োগ ছাড়া তো কিছু না। জ্ঞান বিকাশের ধারা শুরু থেকেই যে এমন ছিল তা না, কিভাবে প্রশ্ন করতে হয় তা আমরা শিখেছি ধীরে ধীরে। এদিক ওদিক করতে করতে আস্তে আস্তে সঠিক প্রশ্ন করার দিকে এগিয়েছি আর কিভাবে এই প্রশ্নের উত্তর খুঁজতে হয় তা জেনেছি। জ্ঞানার্জনের সঠিক ভাষা যে বিজ্ঞান, তা বুঝেছি এইতো কয়েকশ বছর হলো আর তা খুব শীঘ্রই সার্বজনীন হয়ে যাবে। এর আগে গভীর প্রশ্নগুলো নিয়ে যে শাস্ত্র আলোচনা করত তা হলো ফিলসফি। ফিলসফি গভীরে যেতে পারে ঠিকই কিন্তু তা অলীক কল্পনার উপর ভিত্তি করে। সঠিক প্রক্রিয়ায় চিন্তার জন্য প্রয়োজন Facts and Logic. প্রাপ্ত সিদ্ধান্তকে নিশ্চিত করার জন্য Experimental Verification. এই প্রক্রিয়ার বাইরে যা কিছু আছে তা অপ্রয়োজনীয়। বিজ্ঞান একসময় নিউরাল ম্যাপিং এর মাধ্যমে মানুষের ক্ষুদ্রাতিক্ষুদ্র অনুভূতি, এমনকি অস্তিত্ব ব্যাখ্যা করতে পারবে। মানুষ যে একটা complex machine ছাড়া কিছু না, তা নিশ্চিতভাবে প্রমাণ করবে। Virtual Reality এমন পর্যায়ে চলে যাবে যে মানুষ সেখানেই বাস করা শুরু করবে আর পৃথিবীকে যেমন চায় তেমন বানিয়ে নেবে। শরীরের প্রয়োজন পড়বে না। জারে মস্তিষ্ক সংরক্ষণ করে Matrix World এর মতো কোনও একটা জগতে চিরকাল সুখে শান্তিতে থাকবে। খুব বেশী ইচ্ছা করলে সেই জগতেও দয়াল বাবা কিবলা কাবা হাজির করা যাবে। বার বার একই মানুষ কিংবা ভিন্ন মানুষের প্রেমে পড়া যাবে। এই পুরো Machinery এর নিয়ন্ত্রণের দায়িত্ব দেয়া হবে Artificially Intelligent কোনও সিস্টেমকে। একসময় মস্তিষ্কের সমস্ত content কে Biological brain এর বাইরে নিয়ে এসে একটা সার্ভারের মধ্যে স্টোর করা যাবে। মগজ থেকে বের হয়ে এসে মানুষ তখন মগজের limitation অতিক্রম করবে। নতুন ইচ্ছা-অনুভূতির অস্তিত্বের দেয়াল অতিক্রম করবে। এরও পরে সমস্ত মানুষের ইলেক্ট্রনিক ভার্সন কোনও এক প্রক্রিয়ায় একসাথে করে নতুন ঐকতান তৈরী করা যাবে।   Super Intelligence এর যুগ শুরু হবে। এমন একটা সিস্টেম maintain করার জন্য পৃথিবীতেই যে থাকতে হবে তা না। মহাশূন্যে কোনও এক স্পেসশীপে সিস্টেমটা থাকতে পারে। আর পরিচর্যার মধ্যে থাকলে তা অবিনশ্বরও হতে পারে। সময়ের ধারণা যেহেতু নিয়ন্ত্রণের মধ্যে আর maintenance প্রক্রিয়া যেহেতু active, তাই স্পেসশীপ কত দ্রুত চলছে বা আস্তে চলছে এতে কিছু এসে যায় না। গ্রহ থেকে গ্রহান্তরে সিস্টেমটা চষে বেড়াবে, তথ্য সংগ্রহ করবে আর Super Intelligence সেটাকে dissect করবে। অবশ্য মহাবিশ্বের phase পরিবর্তন হলে অন্যকথা। হয়ত Super Intelligence সেটা থেকেও নিজেকে অলীক রাখার উপায় বের করে ফেলবে।</p>
+        <p>সুতরাং, the world might have worked through some primitive mean, but it will eventually work through science for sure!</p>
+        <p>৬))</p>
+        <p>একশ্রেণী হয়ত বলবে পৃথিবী চলছে কারণ ভালোবাসা আছে। ভালোবাসা না থাকলে আমরা কবেই নিঃশেষ হয়ে যেতাম! মানুষের শুরু ভালোবাসা থেকে, সেটা জৈবিক হোক আর যাই হোক। এই ভালোবাসার বন্ধনই পারস্পরিক নিরাপত্তা নিশ্চিত করে। মানুষের বিশ্বাসের মূলে ভালোবাসা। সেই বিশ্বাসের উপর দাঁড়িয়েই সংঘবদ্ধ হওয়া এবং প্রাণীজগতে আধিপত্য প্রতিষ্ঠা করা।</p>
+        <p>মনোজগতের উন্নতির জন্য সাহিত্যের অবদান কেউ অস্বীকার করবে না। সাহিত্যের প্রাণশক্তির মূলে passion, যা আসে ভালোবাসা থেকে। একই কথা বিজ্ঞানের জন্যও সত্য। বিজ্ঞান হয়ত ব্যাখ্যা করতে পারে বস্তুর বৈশিষ্ট্য কিন্তু বস্তুর উদ্দেশ্য ব্যাখ্যা করতে পারে না। হয়ত বিজ্ঞান আমাদেরকে সম্পূর্ণ ভার্চুয়াল জগতে নিয়ে যাবে, কিন্তু সেই জগতে অবস্থানরত মানুষের আশা আকাঙ্ক্ষা, কলা, প্রেম এগুলো ব্যাখ্যা করতে পারবে না।</p>
+        <p>বিয়েকে অনেকে হয়ত অর্থনৈতিক কিংবা ক্ষমতাতন্ত্রের প্রয়োজনীয় উপকরণ হিসেবে দাঁড়া করাতে চায়। কিন্তু বিয়ে আমাদের মনের জগতে যা অবদান রেখেছে তা ভালোবাসা ছাড়া আর কিছু দিয়ে কি ব্যাখ্যা করা যাবে? স্বামী স্ত্রীর পারস্পরিক অনুভূতির মাত্রা কিংবা পিতা-মাতা-সন্তান এই বন্ধনের যে আবেগ, যে নাড়ির টান, তাকে একমাত্র ভালোবাসাই জুতসইভাবে address করতে পারে। অন্যান্য ব্যাপারগুলো গৌণ হয়ে ওঠে থখন। শুধুমাত্র প্রতিশোধের স্পৃহা নিয়ে বাংলার মানুষ মহান মুক্তিযুদ্ধে ঝাঁপিয়ে পড়েনি, স্বজাতির প্রতি ভালোবাসা না থাকলে এটা সম্ভব ছিল না। আজকে পৃথিবীতে এতো হানাহানি, রক্তারক্তি, বাদ বিবাদের মাঝেও আমরা হাসতে পারি, কবিতা লিখতে পারি, সর্বোপরি মানব বৈচিত্র্যের বিকাশ ঘটাতে পারি। অথচ এসব দুঃখ দুর্দশা দেখতে দেখতে আর সহ্য করতে করতে পাগল হয়ে যাওয়া ছাড়া কোনও উপায় ছিল না। তারপরেও মানুষ পারে কারণ যখন এসব সহ্য করার পর সে ঘরে যাবে, তখন তাকে ভালোবাসার জন্য মা আছে, স্ত্রী আছে, সন্তান আছে, বন্ধু আছে। ভালোবাসার জোরেই সে বিকশিত হচ্ছে।</p>
+        <p>The world works through human activity and human being flourishes through love.</p>
+        <p>***********</p>
+        <p>এই উদাহরণগুলোতে আমরা দেখতে পাই, প্রত্যেক শ্রেণীর চিন্তার নিজস্ব যৌক্তিক গতিবিধি আছে। Each one of them seems consistent. প্রশ্ন হচ্ছে সত্যটা (হাকিকাত অর্থে) কি এসব কিছুর সমষ্টি? আমি মনে করি তা না। কারণ উদাহরণগুলোর যেকোনো একটাকে সত্য ধরলে বাকিগুলা খারিজ হয়ে যায়। আবার একটার কিছু অংশ নিয়ে, আরেকটার কিছু নিয়ে একটা মিশেল বানালে consistency বা যুক্তির প্রবাহ ঠিক থাকে না। অনেকেই আছে যারা এমন একটা মিশেল উপস্থাপনের চেষ্টা করে, কিন্তু inconsistency এর কারণে সেসব কথা motivational speech এ জায়গা করে নিতে পারলেও আদতে গার্বেজ ছাড়া কিছুই না। তাই প্রথমে এটা অনুধাবন করা জরুরী যে যুক্তির সামঞ্জস্যতা সত্য নিরূপণের জন্য যথেষ্ট না। আমরা অনেকেই এই ফাঁদে পা দেই। কোনও একটা কথা, ধরি X, বলার আগে তাকে সরাসরি না বলে যদি কোনও উপায়ে দেখাতে পারি ‘V’ থেকে ‘W’ এসেছে আর ‘W’ থেকে ‘X’, তাহলেই বেশিরভাগ মানুষ তা মেনে নেয়। অর্থাৎ তিন চার ধাপে conclusion টানলেই যেন কথাটা সঠিক হয়ে যায়! ব্যাপারটা মোটেও তা না। (এই ধরণের ধাপ সর্বস্ব যুক্তি দেয়াকে আমি বলি "মাইটা যুক্তি"। )</p>
+        <p>তাহলে  প্রকৃত হাকিকাত কি? আমি একমাত্র যে সিদ্ধান্তে আসতে পারি তা হলো সত্য inorganic কিছু না, সত্য একটা Organic Entity. আমরা যেমন সত্যের সাথে interact করি সত্যও আমাদের সাথে interact করে। এটা অনেকটা খেলার মতো। "মায়ার খেলা" নাম দেয়া যেতে পারে। এই মায়ার খেলা এমন, যে আমি জগতকে যেভাবে দেখতে চাই জগত সেভাবেই আমার সামনে হাজির হয়। আমার ভূতভবিষ্যৎও তেমন হয়। মানুষের সামাজিক অবস্থান অনেকসময় নির্ধারণ করে দেয় কে কোন দৃষ্টিতে জগত দেখবে তা। একজন প্রান্তিক মানুষ খুব সম্ভবত জগতকে নিয়তির দৃষ্টিকোণ থেকে দেখবে, একজন ব্যবসায়ী খুব সম্ভবত দেখবে অর্থের দৃষ্টিকোণ থেকে, আর একজন রাজনীতিবিদ হয়তো দেখবে ক্ষমতার দৃষ্টিকোণ থেকে। আজিজ সুপার মার্কেট ভিত্তিক ধরি মাছ না ছুঁই পানি টাইপ বুদ্ধিজীবীরা হয়ত জগতকে দেখে Chaos হিসাবে। আর একজন নয়া পাতি-বিজ্ঞানবাদী হয়ত জগৎকে দেখবে শুধু বিজ্ঞান দিয়ে।</p>
+        <p>'মায়ার খেলা' সময়ের সাথে এসব দৃষ্টিকোণগুলোকে আরও পোক্ত করে। মানুষ তার জীবনের সমস্ত অর্জন/ বিফলতাকে একওই ভঙ্গিমায় ব্যাখ্যা করা শুরু করে। এভাবেই সে মায়ার দাস হয়ে যায়। এই অবস্থাকে naively আমরা বলি “dogma”. কিন্তু "মায়ার বাঁধন"- ধারণাটা তার থেকেও বড় কিছু। মানুষ যতদিন বেঁচে থাকে তার সামাজিক অবস্থানকে সে অনেক গুরুত্ব দেয়। তাই জীবদ্দশায় মায়ার বাঁধন থেকে মুক্তি পাওয়া সম্ভব না। হয়তো এইজন্যে লালন বলেছেন মরার আগেই মরতে হয়। শুধুমাত্র এই উপায়েই পৃথিবীতে থেকে মায়ার খেলে বোঝা সম্ভব।</p>
+        <p>জগত হচ্ছে মায়া। মায়া মিথ্যা না, মায়া জাগতিক সত্য।</p>
+        <p>-- জানুয়ারী ৩০, ২০২০ ইং</p>
+        </div>
+      </div>
+    </details>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <footer id="contact" class="foot">
+    <div class="foot__grid">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h2 style="margin-top:.7rem">Get in touch.</h2>
+        <p class="prose" style="color:var(--ink-soft); margin-top:1rem">
+          For collaborations, talks, or student projects in precision QFT and Feynman-integral
+          methods — or a good conversation about any of it.
+        </p>
+        <ul class="links">
+          <li><a href="mailto:Syed-Mehedi.Hasan@ur.de"><span class="lab">Email</span>Syed-Mehedi.Hasan@ur.de</a></li>
+          <li><a href="https://inspirehep.net/authors/1804730"><span class="lab">Inspire</span>inspirehep.net/authors/1804730</a></li>
+          <li><a href="https://orcid.org/0000-0003-3257-8176"><span class="lab">ORCID</span>0000-0003-3257-8176</a></li>
+          <li><a href="https://github.com/smhrobi"><span class="lab">GitHub</span>github.com/smhrobi</a></li>
+        </ul>
+        <div class="social" style="margin-top:1.4rem">
+          <a href="https://www.facebook.com/syedmehedi.hasan.14/" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
+          <a href="https://www.youtube.com/@syedmehedihasan2057" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 3.9 12 3.9 12 3.9s-7.5 0-9.4.5A3 3 0 0 0 .5 6.5C0 8.4 0 12 0 12s0 3.6.5 5.5a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.5.5-5.5s0-3.6-.5-5.5zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
+          <a href="https://www.linkedin.com/in/syed-mehedi-hasan-robi/" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">Colophon</span>
+        <p class="colophon" style="margin-top:1rem">
+          Set in a Palatino-class serif with a monospace for structure. Hand-built, no template.
+          Feynman diagrams and the Mellin–Barnes contour drawn in SVG. Regensburg, 2026.
+        </p>
+        <div class="note">
+          Structure ready. Awaiting your content: portrait, plots (physics/plots), compositions
+          (music/compositions), writings (philosophy/writings). Ships to <b>smhrobi.github.io</b>.
+        </div>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var KEY = "smh-theme";
+    try { var saved = localStorage.getItem(KEY); if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved); } catch (e) {}
+    function current() { var a = root.getAttribute("data-theme"); if (a) return a; return (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light"; }
+    var btn = document.getElementById("themeBtn");
+    function paint() { btn.textContent = current() === "dark" ? "○" : "●"; }
+    paint();
+    btn.addEventListener("click", function () { var n = current() === "dark" ? "light" : "dark"; root.setAttribute("data-theme", n); try { localStorage.setItem(KEY, n); } catch (e) {} paint(); });
+
+    requestAnimationFrame(function () { requestAnimationFrame(function () { document.body.classList.add("is-ready"); }); });
+
+    var links = Array.prototype.slice.call(document.querySelectorAll(".nav a[href^='#']"));
+    var map = {}; links.forEach(function (a) { var id = a.getAttribute("href").slice(1); var s = document.getElementById(id); if (s) map[id] = a; });
+    if ("IntersectionObserver" in window) {
+      var spy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { links.forEach(function (l) { l.classList.remove("active"); }); if (map[en.target.id]) map[en.target.id].classList.add("active"); } });
+      }, { rootMargin: "-45% 0px -50% 0px" });
+      Object.keys(map).forEach(function (id) { spy.observe(document.getElementById(id)); });
+    }
+  })();
+</script>
+<script>
+(function(){document.querySelectorAll(".writings .langbar").forEach(function(bar){bar.addEventListener("click",function(e){var b=e.target.closest(".lang-btn");if(!b)return;var body=bar.closest(".ebody"),l=b.getAttribute("data-l");bar.querySelectorAll(".lang-btn").forEach(function(x){x.classList.toggle("is-on",x===b);});body.querySelectorAll(".pane").forEach(function(p){p.hidden=!p.classList.contains("pane-"+l);});});});})();
+</script>
+</body>
+</html>

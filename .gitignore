@@ -1,0 +1,10 @@
+# large source media — not served on the site
+*.wav
+*.mp4
+# document sources (essays are embedded in index.html)
+*.docx
+Untitled Document*
+# dev scaffolding
+README.md
+physics/diagrams/
+assets/img/
