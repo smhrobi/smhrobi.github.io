@@ -275,13 +275,13 @@
   .pagehead .pintro { color:var(--ink); }
 
   /* ---- opening overture: bilingual prose-poem (Balm), a compact epigraph ---- */
-  .overture { padding: clamp(1.9rem,4.5vw,3rem) 0 clamp(1.6rem,4vw,2.6rem); }
-  .poem { display:grid; grid-template-columns:1fr; gap:0 2.8rem; max-width:53rem; margin:0 auto; }
+  .overture { padding: clamp(1.3rem,3vw,2.1rem) 0 clamp(1.1rem,2.6vw,1.7rem); }
+  .poem { display:grid; grid-template-columns:1fr; gap:0 2rem; max-width:52rem; margin:0 auto; }
   @media (min-width:820px){ .poem { grid-template-columns:1fr 1fr; align-items:start; } }
-  .poem .ptitle { margin:0 0 .55rem; font-weight:600; line-height:1.2; }
-  .poem .ptitle.bn { font-family:var(--bengali); font-size:1.3rem; color:var(--ink); }
-  .poem .ptitle.en { font-family:var(--serif); font-style:italic; font-size:1.1rem; color:var(--ink-soft); }
-  .poem p { max-width:none; margin:0; padding:.36rem 0; }
-  .poem .bn { font-family:var(--bengali); font-size:.92rem; line-height:1.85; color:var(--ink); }
-  .poem .en { font-family:var(--serif); font-style:italic; font-size:.88rem; line-height:1.6; color:var(--ink-soft); }
-  .poem .bn.refrain, .poem .en.refrain { color:var(--accent); padding-top:.6rem; }
+  .poem .ptitle { margin:0 0 .3rem; font-weight:600; line-height:1.15; }
+  .poem .ptitle.bn { font-family:var(--bengali); font-size:1.02rem; color:var(--ink); }
+  .poem .ptitle.en { font-family:var(--serif); font-style:italic; font-size:.92rem; color:var(--ink-soft); }
+  .poem p { max-width:none; margin:0; padding:.16rem 0; }
+  .poem .bn { font-family:var(--bengali); font-size:.8rem; line-height:1.6; color:var(--ink); }
+  .poem .en { font-family:var(--serif); font-style:italic; font-size:.78rem; line-height:1.48; color:var(--ink-soft); }
+  .poem .bn.refrain, .poem .en.refrain { color:var(--accent); padding-top:.3rem; }
