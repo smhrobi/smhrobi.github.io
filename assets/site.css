@@ -273,3 +273,16 @@
   .pagehead h1 { font-size:clamp(1.9rem,4.6vw,3rem); letter-spacing:-.012em; margin:.85rem 0 0; }
   .pagehead p { color:var(--ink-soft); max-width:62ch; margin-top:1.05rem; }
   .pagehead .pintro { color:var(--ink); }
+
+  /* ---- opening overture: bilingual prose-poem (Balm) ---- */
+  .overture { padding: clamp(2.75rem,7vw,5rem) 0 clamp(2.5rem,6vw,4.25rem); }
+  .overture__head { text-align:center; margin-bottom: clamp(2rem,5vw,3.25rem); }
+  .overture__orn { display:block; font-family:var(--mono); font-size:1rem; letter-spacing:.55em; color:var(--brass); opacity:.9; }
+  .overture .t-bn { font-family:var(--bengali); font-weight:600; font-size:clamp(2rem,6vw,3.2rem); line-height:1.2; color:var(--ink); margin:.5rem 0 0; }
+  .overture .t-en { display:block; font-family:var(--mono); font-size:.72rem; letter-spacing:.3em; text-transform:uppercase; color:var(--ink-faint); margin-top:.9rem; }
+  .poem { display:grid; grid-template-columns:1fr; gap:0 3.4rem; max-width:60rem; margin:0 auto; }
+  @media (min-width:840px){ .poem { grid-template-columns:1fr 1fr; align-items:start; } }
+  .poem p { max-width:none; margin:0; padding:.7rem 0; }
+  .poem .bn { font-family:var(--bengali); font-size:1.07rem; line-height:2; color:var(--ink); }
+  .poem .en { font-family:var(--serif); font-style:italic; font-size:1.02rem; line-height:1.72; color:var(--ink-soft); }
+  .poem .bn.refrain, .poem .en.refrain { color:var(--accent); padding-top:1.1rem; }
