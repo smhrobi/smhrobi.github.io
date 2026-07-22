@@ -230,6 +230,8 @@
   .wr[open] > summary::after { content:"\2013"; color:var(--accent); }
   .wr[open] > summary .s-en, .wr:hover > summary .s-en { color:var(--accent); }
   .ebody { padding:.1rem 0 2rem; }
+  .essay-fig { margin:.2rem 0 1.6rem; }
+  .essay-fig img { display:block; max-width:min(100%,var(--measure)); max-height:22rem; width:auto; height:auto; border:1px solid var(--rule); border-radius:2px; }
   .langbar { display:inline-flex; gap:2px; border:1px solid var(--rule); border-radius:999px; padding:2px; margin-bottom:1.4rem; background:var(--panel); }
   .lang-btn { font-family:var(--mono); font-size:.72rem; letter-spacing:.04em; padding:.34rem .95rem; border:0; background:transparent; color:var(--ink-soft); cursor:pointer; border-radius:999px; transition:background .15s,color .15s; }
   .lang-btn.is-on { background:var(--accent); color:var(--paper); }
