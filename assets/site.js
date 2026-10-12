@@ -22,107 +22,47 @@
 })();
 (function(){document.querySelectorAll(".writings .langbar").forEach(function(bar){bar.addEventListener("click",function(e){var b=e.target.closest(".lang-btn");if(!b)return;var body=bar.closest(".ebody"),l=b.getAttribute("data-l");bar.querySelectorAll(".lang-btn").forEach(function(x){x.classList.toggle("is-on",x===b);});body.querySelectorAll(".pane").forEach(function(p){p.hidden=!p.classList.contains("pane-"+l);});});});})();
 
-/* Dropdown navigation. The open state is a class set here rather than left to
-   :hover and :focus-within alone, so pointer, keyboard and touch all drive one
-   explicit state; the CSS keeps matching rules for both pseudo-classes, which
-   is what runs if this file never loads. */
+/* The phone menu: one button, one list of pages. Above 760px the CSS hides both
+   and the plain row of links in the topbar does the work. */
 (function () {
   "use strict";
 
-  var coarse = window.matchMedia && window.matchMedia("(hover: none)").matches;
-  var drops = Array.prototype.slice.call(document.querySelectorAll(".nd"));
-
-  function closeAll(except) {
-    drops.forEach(function (d) { if (d !== except) d.classList.remove("is-open"); });
-  }
-
-  /* Measured each time it opens, not once up front: the nav reflows after the
-     webfonts land, and a panel past the window edge would be unreachable. */
-  function place(d) {
-    var m = d.querySelector(".nd__m");
-    if (!m) return;
-    m.classList.remove("is-left", "is-right");
-    var b = m.getBoundingClientRect(), pad = 12;
-    if (b.left < pad) m.classList.add("is-left");
-    else if (b.right > window.innerWidth - pad) m.classList.add("is-right");
-  }
-
-  function open(d) { closeAll(d); d.classList.add("is-open"); place(d); }
-  function shut(d) { d.classList.remove("is-open"); }
-
-  drops.forEach(function (d) {
-    var top = d.querySelector(":scope > a");
-    if (!top) return;
-    if (!coarse) {
-      d.addEventListener("mouseenter", function () { open(d); });
-      d.addEventListener("mouseleave", function () { shut(d); });
-    }
-    d.addEventListener("focusin", function () { open(d); });
-    d.addEventListener("focusout", function (e) {
-      if (!d.contains(e.relatedTarget)) shut(d);
-    });
-    top.addEventListener("click", function (e) {
-      if (!coarse) return;
-      if (!d.classList.contains("is-open")) { e.preventDefault(); open(d); }
-    });
-  });
-
-  document.addEventListener("keydown", function (e) {
-    if (e.key !== "Escape" && e.keyCode !== 27) return;
-    var f = document.querySelector(".nd.is-open :focus");
-    closeAll(null);
-    if (f && f.blur) f.blur();
-  });
-
-  document.addEventListener("click", function (e) {
-    if (!e.target.closest || !e.target.closest(".nd")) closeAll(null);
-  });
-
-  /* Only a real width change closes them: a bare resize listener also fires
-     when a phone hides its address bar. */
-  var lastW = window.innerWidth;
-  window.addEventListener("resize", function () {
-    if (window.innerWidth === lastW) return;
-    lastW = window.innerWidth;
-    closeAll(null);
-  });
-
-  /* ---- the mobile panel ---- */
   var btn = document.getElementById("menuBtn");
   var panel = document.getElementById("mnav");
 
   if (btn && panel) {
+    var set = function (open) {
+      panel.classList.toggle("is-open", open);
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    };
+
     btn.addEventListener("click", function () {
-      var on = panel.classList.toggle("is-open");
-      btn.setAttribute("aria-expanded", on ? "true" : "false");
+      set(!panel.classList.contains("is-open"));
     });
-  }
-
-  Array.prototype.forEach.call(document.querySelectorAll(".mn__c"), function (c) {
-    c.addEventListener("click", function () {
-      var m = document.getElementById(c.getAttribute("aria-controls"));
-      if (!m) return;
-      var on = m.classList.toggle("is-open");
-      c.setAttribute("aria-expanded", on ? "true" : "false");
-    });
-  });
-
-  if (panel) {
     panel.addEventListener("click", function (e) {
-      var a = e.target.closest ? e.target.closest("a") : null;
-      if (!a) return;
-      var href = a.getAttribute("href") || "";
-      var here = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-      var file = href.split("#")[0].toLowerCase();
-      if (href.charAt(0) === "#" || file === "" || file === here) {
-        panel.classList.remove("is-open");
-        if (btn) btn.setAttribute("aria-expanded", "false");
-      }
+      if (e.target.closest && e.target.closest("a")) set(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" || e.keyCode === 27) set(false);
+    });
+    document.addEventListener("click", function (e) {
+      if (!panel.classList.contains("is-open")) return;
+      if (e.target.closest && !e.target.closest("#mnav, #menuBtn")) set(false);
+    });
+
+    /* Only a real width change closes it: a bare resize listener also fires
+       when a phone hides its address bar. */
+    var lastW = window.innerWidth;
+    window.addEventListener("resize", function () {
+      if (window.innerWidth === lastW) return;
+      lastW = window.innerWidth;
+      set(false);
     });
   }
 
-  /* The philosophy essays are <details>. A menu link to one has to open it,
-     or the jump lands on a collapsed summary and looks like it did nothing. */
+  /* The philosophy essays are <details>. A link that targets one has to open
+     it, or the jump lands on a collapsed summary and looks like it did
+     nothing. */
   function revealTarget() {
     var id = location.hash.slice(1);
     if (!id) return;
