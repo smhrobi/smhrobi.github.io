@@ -289,3 +289,23 @@
   .poem .bn { font-family:var(--bengali); font-size:.9rem; line-height:1.72; color:var(--ink); }
   .poem .en { font-family:var(--serif); font-style:italic; font-size:.86rem; line-height:1.55; color:var(--ink-soft); }
   .poem .bn.refrain, .poem .en.refrain { color:var(--accent); padding-top:.3rem; }
+
+  /* ---- ASHWIN releases (songs hosted on YouTube) ---- */
+  .releases { display:grid; gap:12px; margin-top:1.4rem; max-width:46rem; }
+  .rel { display:grid; grid-template-columns:1fr; background:var(--panel); border:1px solid var(--rule); border-radius:4px; box-shadow:var(--shadow); overflow:hidden; }
+  @media (min-width:620px){ .rel { grid-template-columns:clamp(150px,24vw,210px) 1fr; } }
+  .rel__art { position:relative; display:block; background:var(--rule-soft); }
+  .rel__art img { width:100%; height:100%; aspect-ratio:1/1; object-fit:cover; display:block; }
+  .rel__art::after { content:""; position:absolute; inset:0; background:color-mix(in srgb, var(--accent) 16%, transparent); opacity:0; transition:opacity .22s ease; }
+  .rel__art:hover::after { opacity:1; }
+  .rel__play { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) scale(.92); width:46px; height:46px; border-radius:999px; background:color-mix(in srgb, var(--paper) 90%, transparent); border:1px solid var(--rule); display:grid; place-items:center; opacity:0; transition:opacity .22s ease, transform .22s ease; z-index:1; }
+  .rel__art:hover .rel__play { opacity:1; transform:translate(-50%,-50%) scale(1); }
+  .rel__play svg { width:15px; height:15px; fill:var(--accent); margin-left:2px; display:block; }
+  .rel__body { padding:1.15rem 1.35rem 1.25rem; display:flex; flex-direction:column; justify-content:center; gap:.5rem; align-items:flex-start; min-width:0; }
+  .rel__body h3 { font-family:var(--bengali); font-size:var(--s2); line-height:1.45; }
+  .rel__rom { font-family:var(--mono); font-size:.73rem; letter-spacing:.11em; text-transform:uppercase; color:var(--ink-faint); margin-top:-.25rem; }
+  .rel__body p { font-size:.92rem; color:var(--ink-soft); margin:0; max-width:none; }
+  .rel__watch { font-family:var(--mono); font-size:.76rem; letter-spacing:.03em; color:var(--accent); border-bottom:1px solid color-mix(in srgb, var(--accent) 30%, transparent); margin-top:.15rem; transition:color .2s, border-color .2s; }
+  .rel__watch:hover { color:var(--brass); border-color:var(--brass); }
+  .relfoot { font-family:var(--mono); font-size:.78rem; color:var(--ink-soft); margin:1.3rem 0 0; }
+  @media (prefers-reduced-motion: reduce){ .rel__art::after, .rel__play { transition:none; } }
