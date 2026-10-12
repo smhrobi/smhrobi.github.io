@@ -14,16 +14,85 @@
     <a class="brandmark" href="index.html">Syed&nbsp;Mehedi&nbsp;<b>Hasan</b></a>
     <nav class="nav">
       <div class="nav nav-hide">
-        <a href="index.html#physics">Physics</a>
-        <a href="music.html">Music</a>
-        <a href="philosophy.html" class="active">Philosophy</a>
+        <div class="nd">
+          <a href="index.html#physics">Physics</a>
+          <div class="nd__m">
+            <a href="index.html#rad"><span class="k"></span>Phase-space integrals</a>
+            <a href="index.html#formfactors"><span class="k"></span>Two-loop vacuum polarization</a>
+            <a href="index.html#sidis"><span class="k"></span>SIDIS</a>
+            <a href="index.html#results"><span class="k"></span>Selected results</a>
+            <a href="index.html#papers"><span class="k"></span>Selected papers</a>
+          </div>
+        </div>
+        <div class="nd">
+          <a href="music.html">Music</a>
+          <div class="nd__m">
+            <a href="music.html#ashwin"><span class="k"></span>ASHWIN</a>
+            <a href="music.html#instrumentals"><span class="k"></span>Instrumentals</a>
+          </div>
+        </div>
+        <div class="nd">
+          <a href="philosophy.html" class="active">Philosophy</a>
+          <div class="nd__m">
+            <a href="#causation"><span class="k">2025</span>Causation or Correlation?</a>
+            <a href="#narrativism"><span class="k">2022</span>Narrativism</a>
+            <a href="#marginal"><span class="k">2022</span>The Story of the Marginal</a>
+            <a href="#canonical"><span class="k">2021</span>The Canonical Structure</a>
+            <a href="#unattainable"><span class="k">2020</span>The Unattainable</a>
+            <a href="#truth"><span class="k">2020</span>The Nature of Truth</a>
+          </div>
+        </div>
         <a href="index.html#cv">CV</a>
         <a href="index.html#contact">Contact</a>
       </div>
+      <button class="menubtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav">Menu <b aria-hidden="true">&#9662;</b></button>
+
       <button class="ttoggle" id="themeBtn" type="button" aria-label="Switch colour theme" title="Switch theme">◐</button>
     </nav>
   </div>
 </header>
+
+<nav class="mnav" id="mnav">
+  <div class="mn">
+    <div class="mn__row">
+      <a href="index.html#physics">Physics</a>
+      <button class="mn__c" type="button" aria-expanded="false" aria-controls="mm-physics" aria-label="Sections of Physics">&#9662;</button>
+    </div>
+    <div class="mn__m" id="mm-physics">
+      <a href="index.html#rad"><span class="k"></span>Phase-space integrals</a>
+      <a href="index.html#formfactors"><span class="k"></span>Two-loop vacuum polarization</a>
+      <a href="index.html#sidis"><span class="k"></span>SIDIS</a>
+      <a href="index.html#results"><span class="k"></span>Selected results</a>
+      <a href="index.html#papers"><span class="k"></span>Selected papers</a>
+    </div>
+  </div>
+  <div class="mn">
+    <div class="mn__row">
+      <a href="music.html">Music</a>
+      <button class="mn__c" type="button" aria-expanded="false" aria-controls="mm-music" aria-label="Sections of Music">&#9662;</button>
+    </div>
+    <div class="mn__m" id="mm-music">
+      <a href="music.html#ashwin"><span class="k"></span>ASHWIN</a>
+      <a href="music.html#instrumentals"><span class="k"></span>Instrumentals</a>
+    </div>
+  </div>
+  <div class="mn">
+    <div class="mn__row">
+      <a href="philosophy.html" class="active">Philosophy</a>
+      <button class="mn__c" type="button" aria-expanded="false" aria-controls="mm-philosophy" aria-label="Sections of Philosophy">&#9662;</button>
+    </div>
+    <div class="mn__m" id="mm-philosophy">
+      <a href="#causation"><span class="k">2025</span>Causation or Correlation?</a>
+      <a href="#narrativism"><span class="k">2022</span>Narrativism</a>
+      <a href="#marginal"><span class="k">2022</span>The Story of the Marginal</a>
+      <a href="#canonical"><span class="k">2021</span>The Canonical Structure</a>
+      <a href="#unattainable"><span class="k">2020</span>The Unattainable</a>
+      <a href="#truth"><span class="k">2020</span>The Nature of Truth</a>
+    </div>
+  </div>
+  <div class="mn"><div class="mn__row"><a href="index.html#cv">CV</a></div></div>
+  <div class="mn"><div class="mn__row"><a href="index.html#contact">Contact</a></div></div>
+</nav>
 
 <main id="top" class="wrap">
   <div class="pagehead">
@@ -36,7 +105,7 @@
     <div class="writings">
     
     
-    <details class="wr" open>
+    <details id="causation" class="wr" open>
       <summary><span class="s-en">Causation or Correlation?</span> <span class="s-bn" lang="bn">কজেশন নাকি কো-রিলেশন</span> <span class="s-date">Feb 2025</span></summary>
       <div class="ebody">
         <figure class="essay-fig"><img src="philosophy/writings/causation_naki_correlation/514746483_10033880769999712_3418717737374575665_n.jpg" alt="Illustration for “Causation or Correlation?”" loading="lazy"></figure>
@@ -57,7 +126,7 @@
         </div>
       </div>
     </details>
-    <details class="wr">
+    <details id="narrativism" class="wr">
       <summary><span class="s-en">Narrativism</span> <span class="s-bn" lang="bn">আখ্যানবাদ</span> <span class="s-date">Sep 2022</span></summary>
       <div class="ebody">
         <figure class="essay-fig"><img src="philosophy/writings/akhyanbad/486555193_9324728257581637_4691702604506975885_n.jpg" alt="Illustration for “Narrativism”" loading="lazy"></figure>
@@ -102,7 +171,7 @@
         </div>
       </div>
     </details>
-    <details class="wr">
+    <details id="marginal" class="wr">
       <summary><span class="s-en">The Story of the Marginal</span> <span class="s-bn" lang="bn">প্রান্তিকের গল্প আবার কি</span> <span class="s-date">Aug 2022</span></summary>
       <div class="ebody">
         <figure class="essay-fig"><img src="philosophy/writings/prantiker_golpo_abar_ki/486576461_9324728637581599_7326826636515221571_n.jpg" alt="Illustration for “The Story of the Marginal”" loading="lazy"></figure>
@@ -138,7 +207,7 @@
         </div>
       </div>
     </details>
-    <details class="wr">
+    <details id="canonical" class="wr">
       <summary><span class="s-en">The Canonical Structure</span> <span class="s-bn" lang="bn">প্রামাণিক কাঠামো</span> <span class="s-date">Feb 2021</span></summary>
       <div class="ebody">
         <figure class="essay-fig"><img src="philosophy/writings/pramanik_kathamo/487983318_9352350448152751_1712142529864995266_n.jpg" alt="Illustration for “The Canonical Structure”" loading="lazy"></figure>
@@ -207,7 +276,7 @@
         </div>
       </div>
     </details>
-    <details class="wr">
+    <details id="unattainable" class="wr">
       <summary><span class="s-en">The Unattainable</span> <span class="s-bn" lang="bn">অধরা</span> <span class="s-date">Feb 2020</span></summary>
       <div class="ebody">
         <figure class="essay-fig"><img src="philosophy/writings/adhora/486370742_9325831050804691_1007044927801009720_n.jpg" alt="Illustration for “The Unattainable”" loading="lazy"></figure>
@@ -249,7 +318,7 @@
         </div>
       </div>
     </details>
-    <details class="wr">
+    <details id="truth" class="wr">
       <summary><span class="s-en">The Nature of Truth</span> <span class="s-bn" lang="bn">সত্যের স্বরূপ</span> <span class="s-date">Jan 2020</span></summary>
       <div class="ebody">
         <figure class="essay-fig"><img src="philosophy/writings/shotter_sworup/488212437_9360859177301878_2532164119421365733_n.jpg" alt="Illustration for “The Nature of Truth”" loading="lazy"></figure>

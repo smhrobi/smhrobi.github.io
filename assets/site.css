@@ -329,3 +329,100 @@
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ashwin-card img { filter:invert(1); opacity:.82; } }
   :root[data-theme="dark"] .ashwin-card img { filter:invert(1); opacity:.82; }
   :root[data-theme="light"] .ashwin-card img { filter:none; opacity:.9; }
+
+  /* ============================================================
+     dropdown navigation
+     Desktop: each nav item opens a panel of that page's sections.
+     Under 760px the links used to vanish entirely, leaving a phone with
+     no navigation at all; now they live behind a Menu button.
+     ============================================================ */
+
+  /* jump targets have to clear the 54px sticky bar */
+  section[id], footer[id], h3[id], details[id], .subhead[id] { scroll-margin-top:4.6rem; }
+
+  .nd { position:relative; }
+  .nd > a::after { content:"\2009\25BE"; font-size:.8em; opacity:.6; }
+  /* bridges the gap so the pointer can reach the panel without it shutting */
+  .nd::after { content:""; position:absolute; left:-.6rem; right:-.6rem; top:100%; height:.9rem; }
+  .nd__m {
+    position:absolute; z-index:40; top:calc(100% + .75rem); left:50%;
+    transform:translateX(-50%) translateY(-.3rem);
+    min-width:14rem; max-width:min(22rem,84vw); padding:.4rem 0; text-align:left;
+    background:var(--panel); border:1px solid var(--rule); border-radius:3px;
+    box-shadow:var(--shadow);
+    opacity:0; visibility:hidden; pointer-events:none;
+    transition:opacity .18s ease, transform .18s ease, visibility .18s;
+  }
+  .nd__m a {
+    display:flex; gap:.5rem; align-items:baseline; padding:.42rem .95rem;
+    font-family:var(--serif); font-size:.98rem; line-height:1.4;
+    letter-spacing:0; text-transform:none; color:var(--ink-soft);
+    border:0; border-left:2px solid transparent;
+    transition:color .16s, background .16s, border-color .16s;
+  }
+  .nd__m a::after { content:none; }
+  .nd__m a:hover, .nd__m a:focus-visible {
+    color:var(--ink); background:var(--rule-soft); border-left-color:var(--brass);
+  }
+  .nd__m .k { flex:0 0 1.5rem; font-family:var(--mono); font-size:.68rem; color:var(--ink-faint); }
+  .nd__m .k:empty, .mn__m .k:empty { flex-basis:0; }
+  .nd.is-open > .nd__m, .nd:focus-within > .nd__m {
+    opacity:1; visibility:visible; pointer-events:auto;
+    transform:translateX(-50%) translateY(0);
+  }
+  @media (hover:hover) and (min-width:760px) {
+    .nd:hover > .nd__m { opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0); }
+  }
+  .nd__m.is-left  { left:0; right:auto; transform:translateX(0) translateY(-.3rem); }
+  .nd__m.is-right { left:auto; right:0; transform:translateX(0) translateY(-.3rem); }
+  .nd.is-open > .nd__m.is-left,  .nd:focus-within > .nd__m.is-left,
+  .nd.is-open > .nd__m.is-right, .nd:focus-within > .nd__m.is-right { transform:translateX(0) translateY(0); }
+  @media (hover:hover) and (min-width:760px) {
+    .nd:hover > .nd__m.is-left, .nd:hover > .nd__m.is-right { transform:translateX(0) translateY(0); }
+  }
+
+  /* ---------- the mobile panel ---------- */
+  .menubtn {
+    display:inline-flex; align-items:center; gap:.45rem; padding:.34rem .6rem; cursor:pointer;
+    background:transparent; border:1px solid var(--rule); border-radius:999px; color:var(--ink-soft);
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase;
+    transition:color .2s, border-color .2s;
+  }
+  .menubtn:hover { color:var(--ink); border-color:var(--accent); }
+  .menubtn b { font-weight:400; display:inline-block; transition:transform .22s; }
+  .menubtn[aria-expanded="true"] { color:var(--ink); border-color:var(--accent); }
+  .menubtn[aria-expanded="true"] b { transform:rotate(180deg); }
+  @media (min-width:760px) { .menubtn { display:none; } }
+
+  .mnav {
+    display:none; flex-direction:column; padding:.1rem var(--edge) .8rem;
+    background:var(--panel); border-bottom:1px solid var(--rule);
+    /* body::before paints the graph paper at z-index 0, so an in-flow panel
+       would have the grid lying over its text */
+    position:relative; z-index:19;
+  }
+  .mnav.is-open { display:flex; }
+  @media (min-width:760px) { .mnav, .mnav.is-open { display:none; } }
+  .mn { border-bottom:1px solid var(--rule-soft); }
+  .mn:last-child { border-bottom:0; }
+  .mn__row { display:flex; align-items:center; gap:.3rem; }
+  .mn__row > a {
+    flex:1 1 auto; padding:.72rem 0; font-family:var(--mono); font-size:.76rem;
+    letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft);
+  }
+  .mn__row > a.active { color:var(--ink); }
+  .mn__c {
+    flex:0 0 auto; width:2.6rem; height:2.6rem; background:transparent; border:0; cursor:pointer;
+    color:var(--ink-faint); font-size:.9rem; line-height:1; transition:transform .22s, color .22s;
+  }
+  .mn__c[aria-expanded="true"] { color:var(--accent); transform:rotate(180deg); }
+  .mn__m { display:none; padding:0 0 .6rem; }
+  .mn__m.is-open { display:block; }
+  .mn__m a {
+    display:flex; gap:.45rem; align-items:baseline; padding:.4rem 0 .4rem .8rem;
+    font-family:var(--serif); font-size:1rem; line-height:1.45;
+    letter-spacing:0; text-transform:none;
+    color:var(--ink-soft); border-left:2px solid var(--rule);
+  }
+  .mn__m a:hover { color:var(--ink); border-left-color:var(--brass); }
+  .mn__m .k { flex:0 0 1.5rem; font-family:var(--mono); font-size:.68rem; color:var(--ink-faint); }

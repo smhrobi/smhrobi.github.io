@@ -23,16 +23,85 @@
     <a class="brandmark" href="#top">Syed&nbsp;Mehedi&nbsp;<b>Hasan</b></a>
     <nav class="nav">
       <div class="nav nav-hide">
-        <a href="#physics" class="active">Physics</a>
-        <a href="music.html">Music</a>
-        <a href="philosophy.html">Philosophy</a>
+        <div class="nd">
+          <a href="#physics" class="active">Physics</a>
+          <div class="nd__m">
+            <a href="#rad"><span class="k"></span>Phase-space integrals</a>
+            <a href="#formfactors"><span class="k"></span>Two-loop vacuum polarization</a>
+            <a href="#sidis"><span class="k"></span>SIDIS</a>
+            <a href="#results"><span class="k"></span>Selected results</a>
+            <a href="#papers"><span class="k"></span>Selected papers</a>
+          </div>
+        </div>
+        <div class="nd">
+          <a href="music.html">Music</a>
+          <div class="nd__m">
+            <a href="music.html#ashwin"><span class="k"></span>ASHWIN</a>
+            <a href="music.html#instrumentals"><span class="k"></span>Instrumentals</a>
+          </div>
+        </div>
+        <div class="nd">
+          <a href="philosophy.html">Philosophy</a>
+          <div class="nd__m">
+            <a href="philosophy.html#causation"><span class="k">2025</span>Causation or Correlation?</a>
+            <a href="philosophy.html#narrativism"><span class="k">2022</span>Narrativism</a>
+            <a href="philosophy.html#marginal"><span class="k">2022</span>The Story of the Marginal</a>
+            <a href="philosophy.html#canonical"><span class="k">2021</span>The Canonical Structure</a>
+            <a href="philosophy.html#unattainable"><span class="k">2020</span>The Unattainable</a>
+            <a href="philosophy.html#truth"><span class="k">2020</span>The Nature of Truth</a>
+          </div>
+        </div>
         <a href="#cv">CV</a>
         <a href="#contact">Contact</a>
       </div>
+      <button class="menubtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav">Menu <b aria-hidden="true">&#9662;</b></button>
+
       <button class="ttoggle" id="themeBtn" type="button" aria-label="Switch colour theme" title="Switch theme">◐</button>
     </nav>
   </div>
 </header>
+
+<nav class="mnav" id="mnav">
+  <div class="mn">
+    <div class="mn__row">
+      <a href="#physics" class="active">Physics</a>
+      <button class="mn__c" type="button" aria-expanded="false" aria-controls="mm-physics" aria-label="Sections of Physics">&#9662;</button>
+    </div>
+    <div class="mn__m" id="mm-physics">
+      <a href="#rad"><span class="k"></span>Phase-space integrals</a>
+      <a href="#formfactors"><span class="k"></span>Two-loop vacuum polarization</a>
+      <a href="#sidis"><span class="k"></span>SIDIS</a>
+      <a href="#results"><span class="k"></span>Selected results</a>
+      <a href="#papers"><span class="k"></span>Selected papers</a>
+    </div>
+  </div>
+  <div class="mn">
+    <div class="mn__row">
+      <a href="music.html">Music</a>
+      <button class="mn__c" type="button" aria-expanded="false" aria-controls="mm-music" aria-label="Sections of Music">&#9662;</button>
+    </div>
+    <div class="mn__m" id="mm-music">
+      <a href="music.html#ashwin"><span class="k"></span>ASHWIN</a>
+      <a href="music.html#instrumentals"><span class="k"></span>Instrumentals</a>
+    </div>
+  </div>
+  <div class="mn">
+    <div class="mn__row">
+      <a href="philosophy.html">Philosophy</a>
+      <button class="mn__c" type="button" aria-expanded="false" aria-controls="mm-philosophy" aria-label="Sections of Philosophy">&#9662;</button>
+    </div>
+    <div class="mn__m" id="mm-philosophy">
+      <a href="philosophy.html#causation"><span class="k">2025</span>Causation or Correlation?</a>
+      <a href="philosophy.html#narrativism"><span class="k">2022</span>Narrativism</a>
+      <a href="philosophy.html#marginal"><span class="k">2022</span>The Story of the Marginal</a>
+      <a href="philosophy.html#canonical"><span class="k">2021</span>The Canonical Structure</a>
+      <a href="philosophy.html#unattainable"><span class="k">2020</span>The Unattainable</a>
+      <a href="philosophy.html#truth"><span class="k">2020</span>The Nature of Truth</a>
+    </div>
+  </div>
+  <div class="mn"><div class="mn__row"><a href="#cv">CV</a></div></div>
+  <div class="mn"><div class="mn__row"><a href="#contact">Contact</a></div></div>
+</nav>
 
 <main id="top" class="wrap">
 
@@ -135,7 +204,7 @@
           <text class="dl" x="110" y="20">cut</text>
         </svg>
         <div class="k">RAD · Mellin–Barnes</div>
-        <h3>Phase-space integrals</h3>
+        <h3 id="rad">Phase-space integrals</h3>
         <p>The Radial Angular Decomposition — real-emission phase-space integrals evaluated through multifold Mellin–Barnes representations and expressed in Goncharov polylogarithms.</p>
         <div class="refs"><a class="reflink" href="https://arxiv.org/abs/2410.18886">arXiv:2410.18886 ↗</a></div>
       </div>
@@ -153,7 +222,7 @@
           <text class="dl" x="6" y="132">f</text><text class="dl" x="236" y="132">f</text>
         </svg>
         <div class="k">Massive form factors</div>
-        <h3>Two-loop vacuum polarization</h3>
+        <h3 id="formfactors">Two-loop vacuum polarization</h3>
         <p>Second-order corrections to the massive form factors from two-loop vertex diagrams with a vacuum-polarization insertion — closing a problem open for about two decades.</p>
         <div class="refs"><a class="reflink" href="https://arxiv.org/abs/2308.05028">arXiv:2308.05028 ↗</a></div>
       </div>
@@ -173,7 +242,7 @@
           <text class="dl" x="216" y="140">h</text>
         </svg>
         <div class="k">EIC</div>
-        <h3>SIDIS</h3>
+        <h3 id="sidis">SIDIS</h3>
         <p>NNLO phase-space integrals for semi-inclusive deep-inelastic scattering — precision theory for the coming Electron–Ion Collider.</p>
         <div class="refs"><a class="reflink" href="https://arxiv.org/abs/2412.16509">arXiv:2412.16509 ↗</a></div>
       </div>
@@ -264,7 +333,7 @@
       </div>
     </div>
 
-    <div class="subhead">Selected results</div>
+    <div class="subhead" id="results">Selected results</div>
     <div class="results">
       <figure class="figure">
         <img src="physics/plots/muone.png" alt="MUonE pair-production acceptance study, theta_mu vs theta_e">
@@ -276,7 +345,7 @@
       </figure>
     </div>
 
-    <div class="subhead">Selected papers</div>
+    <div class="subhead" id="papers">Selected papers</div>
     <div class="pubs">
       <article class="pub"><div class="yr">2026</div><div>
         <h3>Radiative corrections to elastic lepton–proton scattering, with focus on two-photon-exchange diagrams</h3>
