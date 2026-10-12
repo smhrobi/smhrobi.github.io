@@ -309,3 +309,23 @@
   .rel__watch:hover { color:var(--brass); border-color:var(--brass); }
   .relfoot { font-family:var(--mono); font-size:.78rem; color:var(--ink-soft); margin:1.3rem 0 0; }
   @media (prefers-reduced-motion: reduce){ .rel__art::after, .rel__play { transition:none; } }
+
+  /* ---- link out to the ASHWIN project site ---- */
+  .ashwin-card {
+    display:flex; align-items:center; gap:clamp(.9rem,2.4vw,1.5rem);
+    margin-top:1.6rem; padding:1rem clamp(1rem,2.5vw,1.4rem);
+    border:1px solid var(--rule); border-radius:4px;
+    background:var(--panel); box-shadow:var(--shadow);
+    max-width:44rem; transition:border-color .22s, transform .22s;
+  }
+  .ashwin-card:hover { border-color:var(--accent); transform:translateY(-1px); }
+  .ashwin-card img { width:clamp(86px,16vw,124px); height:auto; flex:none; opacity:.9; }
+  .ashwin-card .t { min-width:0; }
+  .ashwin-card b { display:block; font-family:var(--serif); font-size:1.04rem; font-weight:600; color:var(--ink); line-height:1.3; }
+  .ashwin-card span.d { display:block; font-family:var(--mono); font-size:.74rem; line-height:1.5; color:var(--ink-soft); margin-top:.3rem; }
+  .ashwin-card .go { margin-left:auto; font-family:var(--mono); font-size:1rem; color:var(--accent); flex:none; transition:color .22s, transform .22s; }
+  .ashwin-card:hover .go { color:var(--brass); transform:translate(2px,-2px); }
+  /* the logotype is black ink; flip it for the dark theme */
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ashwin-card img { filter:invert(1); opacity:.82; } }
+  :root[data-theme="dark"] .ashwin-card img { filter:invert(1); opacity:.82; }
+  :root[data-theme="light"] .ashwin-card img { filter:none; opacity:.9; }
